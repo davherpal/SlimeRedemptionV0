@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SlimeController : MonoBehaviour
 {
+    public float speed;
     public float jumpPower;
     private bool isGround;
     private bool isRight;
     private bool isLeft;
+    public bool stop;
 
     private Rigidbody2D rb;
     public Transform checkGround;
@@ -40,6 +42,10 @@ public class SlimeController : MonoBehaviour
     void Update()
     {
 
+        if (!isRight && !isLeft)
+        {
+            stop = true;
+        }
 
         if (isGround == true)
         {
@@ -52,6 +58,11 @@ public class SlimeController : MonoBehaviour
             jumpVector[0] = -2;
             moreJumps = moreJumpsValue;
             Debug.Log("contacto derecha");
+            if (stop)
+            {
+                StartCoroutine(stickToWalls());
+                transform.Translate(Vector3.up * Time.deltaTime * -speed);
+            }
         }
 
         if (isLeft == true)
@@ -59,12 +70,23 @@ public class SlimeController : MonoBehaviour
             jumpVector[0] = 2;
             moreJumps = moreJumpsValue;
             Debug.Log("contacto izquierda");
+            if (stop)
+            {
+                StartCoroutine(stickToWalls());
+                transform.Translate(Vector3.up * Time.deltaTime * -speed);
+            }
+        }
+
+        if (!isRight && !isLeft)
+        {
+            stop = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0)
         {
             rb.AddForce(jumpVector * jumpPower, ForceMode2D.Impulse);
             moreJumps--;
+            stop = false; ;
         }
 
         else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isGround == true)
@@ -81,5 +103,11 @@ public class SlimeController : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpPower;
         }
+    }
+
+    IEnumerator stickToWalls()
+    {
+        rb.velocity = Vector3.zero;
+        yield return new WaitForSeconds(2);
     }
 }
