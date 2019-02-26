@@ -132,7 +132,7 @@ PrefabInstance:
     - target: {fileID: 2347583829910783104, guid: fe93e6b60c469534e9e647680a64198d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.01
+      value: -10.61
       objectReference: {fileID: 0}
     - target: {fileID: 2347583829910783104, guid: fe93e6b60c469534e9e647680a64198d,
         type: 3}
@@ -192,7 +192,7 @@ PrefabInstance:
     - target: {fileID: 2347583829910783104, guid: fe93e6b60c469534e9e647680a64198d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 19.391104
+      value: 79.988304
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8225373251761835391, guid: fe93e6b60c469534e9e647680a64198d, type: 3}
@@ -449,7 +449,7 @@ PrefabInstance:
     - target: {fileID: 2347583829910783104, guid: fe93e6b60c469534e9e647680a64198d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 18.058233
+      value: 65.009636
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8225373251761835391, guid: fe93e6b60c469534e9e647680a64198d, type: 3}
@@ -542,13 +542,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a32970854d25b4b9aab0ae63830ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  jumpPower: 2
-  stop: 1
+  speed: 1.5
+  jumpPower: 4.3
   checkGround: {fileID: 202625006}
   checkRight: {fileID: 281434461}
   checkLeft: {fileID: 163283666}
   checkRadius: 0.75
+  checkRadiusGround: 0.25
   jumpVector: {x: -2, y: 2.5, z: 0}
   whatIsGround:
     serializedVersion: 2
@@ -560,6 +560,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   moreJumpsValue: 1
+  aceleracion: 4
 --- !u!50 &4076478556708154135
 Rigidbody2D:
   serializedVersion: 4
@@ -575,7 +576,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -678,6 +679,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2347583829910783104, guid: fe93e6b60c469534e9e647680a64198d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 23.923014
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8225373251761835391, guid: fe93e6b60c469534e9e647680a64198d, type: 3}

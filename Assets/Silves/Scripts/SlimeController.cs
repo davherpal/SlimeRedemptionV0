@@ -9,13 +9,14 @@ public class SlimeController : MonoBehaviour
     private bool isGround;
     private bool isRight;
     private bool isLeft;
-    public bool stop;
+    private bool stop;
 
     private Rigidbody2D rb;
     public Transform checkGround;
     public Transform checkRight;
     public Transform checkLeft;
     public float checkRadius;
+    public float checkRadiusGround;
     public Vector3 jumpVector;
     public LayerMask whatIsGround;
     public LayerMask whatIsRight;
@@ -23,17 +24,23 @@ public class SlimeController : MonoBehaviour
     private int moreJumps;
     public int moreJumpsValue;
 
+    
+    private float speed2;
+    public float aceleracion = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
         moreJumps = moreJumpsValue;
         rb = GetComponent<Rigidbody2D>();
 
+        //speed2 = speed;
+
     }
 
     void FixedUpdate()
     {
-        isGround = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsGround);
+        isGround = Physics2D.OverlapCircle(checkGround.position, checkRadiusGround, whatIsGround);
         isRight = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsRight);
         isLeft = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsLeft);
     }
@@ -51,6 +58,7 @@ public class SlimeController : MonoBehaviour
         {
             moreJumps = moreJumpsValue;
             Debug.Log("contacto suelo");
+            //speed = speed2;
         }
 
         if (isRight == true)
@@ -62,6 +70,14 @@ public class SlimeController : MonoBehaviour
             {
                 StartCoroutine(stickToWalls());
                 transform.Translate(Vector3.up * Time.deltaTime * -speed);
+                /*
+                if (!isGround)
+                {
+                    transform.Translate(Vector3.up * Time.deltaTime * -speed);
+                    speed += aceleracion * Time.deltaTime;
+                }
+                */
+
             }
         }
 
@@ -74,6 +90,13 @@ public class SlimeController : MonoBehaviour
             {
                 StartCoroutine(stickToWalls());
                 transform.Translate(Vector3.up * Time.deltaTime * -speed);
+                /*
+                if (!isGround)
+                {
+                    transform.Translate(Vector3.up * Time.deltaTime * -speed);
+                    speed += aceleracion * Time.deltaTime;
+                }
+                */
             }
         }
 
@@ -86,7 +109,8 @@ public class SlimeController : MonoBehaviour
         {
             rb.AddForce(jumpVector * jumpPower, ForceMode2D.Impulse);
             moreJumps--;
-            stop = false; ;
+            stop = false;
+            //speed = speed2;
         }
 
         else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isGround == true)
