@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Silves/Scenes/SampleScene.unity
+- path: Assets/Silves/Scenes/EnemigosScene.unity
   isLoaded: 1
   isActive: 1
