@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeController : MonoBehaviour
+public class SlimePrueba : MonoBehaviour
 {
     public float speed;
     public float jumpPower;
