@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class SlimeController : MonoBehaviour
+public class Prueba : MonoBehaviour
 {
     public Rigidbody2D player;
     public float moveSpeed = 0f;
