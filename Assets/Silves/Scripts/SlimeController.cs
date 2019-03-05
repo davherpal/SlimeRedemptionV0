@@ -18,6 +18,7 @@ public class SlimeController : MonoBehaviour
     public float checkRadius;
     public float checkRadiusGround;
     public Vector3 jumpVector;
+    public Vector3 doubleJumpVector;
     public LayerMask whatIsGround;
     public LayerMask whatIsRight;
     public LayerMask whatIsLeft;
@@ -31,6 +32,7 @@ public class SlimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stop = true;
         moreJumps = moreJumpsValue;
         rb = GetComponent<Rigidbody2D>();
 
@@ -89,7 +91,6 @@ public class SlimeController : MonoBehaviour
             if (stop)
             {
                 StartCoroutine(stickToWalls());
-                transform.Translate(Vector3.up * Time.deltaTime * -speed);
                 /*
                 if (!isGround)
                 {
@@ -115,17 +116,20 @@ public class SlimeController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isGround == true)
         {
-            rb.velocity = Vector2.up * jumpPower;
+            StopCoroutine(stickToWalls());
+            rb.velocity = Vector2.up * jumpPower * 2;
         }
 
         else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isRight == true)
         {
-            rb.velocity = Vector2.up * jumpPower;
+            StopCoroutine(stickToWalls());
+            rb.velocity = Vector2.up * jumpPower * 2;
         }
 
         else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isLeft == true)
         {
-            rb.velocity = Vector2.up * jumpPower;
+            StopCoroutine(stickToWalls());
+            rb.velocity = Vector2.up * jumpPower * 2;
         }
     }
 
@@ -133,5 +137,7 @@ public class SlimeController : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         yield return new WaitForSeconds(2);
+        //transform.Translate(Vector3.up * Time.deltaTime * -speed);
+        //Debug.Log("fuckoff");
     }
 }
