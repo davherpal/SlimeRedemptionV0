@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a32970854d25b4b9aab0ae63830ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
+  speed: 4
   jumpPower: 4.3
   checkGround: {fileID: 202625006}
   checkRight: {fileID: 281434461}
@@ -550,6 +550,7 @@ MonoBehaviour:
   checkRadius: 0.75
   checkRadiusGround: 0.25
   jumpVector: {x: -2, y: 2.5, z: 0}
+  doubleJumpVector: {x: -2, y: 5, z: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
