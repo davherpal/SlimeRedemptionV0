@@ -56,10 +56,10 @@ public class ShootController : MonoBehaviour
                 shootDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 vecDir = (shootDirection - startPosition).normalized;
 
-                bulletInstance = Instantiate(prefBullet, transform.position + (vecDir * distanceSpawn), Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                bulletInstance = Instantiate(prefBullet, transform.position + (vecDir * distanceSpawn), Quaternion.identity) as Rigidbody2D;
 
-                instanced = true;
-                insideArea = false;
+                 instanced = true;
+                 insideArea = false;
             }
         }
 
@@ -74,7 +74,7 @@ public class ShootController : MonoBehaviour
     {
         if (instanced)                                                                       //LE DAMOS VELOCIDAD A LA BALA HACIA EL PUNTO ELEGIDO
         {
-            bulletInstance.velocity = new Vector2(shootDirection.x * bulletSpeed, shootDirection.y * bulletSpeed);
+            bulletInstance.velocity = new Vector2(vecDir.x * bulletSpeed, vecDir.y * bulletSpeed);
             instanced = false;
         }
     }
