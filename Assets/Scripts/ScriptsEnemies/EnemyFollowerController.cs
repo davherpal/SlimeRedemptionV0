@@ -38,6 +38,6 @@ public class EnemyFollowerController : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         //size = new Vector3(10f, 1f, 0.0f);
-        Gizmos.DrawCube(transform.position,new Vector3(10f,-1.3f,0f));
+        Gizmos.DrawWireSphere(initialPosition,visionRadius);
     }
 }
