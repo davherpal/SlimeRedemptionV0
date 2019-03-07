@@ -6,6 +6,8 @@ public class SlimeController : MonoBehaviour
 {
     public float speed;
     public float jumpPower;
+    public float counter;
+    public float timeToSlip;
     private bool isGround;
     private bool isRight;
     private bool isLeft;
@@ -22,7 +24,7 @@ public class SlimeController : MonoBehaviour
     public LayerMask whatIsGround;
     public LayerMask whatIsRight;
     public LayerMask whatIsLeft;
-    private int moreJumps;
+    public int moreJumps;
     public int moreJumpsValue;
 
     
@@ -51,93 +53,83 @@ public class SlimeController : MonoBehaviour
     void Update()
     {
 
-        if (!isRight && !isLeft)
+        if (!isRight && !isLeft)                        // si estas en el aire
         {
             stop = true;
+            speed = 0;
+            counter = 0;
         }
 
-        if (isGround == true)
+        if (isGround == true)                           // si estas en el suelo
         {
             moreJumps = moreJumpsValue;
             Debug.Log("contacto suelo");
-            //speed = speed2;
         }
 
-        if (isRight == true)
+        if (isRight == true)                            // si estas en la pared derecha
         {
-            jumpVector[0] = -2;
+            jumpVector[0] = -2.3f;
             moreJumps = moreJumpsValue;
             Debug.Log("contacto derecha");
             if (stop)
             {
-                StartCoroutine(stickToWalls());
-                transform.Translate(Vector3.up * Time.deltaTime * -speed);
-                /*
-                if (!isGround)
-                {
-                    transform.Translate(Vector3.up * Time.deltaTime * -speed);
-                    speed += aceleracion * Time.deltaTime;
-                }
-                */
+                counter += Time.deltaTime;
+                rb.velocity = Vector3.zero;
+                if (counter > timeToSlip) {
 
+                    if (!isGround)
+                    {
+                        transform.Translate(Vector3.up * Time.deltaTime * -speed * 2);
+                        speed += aceleracion * Time.deltaTime;
+                    }
+                }
             }
         }
 
-        if (isLeft == true)
+        if (isLeft == true)                         // si estas en la pared izquierda
         {
-            jumpVector[0] = 2;
+            jumpVector[0] = 2.3f;
             moreJumps = moreJumpsValue;
             Debug.Log("contacto izquierda");
             if (stop)
             {
-                StartCoroutine(stickToWalls());
-                /*
-                if (!isGround)
+                counter += Time.deltaTime;
+                rb.velocity = Vector3.zero;
+                if (counter > timeToSlip)
                 {
-                    transform.Translate(Vector3.up * Time.deltaTime * -speed);
-                    speed += aceleracion * Time.deltaTime;
+                    if (!isGround)
+                    {
+                        transform.Translate(Vector3.up * Time.deltaTime * -speed * 2);
+                        speed += aceleracion * Time.deltaTime;
+                    }
                 }
-                */
             }
         }
 
-        if (!isRight && !isLeft)
+        if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0)       // segundo salto
         {
-            stop = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0)
-        {
-            rb.AddForce(jumpVector * jumpPower, ForceMode2D.Impulse);
+            rb.velocity = Vector2.up * jumpPower;
             moreJumps--;
             stop = false;
-            //speed = speed2;
+            if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0) {
+                rb.AddForce(jumpVector * jumpPower, ForceMode2D.Impulse);
+
+            }
         }
 
-        else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isGround == true)
+        else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isGround == true)     // saltar en el suelo
         {
-            StopCoroutine(stickToWalls());
-            rb.velocity = Vector2.up * jumpPower * 2;
+            rb.velocity = Vector2.up * jumpPower;
         }
 
-        else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isRight == true)
+        else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isRight == true)      // saltar desde la derecha
         {
-            StopCoroutine(stickToWalls());
-            rb.velocity = Vector2.up * jumpPower * 2;
+            rb.velocity = Vector2.up * jumpPower * 2.5f;
         }
 
-        else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isLeft == true)
+        else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isLeft == true)       // saltar desde la izquierda
         {
-            StopCoroutine(stickToWalls());
-            rb.velocity = Vector2.up * jumpPower * 2;
+            rb.velocity = Vector2.up * jumpPower * 2.5f;
         }
-    }
-
-    IEnumerator stickToWalls()
-    {
-        rb.velocity = Vector3.zero;
-        yield return new WaitForSeconds(2);
-        //transform.Translate(Vector3.up * Time.deltaTime * -speed);
-        //Debug.Log("fuckoff");
     }
 }
