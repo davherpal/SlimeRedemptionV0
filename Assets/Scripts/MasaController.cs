@@ -5,39 +5,40 @@ using UnityEngine.UI;
 
 public class MasaController : MonoBehaviour
 {
-    public float InMass = 100;
+    public float maxMass = 100;
+    [Tooltip("Tiempo para perder toda la masa en segundos")]
     public float time2LoseAllMass = 2f;
+    // Porcentaje de la masa principal que se gana.
+    [Range(0.0f, 1f)]
     public float PercentageGainedMass;
-    private float gainedMass;
-
-    private float mass;
-    private float lostMassPerSecond;            //TARDA DOS SEGUNDOS EN PERDER TODA LA MASA
-
-    
+    [Tooltip("Tamaño final que tendra el slime, cuando masa = 0")]
     public float finSize = 2f;
+
+    private float gainedMass;
+    private float mass;
+    private float lostMassPerSecond;         
     private float inSize;
     private float difSize;
     private float gainedMassSprite;
+    private float spriteSizeLost;           
 
-    private float spriteSizeLost = .25f;            // TAMAÑO QUE QUEREMOS QUE PIERDA POR SEGUNDO, ES DECIR PARA PERDER TODA REQUIERE DOS
-                                                    //DEPENDERA DEL TAMAÑO QUE TENDRA EL SLIME EN VERSION FINA
     public Slider slider;
-    //public float timer = 1;
+    public SlimeController isSliding;
 
     // Start is called before the first frame update
     void Start()
     {
-        PercentageGainedMass = PercentageGainedMass / 100;
-        mass = InMass;
+        mass = maxMass;
+        gainedMass = maxMass * PercentageGainedMass;
 
-        gainedMass = InMass * PercentageGainedMass;
-        lostMassPerSecond = mass/ time2LoseAllMass;
+        lostMassPerSecond = mass/ time2LoseAllMass;         //Masa que se pierde por segundo
 
         inSize = transform.localScale.x;
         difSize = inSize - finSize;
-        spriteSizeLost = difSize / time2LoseAllMass;
         gainedMassSprite = difSize * PercentageGainedMass;
 
+        spriteSizeLost = difSize / time2LoseAllMass;        //Tamaño del sprite que se reduce por segundo
+ 
         slider.maxValue = mass;
         slider.value = mass;
 
@@ -46,49 +47,32 @@ public class MasaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (mass >= 0)
+        //Si se esta deslizando
+        if (isSliding.isRight || isSliding.isLeft && isSliding.stop)   
         {
-            if (Input.GetMouseButton(0))
+            if (mass >= 0)      //Pierde masa solo si es mayor de 0
             {
-                mass = mass - (lostMassPerSecond * Time.deltaTime);
-                slider.value = mass;         
+                mass = mass - (lostMassPerSecond * Time.deltaTime);              
+                slider.value = mass;
                 transform.localScale = new Vector2(transform.localScale.x - (spriteSizeLost * Time.deltaTime), transform.localScale.y - (spriteSizeLost * Time.deltaTime));
-
             }
         }
+    }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (mass <= InMass)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Fruit"))
+        { 
+
+            Destroy(collision.gameObject);
+            if (mass < maxMass)     //Gana masa solo si es menor la masa maxima
             {
+                //Si la masa ganada es muy alta, el slider no se actualizara hasta que no se baje del valor de la masa principal
                 mass += gainedMass;
                 slider.value = mass;
-                transform.localScale = new Vector2(transform.localScale.x + gainedMassSprite, transform.localScale.y +gainedMassSprite);
+                transform.localScale = new Vector2(transform.localScale.x + gainedMassSprite, transform.localScale.y + gainedMassSprite);
             }
-
         }
-
-        /*
-        if (Input.GetMouseButton(0))
-        {
-
-            timer -= Time.deltaTime;
-            if (timer < 0)
-            {
-                mass = mass - lostMassPerSecond;
-                slider.value = mass;
-                print("ya" + mass);
-                timer = 1;
-            }
-
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            timer = 1;
-        }
-        */
-        
     }
 }

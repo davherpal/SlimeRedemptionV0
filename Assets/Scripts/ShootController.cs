@@ -5,8 +5,11 @@ using UnityEngine;
 public class ShootController : MonoBehaviour
 {
     public Rigidbody2D prefBullet;
+    [Tooltip("Distancia donde se spawneara el prefab del player")]
     public float distanceSpawn;
+    [Tooltip("Velocidad a la que saldra disparada el prefab")]
     public float bulletSpeed;
+    [Tooltip("Distancia del primer click al player")]
     public float distanceToShoot;
 
     private bool instanced;

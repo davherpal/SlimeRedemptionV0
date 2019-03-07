@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tag1
   - Bullet
+  - Fruit
   layers:
   - Default
   - TransparentFX

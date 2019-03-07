@@ -7,9 +7,9 @@ public class SlimeController : MonoBehaviour
     public float speed;
     public float jumpPower;
     private bool isGround;
-    private bool isRight;
-    private bool isLeft;
-    private bool stop;
+    [HideInInspector] public bool isRight;
+    [HideInInspector] public bool isLeft;
+    [HideInInspector]public bool stop;
 
     private Rigidbody2D rb;
     public Transform checkGround;
@@ -57,7 +57,7 @@ public class SlimeController : MonoBehaviour
         if (isGround == true)
         {
             moreJumps = moreJumpsValue;
-            Debug.Log("contacto suelo");
+          //  Debug.Log("contacto suelo");
             //speed = speed2;
         }
 
@@ -65,7 +65,7 @@ public class SlimeController : MonoBehaviour
         {
             jumpVector[0] = -2;
             moreJumps = moreJumpsValue;
-            Debug.Log("contacto derecha");
+          //  Debug.Log("contacto derecha");
             if (stop)
             {
                 StartCoroutine(stickToWalls());
@@ -85,7 +85,7 @@ public class SlimeController : MonoBehaviour
         {
             jumpVector[0] = 2;
             moreJumps = moreJumpsValue;
-            Debug.Log("contacto izquierda");
+          //  Debug.Log("contacto izquierda");
             if (stop)
             {
                 StartCoroutine(stickToWalls());
