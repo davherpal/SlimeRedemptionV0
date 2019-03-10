@@ -69,6 +69,23 @@ public class MasaController : MonoBehaviour
         }
     }
 
-    
-    
+    public void LostMass(float lostMass, float lostMassSprite)//modificar cuando creemos game controller
+    {
+        if (mass > 0)     //Gana masa solo si es menor la masa maxima
+        {
+            mass -= lostMass;
+            slider.value = mass;
+            transform.localScale = new Vector2(transform.localScale.x - lostMassSprite, transform.localScale.y - lostMassSprite);
+        }
+        else
+        {
+            mass = 0;
+            slider.value = 0;
+            transform.localScale = new Vector2(finSize, finSize);
+            //MUERTO
+        }
+    }
+
+
+
 }

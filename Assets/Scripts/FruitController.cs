@@ -8,10 +8,11 @@ public class FruitController : MonoBehaviour
     private MasaController mc;
     [Tooltip("Porcentaje de masa que ganara al entrar en contacto")]
     [Range(0.0f, 1f)]
-    public float PercentageGainedMass;  
-    
+    public float PercentageGainedMass;
 
+    // Masa que ganara player segun el porcentaje de masa dada.
     private float gainedMass;
+    // Tamaño que ganara el sprite segun el porcentaje de masa dada.
     private float gainedMassSprite;
 
     private void Start()
