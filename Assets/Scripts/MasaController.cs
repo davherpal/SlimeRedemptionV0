@@ -5,21 +5,17 @@ using UnityEngine.UI;
 
 public class MasaController : MonoBehaviour
 {
+    //Masa maxima y inicia del Player, mover en el futuro a game controller ya que es la vida.
     public float maxMass = 100;
     [Tooltip("Tiempo para perder toda la masa en segundos")]
     public float time2LoseAllMass = 2f;
-    // Porcentaje de la masa principal que se gana.
-    [Range(0.0f, 1f)]
-    public float PercentageGainedMass;
     [Tooltip("Tamaño final que tendra el slime, cuando masa = 0")]
     public float finSize = 2f;
 
-    private float gainedMass;
-    private float mass;
+    public float mass;
     private float lostMassPerSecond;         
     private float inSize;
-    private float difSize;
-    private float gainedMassSprite;
+    [HideInInspector] public  float difSize;
     private float spriteSizeLost;           
 
     public Slider slider;
@@ -29,14 +25,10 @@ public class MasaController : MonoBehaviour
     void Start()
     {
         mass = maxMass;
-        gainedMass = maxMass * PercentageGainedMass;
-
         lostMassPerSecond = mass/ time2LoseAllMass;         //Masa que se pierde por segundo
 
         inSize = transform.localScale.x;
         difSize = inSize - finSize;
-        gainedMassSprite = difSize * PercentageGainedMass;
-
         spriteSizeLost = difSize / time2LoseAllMass;        //Tamaño del sprite que se reduce por segundo
  
         slider.maxValue = mass;
@@ -47,8 +39,8 @@ public class MasaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Si se esta deslizando
-        if (isSliding.isRight || isSliding.isLeft && isSliding.stop)   
+        //Si se esta deslizando y no esta en el suelo
+        if (isSliding.isRight || isSliding.isLeft && isSliding.stop && !isSliding.isGround)   
         {
             if (mass >= 0)      //Pierde masa solo si es mayor de 0
             {
@@ -59,20 +51,24 @@ public class MasaController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void AddMass(float gainedMass, float gainedMassSprite)//modificar cuando creemos game controller
     {
 
-        if (collision.gameObject.CompareTag("Fruit"))
-        { 
+        if (mass < maxMass)     //Gana masa solo si es menor la masa maxima
+        {
+            mass += gainedMass;
+            slider.value = mass;
+            transform.localScale = new Vector2(transform.localScale.x + gainedMassSprite, transform.localScale.y + gainedMassSprite);
 
-            Destroy(collision.gameObject);
-            if (mass < maxMass)     //Gana masa solo si es menor la masa maxima
+            if (mass > maxMass) // Si una vez añadida la masa es mayor al valor maximo, lo ponemos al valor maximo indicado
             {
-                //Si la masa ganada es muy alta, el slider no se actualizara hasta que no se baje del valor de la masa principal
-                mass += gainedMass;
-                slider.value = mass;
-                transform.localScale = new Vector2(transform.localScale.x + gainedMassSprite, transform.localScale.y + gainedMassSprite);
+                mass = maxMass;
+                slider.value = maxMass;
+                transform.localScale = new Vector2(inSize,  inSize);
             }
         }
     }
+
+    
+    
 }

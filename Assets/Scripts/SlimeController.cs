@@ -6,7 +6,7 @@ public class SlimeController : MonoBehaviour
 {
     public float speed;
     public float jumpPower;
-    private bool isGround;
+    [HideInInspector] public bool isGround;
     [HideInInspector] public bool isRight;
     [HideInInspector] public bool isLeft;
     [HideInInspector]public bool stop;
