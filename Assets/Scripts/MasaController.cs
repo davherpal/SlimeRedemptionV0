@@ -40,7 +40,7 @@ public class MasaController : MonoBehaviour
     void Update()
     {
         //Si se esta deslizando y no esta en el suelo
-        if (isSliding.isRight || isSliding.isLeft && isSliding.stop && !isSliding.isGround)   
+        if (isSliding.isRight && !isSliding.isGround || isSliding.isLeft && !isSliding.isGround)   
         {
             if (mass >= 0)      //Pierde masa solo si es mayor de 0
             {
