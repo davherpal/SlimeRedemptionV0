@@ -58,6 +58,7 @@ public class SlimeController : MonoBehaviour
             stop = true;
             speed = 0;
             counter = 0;
+
         }
 
         if (isGround == true)                           // si estas en el suelo
