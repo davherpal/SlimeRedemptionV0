@@ -8,10 +8,10 @@ public class SlimeController : MonoBehaviour
     public float jumpPower;
     public float counter;
     public float timeToSlip;
-    private bool isGround;
-    private bool isRight;
-    private bool isLeft;
-    private bool stop;
+    [HideInInspector] public bool isGround;
+    [HideInInspector] public bool isRight;
+    [HideInInspector] public bool isLeft;
+    [HideInInspector] public bool stop;
 
     private Rigidbody2D rb;
     public Transform checkGround;
@@ -32,7 +32,7 @@ public class SlimeController : MonoBehaviour
     public float aceleracion = 2f;
 
     // Start is called before the first frame update
-    void Start()
+    void Start()        
     {
         stop = true;
         moreJumps = moreJumpsValue;
@@ -42,7 +42,7 @@ public class SlimeController : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    void FixedUpdate()      // en fixed update se denominara cuando el slime esta en la pared derecha, en la izquierda o en el suelo
     {
         isGround = Physics2D.OverlapCircle(checkGround.position, checkRadiusGround, whatIsGround);
         isRight = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsRight);
@@ -53,7 +53,7 @@ public class SlimeController : MonoBehaviour
     void Update()
     {
 
-        if (!isRight && !isLeft)                        // si estas en el aire
+        if (!isRight && !isLeft)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0
         {
             stop = true;
             speed = 0;
@@ -66,18 +66,18 @@ public class SlimeController : MonoBehaviour
             Debug.Log("contacto suelo");
         }
 
-        if (isRight == true)                            // si estas en la pared derecha
+        if (isRight == true)                            // si estas en la pared derecha, se cambia la direccion del siguiente salto y se reinician el numero de saltos que tienes
         {
             jumpVector[0] = -2.3f;
             moreJumps = moreJumpsValue;
             Debug.Log("contacto derecha");
-            if (stop)
+            if (stop)                                   // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
             {
                 counter += Time.deltaTime;
                 rb.velocity = Vector3.zero;
-                if (counter > timeToSlip) {
+                if (counter > timeToSlip) {             // si el contador es mayor a timetoslip y no toca el suelo, el slime tendra una velocidad hacia abajo mayor, que se ira incrementando poco a poco
 
-                    if (!isGround)
+                    if (!isGround)                  
                     {
                         transform.Translate(Vector3.up * Time.deltaTime * -speed * 2);
                         speed += aceleracion * Time.deltaTime;
@@ -86,18 +86,18 @@ public class SlimeController : MonoBehaviour
             }
         }
 
-        if (isLeft == true)                         // si estas en la pared izquierda
+        if (isLeft == true)                         // si estas en la pared izquierda, se cambia la direccion del siguiente salto y se reinician el numero de saltos que tienes
         {
             jumpVector[0] = 2.3f;
             moreJumps = moreJumpsValue;
             Debug.Log("contacto izquierda");
-            if (stop)
+            if (stop)                               // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
             {
                 counter += Time.deltaTime;
                 rb.velocity = Vector3.zero;
                 if (counter > timeToSlip)
                 {
-                    if (!isGround)
+                    if (!isGround)                  // si el contador es mayor a timetoslip y no toca el suelo, el slime tendra una velocidad hacia abajo mayor, que se ira incrementando poco a poco
                     {
                         transform.Translate(Vector3.up * Time.deltaTime * -speed * 2);
                         speed += aceleracion * Time.deltaTime;
@@ -106,7 +106,7 @@ public class SlimeController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0)       // segundo salto
+        if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0)       // salto
         {
             rb.velocity = Vector2.up * jumpPower;
             moreJumps--;
