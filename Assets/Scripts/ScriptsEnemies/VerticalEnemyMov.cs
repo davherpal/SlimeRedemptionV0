@@ -16,7 +16,7 @@ public class VerticalEnemyMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(rb2d.velocity.y);
+
     }
 
     private void FixedUpdate()
@@ -28,34 +28,9 @@ public class VerticalEnemyMov : MonoBehaviour
         if (rb2d.velocity.y > -0.01f && rb2d.velocity.y < 0.01f)
         {
             //StartCoroutine("Fade");
-            print("IODENFSNFDINADSINFINFIONFADFSNIA");
             speed = -speed;
             rb2d.velocity = new Vector2(rb2d.velocity.x,speed);
         }
        
     }
-    /*
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-
-        if (col.gameObject.tag == "Player")
-        {
-            if (transform.position.y < col.transform.position.y)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
-    */
-    /*
-    IEnumerator Fade()
-    {
-        print("hola");
-        yield return new WaitForSeconds(2f);
-
-
-
-
-    }
-    */
 }

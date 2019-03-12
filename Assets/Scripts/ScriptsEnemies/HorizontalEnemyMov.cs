@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class HorizontalEnemyMov : MonoBehaviour
 {
-
-    public float speed=5;
-    public float maxSpeed=5;
+    public float speed = 5f;
+    public float maxSpeed = 5f;
     public Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
@@ -17,13 +16,13 @@ public class HorizontalEnemyMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //print(rb2d.velocity);
+       
     }
 
     private void FixedUpdate()
     {
         rb2d.AddForce(Vector2.right * speed);
-        float limitedSpeed = Mathf.Clamp(rb2d.velocity.x, -maxSpeed, maxSpeed);
+        float limitedSpeed = Mathf.Clamp(rb2d.velocity.x,-maxSpeed, maxSpeed);
         rb2d.velocity = new Vector2(limitedSpeed, rb2d.velocity.y);
 
         if(rb2d.velocity.x > -0.01f && rb2d.velocity.x < 0.01f)
@@ -34,26 +33,5 @@ public class HorizontalEnemyMov : MonoBehaviour
         }
        
     }
-    /*
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-
-        if (col.gameObject.tag == "Player")
-        {
-            if (transform.position.y < col.transform.position.y)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
-    IEnumerator Fade()
-    {
-        //print("hola");
-        yield return new WaitForSeconds(2f);
-        
-        
-       
-
-    }
-    */
+   
 }
