@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MasaController : MonoBehaviour
 {
+    // ESTE SCRIPT NO ESTA EN USO, PERO NO BORRAR
+
     //Masa maxima y inicia del Player, mover en el futuro a game controller ya que es la vida.
     public float maxMass = 100;
     [Tooltip("Tiempo para perder toda la masa en segundos")]
@@ -12,7 +14,7 @@ public class MasaController : MonoBehaviour
     [Tooltip("Tamaño final que tendra el slime, cuando masa = 0")]
     public float finSize = 2f;
 
-    public float mass;
+    private float mass;
     private float lostMassPerSecond;         
     private float inSize;
     [HideInInspector] public  float difSize;
@@ -25,14 +27,14 @@ public class MasaController : MonoBehaviour
     void Start()
     {
         mass = maxMass;
-        lostMassPerSecond = mass/ time2LoseAllMass;         //Masa que se pierde por segundo
+        lostMassPerSecond = maxMass / time2LoseAllMass;         //Masa que se pierde por segundo
 
         inSize = transform.localScale.x;
         difSize = inSize - finSize;
         spriteSizeLost = difSize / time2LoseAllMass;        //Tamaño del sprite que se reduce por segundo
  
-        slider.maxValue = mass;
-        slider.value = mass;
+        slider.maxValue = maxMass;
+        slider.value = maxMass;
 
     }
 
@@ -44,7 +46,7 @@ public class MasaController : MonoBehaviour
         {
             if (mass >= 0)      //Pierde masa solo si es mayor de 0
             {
-                mass = mass - (lostMassPerSecond * Time.deltaTime);              
+                mass = mass - (lostMassPerSecond * Time.deltaTime);            
                 slider.value = mass;
                 transform.localScale = new Vector2(transform.localScale.x - (spriteSizeLost * Time.deltaTime), transform.localScale.y - (spriteSizeLost * Time.deltaTime));
             }

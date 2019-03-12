@@ -18,7 +18,7 @@ public class ShootController : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 vecDir;
 
-    private LineRenderer ln;
+    public LineRenderer ln;
     private bool drawLn;
     private Vector3 mousePos;
     private bool insideArea;
@@ -29,7 +29,7 @@ public class ShootController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ln = GetComponent<LineRenderer>();
+       // ln = GameObject.FindGameObjectWithTag("LineRenderer").GetComponent<LineRenderer>();
 
     }
 
