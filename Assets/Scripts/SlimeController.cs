@@ -9,7 +9,7 @@ public class SlimeController : MonoBehaviour
     [HideInInspector] public bool isGround;
     [HideInInspector] public bool isRight;
     [HideInInspector] public bool isLeft;
-    [HideInInspector]public bool stop;
+    [HideInInspector] public bool stop;
 
     private Rigidbody2D rb;
     public Transform checkGround;

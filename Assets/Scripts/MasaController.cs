@@ -76,7 +76,16 @@ public class MasaController : MonoBehaviour
             mass -= lostMass;
             slider.value = mass;
             transform.localScale = new Vector2(transform.localScale.x - lostMassSprite, transform.localScale.y - lostMassSprite);
+
+            if (mass < 0) // Si una vez perdida la masa es menor al valor minimo, lo ponemos al valor minimo indicado
+            {
+                mass = 0;
+                slider.value = 0;
+                transform.localScale = new Vector2(finSize, finSize);
+            }
+
         }
+        /*
         else
         {
             mass = 0;
@@ -84,6 +93,7 @@ public class MasaController : MonoBehaviour
             transform.localScale = new Vector2(finSize, finSize);
             //MUERTO
         }
+        */
     }
 
 
