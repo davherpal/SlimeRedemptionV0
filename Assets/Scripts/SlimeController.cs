@@ -64,14 +64,14 @@ public class SlimeController : MonoBehaviour
         if (isGround == true)                           // si estas en el suelo
         {
             moreJumps = moreJumpsValue;
-            Debug.Log("contacto suelo");
+            //Debug.Log("contacto suelo");
         }
 
         if (isRight == true)                            // si estas en la pared derecha, se cambia la direccion del siguiente salto y se reinician el numero de saltos que tienes
         {
             jumpVector[0] = -2.3f;
             moreJumps = moreJumpsValue;
-            Debug.Log("contacto derecha");
+            //Debug.Log("contacto derecha");
             if (stop)                                   // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
             {
                 counter += Time.deltaTime;
@@ -92,7 +92,7 @@ public class SlimeController : MonoBehaviour
         {
             jumpVector[0] = 2.3f;
             moreJumps = moreJumpsValue;
-            Debug.Log("contacto izquierda");
+            //Debug.Log("contacto izquierda");
             if (stop)                               // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
             {
                 counter += Time.deltaTime;

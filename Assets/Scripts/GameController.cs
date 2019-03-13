@@ -25,6 +25,9 @@ public class GameController : MonoBehaviour
     public Transform player;
     private SlimeController isSliding;
 
+    [HideInInspector] public bool shoot;
+    public Text textShoot;
+
 
     private void Awake()
     {
