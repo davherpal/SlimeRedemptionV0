@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0652b6e13a297f244b9c53490b38ce10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothCam: 0.2
+  smoothCam: 0
   target: {fileID: 1081242045}
   deadZoneSizeFactor: 0.7
 --- !u!20 &519420031
@@ -1615,7 +1615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMass: 100
-  time2LoseAllMass: 5
+  time2LoseAllMass: 10
   finSize: 0.5
   inSize: 1
   difSize: 0
