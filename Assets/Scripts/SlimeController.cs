@@ -6,7 +6,7 @@ public class SlimeController : MonoBehaviour
 {
     public float speed;
     public float jumpPower;
-    public float counter;
+    private float counter;
     public float timeToSlip;
     [HideInInspector] public bool isGround;
     [HideInInspector] public bool isRight;
@@ -24,10 +24,11 @@ public class SlimeController : MonoBehaviour
     public LayerMask whatIsGround;
     public LayerMask whatIsRight;
     public LayerMask whatIsLeft;
-    public int moreJumps;
+    private int moreJumps;
     public int moreJumpsValue;
-
-
+    public float slipMultiplier;
+    private bool jump;
+    private bool secondjump;
     private float speed2;
     public float aceleracion = 2f;
 
@@ -38,8 +39,6 @@ public class SlimeController : MonoBehaviour
         moreJumps = moreJumpsValue;
         rb = GetComponent<Rigidbody2D>();
 
-        //speed2 = speed;
-
     }
 
     void FixedUpdate()      // en fixed update se denominara cuando el slime esta en la pared derecha, en la izquierda o en el suelo
@@ -47,6 +46,18 @@ public class SlimeController : MonoBehaviour
         isGround = Physics2D.OverlapCircle(checkGround.position, checkRadiusGround, whatIsGround);
         isRight = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsRight);
         isLeft = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsLeft);
+
+        if (jump)
+        {
+            rb.AddForce(jumpVector * jumpPower, ForceMode2D.Impulse);
+            jump = false; ;
+        }
+
+        if (secondjump)
+        {
+            rb.velocity = Vector2.up * jumpPower;
+            secondjump = false;
+        }
     }
 
     // Update is called once per frame
@@ -81,7 +92,7 @@ public class SlimeController : MonoBehaviour
 
                     if (!isGround)
                     {
-                        transform.Translate(Vector3.up * Time.deltaTime * -speed * 2);
+                        transform.Translate(Vector3.up * Time.deltaTime * -speed * slipMultiplier);
                         speed += aceleracion * Time.deltaTime;
                     }
                 }
@@ -101,7 +112,7 @@ public class SlimeController : MonoBehaviour
                 {
                     if (!isGround)                  // si el contador es mayor a timetoslip y no toca el suelo, el slime tendra una velocidad hacia abajo mayor, que se ira incrementando poco a poco
                     {
-                        transform.Translate(Vector3.up * Time.deltaTime * -speed * 2);
+                        transform.Translate(Vector3.up * Time.deltaTime * -speed * slipMultiplier);
                         speed += aceleracion * Time.deltaTime;
                     }
                 }
@@ -116,7 +127,6 @@ public class SlimeController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0)
             {
                 rb.AddForce(jumpVector * jumpPower, ForceMode2D.Impulse);
-
             }
         }
 

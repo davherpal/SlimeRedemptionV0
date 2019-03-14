@@ -120,6 +120,19 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8181738015768221143, guid: fe93e6b60c469534e9e647680a64198d,
+<<<<<<< HEAD
+=======
+        type: 3}
+      propertyPath: m_Name
+      value: Cube (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181738015768221143, guid: fe93e6b60c469534e9e647680a64198d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 58817588060098134, guid: fe93e6b60c469534e9e647680a64198d,
+>>>>>>> origin/Silvestre
         type: 3}
       propertyPath: m_Name
       value: Cube (1)
@@ -746,6 +759,19 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8181738015768221143, guid: fe93e6b60c469534e9e647680a64198d,
+<<<<<<< HEAD
+=======
+        type: 3}
+      propertyPath: m_Name
+      value: Cube (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181738015768221143, guid: fe93e6b60c469534e9e647680a64198d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 58817588060098134, guid: fe93e6b60c469534e9e647680a64198d,
+>>>>>>> origin/Silvestre
         type: 3}
       propertyPath: m_Name
       value: Cube (2)
@@ -932,7 +958,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -6, y: 0}
+=======
+  m_AnchoredPosition: {x: -22.100586, y: 0}
+>>>>>>> origin/Silvestre
   m_SizeDelta: {x: 349.40002, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713075425
@@ -1432,8 +1462,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   jumpPower: 4.3
+<<<<<<< HEAD
   counter: 0
   timeToSlip: 0
+=======
+  timeToSlip: 0.5
+>>>>>>> origin/Silvestre
   isGround: 0
   isRight: 0
   isLeft: 0
@@ -1442,7 +1476,7 @@ MonoBehaviour:
   checkRight: {fileID: 281434461}
   checkLeft: {fileID: 163283666}
   checkRadius: 0.75
-  checkRadiusGround: 0.25
+  checkRadiusGround: 0.2
   jumpVector: {x: -2, y: 2.5, z: 0}
   doubleJumpVector: {x: 0, y: 0, z: 0}
   whatIsGround:
@@ -1454,8 +1488,8 @@ MonoBehaviour:
   whatIsLeft:
     serializedVersion: 2
     m_Bits: 1024
-  moreJumps: 0
   moreJumpsValue: 1
+  slipMultiplier: 0.2
   aceleracion: 4
 --- !u!212 &4076478556708154134
 SpriteRenderer:
@@ -1717,7 +1751,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 4076478556708154132, guid: 3bb11efde35915e47af4040879105098,
+=======
+    - target: {fileID: 8181738015768221143, guid: fe93e6b60c469534e9e647680a64198d,
+        type: 3}
+      propertyPath: m_Name
+      value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181738015768221143, guid: fe93e6b60c469534e9e647680a64198d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 58817588060098134, guid: fe93e6b60c469534e9e647680a64198d,
+>>>>>>> origin/Silvestre
         type: 3}
       propertyPath: m_Name
       value: Player
@@ -1782,6 +1830,7 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1153959025
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 4076478556708154134, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
       propertyPath: m_SortingLayer
@@ -1797,6 +1846,8 @@ PrefabInstance:
       propertyPath: ln
       value: 
       objectReference: {fileID: 877575036}
+=======
+>>>>>>> origin/Silvestre
     m_RemovedComponents:
     - {fileID: 4076478556708154137, guid: 3bb11efde35915e47af4040879105098, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3bb11efde35915e47af4040879105098, type: 3}
