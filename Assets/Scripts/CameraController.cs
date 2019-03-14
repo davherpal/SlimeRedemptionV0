@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float smoothCam = 0.2f;
+    public float smoothCam;
     public Transform target;
     [Range(0.2f, 0.9f)] public float deadZoneSizeFactor = 0.7f;
 
