@@ -467,7 +467,7 @@ PrefabInstance:
     - target: {fileID: 7968698437231484634, guid: b36ef583cf8848143b83a39429c8a26a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.12
+      value: -25.56
       objectReference: {fileID: 0}
     - target: {fileID: 7968698437231484634, guid: b36ef583cf8848143b83a39429c8a26a,
         type: 3}
@@ -1432,12 +1432,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   jumpPower: 4.3
+  counter: 0
+  timeToSlip: 0
+  isGround: 0
+  isRight: 0
+  isLeft: 0
+  stop: 0
   checkGround: {fileID: 202625006}
   checkRight: {fileID: 281434461}
   checkLeft: {fileID: 163283666}
   checkRadius: 0.75
   checkRadiusGround: 0.25
   jumpVector: {x: -2, y: 2.5, z: 0}
+  doubleJumpVector: {x: 0, y: 0, z: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -1447,6 +1454,7 @@ MonoBehaviour:
   whatIsLeft:
     serializedVersion: 2
     m_Bits: 1024
+  moreJumps: 0
   moreJumpsValue: 1
   aceleracion: 4
 --- !u!212 &4076478556708154134
@@ -1556,11 +1564,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f78061d6de7917469e2f8b7a7e035cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InMass: 100
+  maxMass: 100
   time2LoseAllMass: 2
-  PercentageGainedMass: 20
   finSize: 0.5
+  difSize: 0
   slider: {fileID: 713075425}
+  isSliding: {fileID: 0}
 --- !u!114 &4076478556708154138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1578,6 +1587,7 @@ MonoBehaviour:
   distanceSpawn: 1
   bulletSpeed: 25
   distanceToShoot: 2
+  ln: {fileID: 0}
 --- !u!120 &4076478556708154139
 LineRenderer:
   m_ObjectHideFlags: 0
