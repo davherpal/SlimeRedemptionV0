@@ -5,90 +5,99 @@ using UnityEngine.UI;
 
 public class MasaController : MonoBehaviour
 {
-    public float InMass = 100;
+    // ESTE SCRIPT NO ESTA EN USO, PERO NO BORRAR
+
+    //Masa maxima y inicia del Player, mover en el futuro a game controller ya que es la vida.
+    public float maxMass = 100;
+    [Tooltip("Tiempo para perder toda la masa en segundos")]
     public float time2LoseAllMass = 2f;
-    public float PercentageGainedMass;
-    private float gainedMass;
+    [Tooltip("Tamaño final que tendra el slime, cuando masa = 0")]
+    public float finSize = 2f;
 
     private float mass;
-    private float lostMassPerSecond;            //TARDA DOS SEGUNDOS EN PERDER TODA LA MASA
-
-    
-    public float finSize = 2f;
+    private float lostMassPerSecond;         
     private float inSize;
-    private float difSize;
-    private float gainedMassSprite;
+    [HideInInspector] public  float difSize;
+    private float spriteSizeLost;           
 
-    private float spriteSizeLost = .25f;            // TAMAÑO QUE QUEREMOS QUE PIERDA POR SEGUNDO, ES DECIR PARA PERDER TODA REQUIERE DOS
-                                                    //DEPENDERA DEL TAMAÑO QUE TENDRA EL SLIME EN VERSION FINA
     public Slider slider;
-    //public float timer = 1;
+    public SlimeController isSliding;
 
     // Start is called before the first frame update
     void Start()
     {
-        PercentageGainedMass = PercentageGainedMass / 100;
-        mass = InMass;
-
-        gainedMass = InMass * PercentageGainedMass;
-        lostMassPerSecond = mass/ time2LoseAllMass;
+        mass = maxMass;
+        lostMassPerSecond = maxMass / time2LoseAllMass;         //Masa que se pierde por segundo
 
         inSize = transform.localScale.x;
         difSize = inSize - finSize;
-        spriteSizeLost = difSize / time2LoseAllMass;
-        gainedMassSprite = difSize * PercentageGainedMass;
-
-        slider.maxValue = mass;
-        slider.value = mass;
+        spriteSizeLost = difSize / time2LoseAllMass;        //Tamaño del sprite que se reduce por segundo
+ 
+        slider.maxValue = maxMass;
+        slider.value = maxMass;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (mass >= 0)
+        //Si se esta deslizando y no esta en el suelo
+        if (isSliding.isRight && !isSliding.isGround || isSliding.isLeft && !isSliding.isGround)   
         {
-            if (Input.GetMouseButton(0))
+            if (mass >= 0)      //Pierde masa solo si es mayor de 0
             {
-                mass = mass - (lostMassPerSecond * Time.deltaTime);
-                slider.value = mass;         
+                mass = mass - (lostMassPerSecond * Time.deltaTime);            
+                slider.value = mass;
                 transform.localScale = new Vector2(transform.localScale.x - (spriteSizeLost * Time.deltaTime), transform.localScale.y - (spriteSizeLost * Time.deltaTime));
-
             }
         }
+    }
 
-        if (Input.GetMouseButtonDown(1))
+    public void AddMass(float gainedMass, float gainedMassSprite)//modificar cuando creemos game controller
+    {
+
+        if (mass < maxMass)     //Gana masa solo si es menor la masa maxima
         {
-            if (mass <= InMass)
+            mass += gainedMass;
+            slider.value = mass;
+            transform.localScale = new Vector2(transform.localScale.x + gainedMassSprite, transform.localScale.y + gainedMassSprite);
+
+            if (mass > maxMass) // Si una vez añadida la masa es mayor al valor maximo, lo ponemos al valor maximo indicado
             {
-                mass += gainedMass;
-                slider.value = mass;
-                transform.localScale = new Vector2(transform.localScale.x + gainedMassSprite, transform.localScale.y +gainedMassSprite);
+                mass = maxMass;
+                slider.value = maxMass;
+                transform.localScale = new Vector2(inSize,  inSize);
+            }
+        }
+    }
+
+    public void LostMass(float lostMass, float lostMassSprite)//modificar cuando creemos game controller
+    {
+        if (mass > 0)     //Gana masa solo si es menor la masa maxima
+        {
+            mass -= lostMass;
+            slider.value = mass;
+            transform.localScale = new Vector2(transform.localScale.x - lostMassSprite, transform.localScale.y - lostMassSprite);
+
+            if (mass < 0) // Si una vez perdida la masa es menor al valor minimo, lo ponemos al valor minimo indicado
+            {
+                mass = 0;
+                slider.value = 0;
+                transform.localScale = new Vector2(finSize, finSize);
             }
 
         }
-
         /*
-        if (Input.GetMouseButton(0))
+        else
         {
-
-            timer -= Time.deltaTime;
-            if (timer < 0)
-            {
-                mass = mass - lostMassPerSecond;
-                slider.value = mass;
-                print("ya" + mass);
-                timer = 1;
-            }
-
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            timer = 1;
+            mass = 0;
+            slider.value = 0;
+            transform.localScale = new Vector2(finSize, finSize);
+            //MUERTO
         }
         */
-        
     }
+
+
+
 }
