@@ -12,6 +12,7 @@ public class SlimeController : MonoBehaviour
     [HideInInspector] public bool isRight;
     [HideInInspector] public bool isLeft;
     [HideInInspector] public bool stop;
+    [HideInInspector] public bool isIce;
 
     private Rigidbody2D rb;
     public Transform checkGround;
@@ -23,6 +24,7 @@ public class SlimeController : MonoBehaviour
     public LayerMask whatIsGround;
     public LayerMask whatIsRight;
     public LayerMask whatIsLeft;
+    public LayerMask whatIsIce;
     private int moreJumps;
     public int moreJumpsValue;
     public float slipMultiplier;
@@ -36,6 +38,8 @@ public class SlimeController : MonoBehaviour
     private bool isRightOrLeft;
     private bool jumpOnFloor;
     private bool nextJump;
+    private bool almostStop;
+    private bool counterBetweenJumps;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,7 @@ public class SlimeController : MonoBehaviour
         isGround = Physics2D.OverlapCircle(checkGround.position, checkRadiusGround, whatIsGround);
         isRight = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsRight);
         isLeft = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsLeft);
+        isIce = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsIce);
 
         if (jump)
         {
@@ -61,24 +66,19 @@ public class SlimeController : MonoBehaviour
             jump = false;
         }
 
-        if (isRightOrLeft)
+        if (almostStop)
         {
-            rb.velocity = Vector2.up * jumpPower * 2.5f;
-            isRightOrLeft = false;
+
         }
 
-        if (jumpOnFloor)
-        {
-            rb.velocity = Vector2.up * jumpPower;
-            jumpOnFloor = false;
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Debug.Log(counterJump);
-        if (!isRight && !isLeft)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0
+        if (!isRight && !isLeft && !isIce)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0
         {
             stop = true;
             speed = 0;
@@ -88,6 +88,7 @@ public class SlimeController : MonoBehaviour
         if (isGround == true)                           // si estas en el suelo
         {
             nextJump = true;
+            slipMultiplierConstant = slipMultiplier;
             moreJumps = moreJumpsValue;
             //Debug.Log("contacto suelo");
         }
@@ -95,6 +96,7 @@ public class SlimeController : MonoBehaviour
         if (isRight == true)                            // si estas en la pared derecha, se cambia la direccion del siguiente salto y se reinician el numero de saltos que tienes
         {
             nextJump = true;
+            slipMultiplierConstant = slipMultiplier;
             jumpVector[0] = -2.3f;
             moreJumps = moreJumpsValue;
             //Debug.Log("contacto derecha");
@@ -112,10 +114,11 @@ public class SlimeController : MonoBehaviour
                 }
             }
         }
-
+        
         if (isLeft == true)                         // si estas en la pared izquierda, se cambia la direccion del siguiente salto y se reinician el numero de saltos que tienes
         {
             nextJump = true;
+            slipMultiplierConstant = slipMultiplier;
             jumpVector[0] = 2.3f;
             moreJumps = moreJumpsValue;
             //Debug.Log("contacto izquierda");
@@ -134,32 +137,44 @@ public class SlimeController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0 && nextJump)       // salto
+        if (isIce == true)
         {
-            counterJump = 0;
-            nextJump = false;
-            jump = true;
-            counterJump = Time.deltaTime;
-            if(counterJump > betweenJumps)
+            nextJump = true;
+            slipMultiplierConstant = slipIce;
+            jumpVector[0] = -2.3f;
+            moreJumps = moreJumpsValue;
+            //Debug.Log("contacto derecha");
+            if (stop)                                   // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
             {
-                nextJump=true;
+                counter += Time.deltaTime;
+                rb.velocity = Vector3.zero;
+                if (counter > timeToSlip)
+                {             // si el contador es mayor a timetoslip y no toca el suelo, el slime tendra una velocidad hacia abajo mayor, que se ira incrementando poco a poco
+                    if (!isGround)
+                    {
+                        transform.Translate(Vector3.up * Time.deltaTime * -speed * slipMultiplierConstant);
+                        speed += aceleracion * Time.deltaTime;
+                    }
+                }
             }
         }
 
-        else if (Input.GetKeyDown(KeyCode.Space) && moreJumps == 0 && isGround == true)     // saltar en el suelo
+        if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0 && nextJump)       // salto
         {
-            jumpOnFloor = true;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ice"))
-        {
-            Debug.Log("ice ice baby");
-            slipMultiplierConstant = slipIce;
+            jump = true;
+            counterBetweenJumps = true;
         }
 
-   
+        if (counterBetweenJumps)
+        {
+            counterJump = 0;
+            counterJump += Time.deltaTime;
+            if (counterJump > betweenJumps)
+            {
+                nextJump = true;
+                counterBetweenJumps = false;
+            }
+        }
     }
 }
+
