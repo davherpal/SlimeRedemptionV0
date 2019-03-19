@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0652b6e13a297f244b9c53490b38ce10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothCam: 0.05
+  smoothCam: 0.08
   target: {fileID: 1081242045}
   deadZoneSizeFactor: 0.7
 --- !u!20 &519420031
@@ -1976,28 +1976,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4076478556708154134, guid: 3bb11efde35915e47af4040879105098,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1153959025
-      objectReference: {fileID: 0}
-    - target: {fileID: 4076478556708154134, guid: 3bb11efde35915e47af4040879105098,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4076478556708154137, guid: 3bb11efde35915e47af4040879105098,
-        type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 713075425}
     - target: {fileID: 4076478556708154138, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
       propertyPath: ln
       value: 
       objectReference: {fileID: 877575036}
-    m_RemovedComponents:
-    - {fileID: 4076478556708154137, guid: 3bb11efde35915e47af4040879105098, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb11efde35915e47af4040879105098, type: 3}
 --- !u!1001 &5415669794320853290
 PrefabInstance:

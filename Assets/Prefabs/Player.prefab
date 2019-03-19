@@ -209,8 +209,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1153959025
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fd20d1ab521344b4a96baf6f99c62814, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -237,19 +237,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   jumpPower: 4.3
-  counter: 0
   timeToSlip: 0.5
   isGround: 0
   isRight: 0
   isLeft: 0
   stop: 0
+  isIce: 0
   checkGround: {fileID: 202625006}
   checkRight: {fileID: 281434461}
   checkLeft: {fileID: 163283666}
   checkRadius: 0.75
   checkRadiusGround: 0.25
   jumpVector: {x: -2, y: 2.5, z: 0}
-  doubleJumpVector: {x: 0, y: 0, z: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -259,9 +258,14 @@ MonoBehaviour:
   whatIsLeft:
     serializedVersion: 2
     m_Bits: 1024
-  moreJumps: 0
+  whatIsIce:
+    serializedVersion: 2
+    m_Bits: 0
   moreJumpsValue: 1
+  slipMultiplier: 0.4
   aceleracion: 4
+  slipIce: 2
+  betweenJumps: 0.5
 --- !u!114 &4076478556708154138
 MonoBehaviour:
   m_ObjectHideFlags: 0
