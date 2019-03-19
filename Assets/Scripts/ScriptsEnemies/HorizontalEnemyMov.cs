@@ -34,26 +34,5 @@ public class HorizontalEnemyMov : MonoBehaviour
         }
        
     }
-    /*
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-
-        if (col.gameObject.tag == "Player")
-        {
-            if (transform.position.y < col.transform.position.y)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
-    IEnumerator Fade()
-    {
-        //print("hola");
-        yield return new WaitForSeconds(2f);
-        
-        
-       
-
-    }
-    */
+    
 }
