@@ -14,12 +14,7 @@ public class HorizontalEnemyMov : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //print(rb2d.velocity);
-    }
-
+    //Funcion que hace que cada vez que la velocidad sea menor o mayor a 0.01, se cambie el sentido(el signo) del objeto
     private void FixedUpdate()
     {
         rb2d.AddForce(Vector2.right * speed);
@@ -28,7 +23,6 @@ public class HorizontalEnemyMov : MonoBehaviour
 
         if(rb2d.velocity.x > -0.01f && rb2d.velocity.x < 0.01f)
         {
-            //StartCoroutine("Fade");
             speed = -speed;
             rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
         }

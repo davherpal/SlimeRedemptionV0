@@ -20,21 +20,21 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xMov, yMov;
-        if (IsTargetInDeadZone(out xMov, out yMov))
+        float yMov;
+        if (IsTargetInDeadZone(out yMov))
         {
-            Vector3 newPosition = new Vector3(transform.position.x + xMov, transform.position.y + yMov, transform.position.z);
+            Vector3 newPosition = new Vector3(transform.position.x, transform.position.y + yMov, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, newPosition, smoothCam);
         }
     }
 
-    bool IsTargetInDeadZone(out float xMov, out float yMov)
+    bool IsTargetInDeadZone(out float yMov)
     {
         bool inDeadZone = false;
-        xMov = 0;
+  
         yMov = 0;
 
-        //Variables para regular el 
+        //Variables para regular el rango que tiene que pasar el jugador para que empieze la camara a moverse
         float yMaxDeadZone = transform.position.y + dZH;
         float yMinDeadZone = transform.position.y - dZH;
 

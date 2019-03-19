@@ -7,18 +7,13 @@ public class VerticalEnemyMov : MonoBehaviour
     public float speed = 5f;
     public float maxSpeed = 5f;
     public Rigidbody2D rb2d;
-    // Start is called before the first frame update
+   
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        print(rb2d.velocity.y);
-    }
-
+    //Funcion que hace que cada vez que la velocidad sea menor o mayor a 0.01, se cambie el sentido(el signo) del objeto
     private void FixedUpdate()
     {
         rb2d.AddForce(Vector2.up * speed);
@@ -27,8 +22,6 @@ public class VerticalEnemyMov : MonoBehaviour
         
         if (rb2d.velocity.y > -0.01f && rb2d.velocity.y < 0.01f)
         {
-            //StartCoroutine("Fade");
-            print("IODENFSNFDINADSINFINFIONFADFSNIA");
             speed = -speed;
             rb2d.velocity = new Vector2(rb2d.velocity.x,speed);
         }
