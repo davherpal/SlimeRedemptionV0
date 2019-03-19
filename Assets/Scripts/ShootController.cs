@@ -18,7 +18,7 @@ public class ShootController : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 vecDir;
 
-    private LineRenderer ln;
+    public LineRenderer ln;
     private bool drawLn;
     private Vector3 mousePos;
     private bool insideArea;
@@ -29,47 +29,55 @@ public class ShootController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ln = GetComponent<LineRenderer>();
+       // ln = GameObject.FindGameObjectWithTag("LineRenderer").GetComponent<LineRenderer>();
 
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (GameController.instance.shoot == true)
         {
-            startPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            drawLn = true;
-            ln.SetPosition(0, startPosition + Vector3.forward * 10);                        // PRIMER PUNTO DE LA LINEA
+            GameController.instance.textShoot.text = "1";
 
-            Vector3 offSet = startPosition - transform.position;
-            float distanceTouch = (Mathf.Sqrt(offSet.x * offSet.x + offSet.y * offSet.y));  // DISTANCIA DEL TOQUE/CLICK AL GAMEOBJECT
-
-            if (distanceTouch < distanceToShoot)                                            // SI LA DISTANCIA ES MENOR PODREMOS DISPARAR
+            if (Input.GetMouseButtonDown(0))
             {
-                insideArea = true;
+                startPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                drawLn = true;
+                ln.SetPosition(0, startPosition + Vector3.forward * 10);                        // PRIMER PUNTO DE LA LINEA
+
+                Vector3 offSet = startPosition - transform.position;
+                float distanceTouch = (Mathf.Sqrt(offSet.x * offSet.x + offSet.y * offSet.y));  // DISTANCIA DEL TOQUE/CLICK AL GAMEOBJECT
+
+                if (distanceTouch < distanceToShoot)                                            // SI LA DISTANCIA ES MENOR PODREMOS DISPARAR
+                {
+                    insideArea = true;
+                }
             }
-        }
 
-        else if (Input.GetMouseButtonUp(0))
-        {
-            drawLn = false;
-
-            if (insideArea)                                                                 //INSTANCIAMOS BALA Y GUARDAMOS LA POSICION DONDE IRA
+            else if (Input.GetMouseButtonUp(0))
             {
-                shootDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                vecDir = (shootDirection - startPosition).normalized;
+                drawLn = false;
 
-                bulletInstance = Instantiate(prefBullet, transform.position + (vecDir * distanceSpawn), Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                if (insideArea)                                                                 //INSTANCIAMOS BALA Y GUARDAMOS LA POSICION DONDE IRA
+                {
+                    shootDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    vecDir = (shootDirection - startPosition).normalized;
 
-                instanced = true;
-                insideArea = false;
+                    bulletInstance = Instantiate(prefBullet, transform.position + (vecDir * distanceSpawn), Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+              
+                    instanced = true;
+                    insideArea = false;
+
+                    GameController.instance.textShoot.text = "0";
+                    GameController.instance.shoot = false;
+                }
             }
-        }
 
-        if (drawLn)                                                                         //DIBUJAMOS EL ULTIMO PUNTO DE LA LINEA
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);         //Se acualiza la linea
-            ln.SetPosition(1, mousePos + Vector3.forward * 10);
+            if (drawLn)                                                                         //DIBUJAMOS EL ULTIMO PUNTO DE LA LINEA
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);         //Se acualiza la linea
+                ln.SetPosition(1, mousePos + Vector3.forward * 10);
+            }
         }
     }
 
@@ -79,6 +87,10 @@ public class ShootController : MonoBehaviour
         {
             bulletInstance.velocity = new Vector2(vecDir.x * bulletSpeed, vecDir.y * bulletSpeed);
             instanced = false;
+
+            Destroy(ln, 3.5f);// Destruya linea para que no obstruya mucho en pantalla
+
+
         }
     }
 }

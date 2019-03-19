@@ -33,7 +33,11 @@ public class SlimeController : MonoBehaviour
     private float slipMultiplierConstant;       // variable privada, dicta el slip multiplayer
     public float slipIce;               // contante de resbalarse en el hielo
     private float counterJump;          // contador entre saltos
+<<<<<<< HEAD
     public float betweenJumps;              
+=======
+    public float betweenJumps;
+>>>>>>> master
     private bool nextJump;      // discta cuando el slime esta preparado apra el segundo salto
     private bool almostStop;    // booleano dedicado a parar (en proceso)
     private bool counterBetweenJumps;
@@ -175,4 +179,7 @@ public class SlimeController : MonoBehaviour
         }
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master

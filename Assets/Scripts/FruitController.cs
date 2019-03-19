@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class FruitController : MonoBehaviour
 {
-    
-    private MasaController mc;
+   
     [Tooltip("Porcentaje de masa que ganara al entrar en contacto")]
     [Range(0.0f, 1f)]
     public float PercentageGainedMass;
@@ -15,20 +14,15 @@ public class FruitController : MonoBehaviour
     // Tamaño que ganara el sprite segun el porcentaje de masa dada.
     private float gainedMassSprite;
 
-    private void Start()
-    {
-        mc = GameObject.FindGameObjectWithTag("Player").GetComponent<MasaController>();
-        // No le doy valores a las variables aqui porque este gameobject se crea antes del Player
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            gainedMass = mc.maxMass * PercentageGainedMass;//modificar cuando creemos game controller
-            gainedMassSprite = mc.difSize * PercentageGainedMass;
+            gainedMass = GameController.instance.maxMass * PercentageGainedMass;//modificar cuando creemos game controller
+            gainedMassSprite = GameController.instance.difSize * PercentageGainedMass;
 
-            mc.AddMass(gainedMass, gainedMassSprite);//modificar cuando creemos game controller
+            GameController.instance.AddMass(gainedMass, gainedMassSprite);//modificar cuando creemos game controller
             Destroy(gameObject);
         }
     }

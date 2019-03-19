@@ -7,7 +7,11 @@ TagManager:
   - Tag1
   - Bullet
   - Fruit
+<<<<<<< HEAD
   - Ice
+=======
+  - LineRenderer
+>>>>>>> master
   layers:
   - Default
   - TransparentFX
@@ -20,7 +24,11 @@ TagManager:
   - Ground
   - WallRight
   - WallLeft
+<<<<<<< HEAD
   - Ice
+=======
+  - Player
+>>>>>>> master
   - 
   - 
   - 
@@ -44,4 +52,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2601552943
+    locked: 0
+  - name: Player
+    uniqueID: 3141008271
     locked: 0

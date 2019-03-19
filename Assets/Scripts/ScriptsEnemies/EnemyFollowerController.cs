@@ -9,7 +9,7 @@ public class EnemyFollowerController : MonoBehaviour
 
     private GameObject player;
     private Vector3 initialPosition;
-   
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,16 +28,16 @@ public class EnemyFollowerController : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position);
         if (dist < visionRadius) target = player.transform.position;
 
-        float fixedSpeed = speed*Time.deltaTime;
+        float fixedSpeed = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target, fixedSpeed);
 
-        Debug.DrawLine(transform.position,target,Color.green);
+        Debug.DrawLine(transform.position, target, Color.green);
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         //size = new Vector3(10f, 1f, 0.0f);
-        Gizmos.DrawCube(transform.position,new Vector3(10f,-1.3f,0f));
+        Gizmos.DrawWireSphere(initialPosition, visionRadius);
     }
 }
