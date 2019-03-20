@@ -11,11 +11,12 @@ public class RoomController : MonoBehaviour
     private Vector2 inPosPlayer;
     private Vector2 PosRoom;
     // Start is called before the first frame update
+
     void Start()
     {
         inPosPlayer = player.transform.position;
         PosRoom = room.transform.position;
-        inPosPlayer.y += 14;
+        inPosPlayer.y += 5;
 
     }
 

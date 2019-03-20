@@ -519,7 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothCam: 0.08
   target: {fileID: 1081242045}
-  deadZoneSizeFactor: 0.7
+  deadZoneSizeFactor: 0.2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -790,6 +790,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PercentageLostMass: 0.1
+  isAHazard: 0
+  overTimeDamage: 0.5
 --- !u!61 &552897485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1330,7 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78837043cbedba2478bc265138859e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 1.5
 --- !u!114 &917518080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1344,6 +1346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PercentageLostMass: 0.1
+  isAHazard: 1
+  overTimeDamage: 0.5
 --- !u!61 &917518081
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1925,12 +1929,12 @@ PrefabInstance:
     - target: {fileID: 2441778109171120119, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 2441778109171120119, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.9
+      value: -5.94
       objectReference: {fileID: 0}
     - target: {fileID: 2441778109171120119, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
