@@ -74,7 +74,7 @@ public class SlimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(jump);
+       // Debug.Log(jump);
         //Debug.Log(counterJump);
         if (!isRight && !isLeft && !isIce)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
         {
