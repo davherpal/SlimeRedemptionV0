@@ -690,10 +690,10 @@ GameObject:
   m_Component:
   - component: {fileID: 552897483}
   - component: {fileID: 552897482}
-  - component: {fileID: 552897485}
-  - component: {fileID: 552897486}
   - component: {fileID: 552897481}
   - component: {fileID: 552897484}
+  - component: {fileID: 552897486}
+  - component: {fileID: 552897485}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -716,6 +716,9 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 2048
+  circleRadius: 0.15
+  deadPointTransform: {fileID: 2117004724}
+  timeFall: 10
 --- !u!212 &552897482
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -774,7 +777,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -9, z: -0.24593258}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2117004724}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -793,34 +797,24 @@ MonoBehaviour:
   PercentageLostMass: 0.1
   isAHazard: 0
   overTimeDamage: 0.5
---- !u!61 &552897485
-BoxCollider2D:
+--- !u!58 &552897485
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552897480}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02, y: -0.21}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1875, y: 2}
-    newSize: {x: 0.35, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.06, y: -0.18}
   serializedVersion: 2
-  m_Size: {x: 1.65, y: 1.16}
-  m_EdgeRadius: 0
---- !u!61 &552897486
-BoxCollider2D:
+  m_Radius: 0.5
+--- !u!58 &552897486
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -832,19 +826,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: -0.21}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1875, y: 2}
-    newSize: {x: 0.35, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.06, y: -0.18}
   serializedVersion: 2
-  m_Size: {x: 1.65, y: 1.16}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!1 &678546665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,6 +1846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   room: {fileID: 1803805626767254832, guid: e4f42d086bcf54b4889754e312c644cd, type: 3}
   player: {fileID: 1081242045}
+  distance2SpawnFromPlayer: 5
 --- !u!1 &1984827883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,6 +1926,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2117004723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117004724}
+  m_Layer: 0
+  m_Name: DeadPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2117004724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117004723}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.08, y: 0.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 552897483}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2131836325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1956,7 +1971,7 @@ PrefabInstance:
     - target: {fileID: 2441778109171120119, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.47
+      value: -5.78
       objectReference: {fileID: 0}
     - target: {fileID: 2441778109171120119, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
@@ -2256,6 +2271,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6148129925855549951, guid: 6e6f58722e849cb4a9a628f19baef48a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e6f58722e849cb4a9a628f19baef48a, type: 3}
 --- !u!1 &8181738015768221143 stripped
@@ -2362,6 +2382,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8273264369447982273, guid: 1c8456b1bcd0199498410cb1c28a685d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c8456b1bcd0199498410cb1c28a685d, type: 3}
