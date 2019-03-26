@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    // En este script se trabaja con todo aquello que se masa, puntos...
 
     public static GameController instance;
 

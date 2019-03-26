@@ -4,27 +4,35 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
-
-    //CADA HABITACION TIENE 16 DE ANCHO Y 28 DE ALTO
+   // Altura como ancho de la pantalla ascesible desde cualquier script
+    [HideInInspector] public static float ScreenHeight;
+    [HideInInspector] public static float ScreenWidth;
 
     public GameObject startRoomPosition;
     public Transform player;
 
     private Vector2 spawnPoint;
     private Vector2 PosRoom;
-    private float heightNewSpawn = 28;
 
+    //A que altura del nivel se spawneara el siguiente nivel.
     public float distance2SpawnFromPlayer = 5;
 
     public GameObject[] rooms;
     private int rand;
 
-    // Start is called before the first frame update
+    // Calculamos Altura como ancho, antes que todo.
+    private void Awake()
+    {
+        ScreenHeight = 2f * Camera.main.orthographicSize;
+        ScreenWidth = ScreenHeight * Camera.main.aspect;
+    }
 
     void Start()
     {
+        //Asignamos donde estara el spawnPoint de la siguiente habitacion
         spawnPoint = player.transform.position;
         spawnPoint.y += distance2SpawnFromPlayer;
+
         PosRoom = startRoomPosition.transform.position;
 
         rand = Random.Range(0, rooms.Length);
@@ -40,9 +48,9 @@ public class RoomController : MonoBehaviour
         {
             rand = Random.Range(0, rooms.Length);
 
-            PosRoom.y += heightNewSpawn;
+            PosRoom.y += ScreenHeight;
             Instantiate(rooms[rand], PosRoom, Quaternion.identity);
-            spawnPoint.y += heightNewSpawn;
+            spawnPoint.y += ScreenHeight;
         }
     }  
 }

@@ -5,6 +5,10 @@ using UnityEngine;
 public class ObstacleController : MonoBehaviour
 {
 
+    // Este script se aplica en todo aquello que pueda hacerte perder masa/vida.
+
+    // Esta en trigger para poder ser aplicado a todo aquello que hagaa perder vida, se le añadi un box collider encima y ya.
+
     [Tooltip("Porcentaje de masa que perdera al entrar en contacto")]
     [Range(0.0f, 1f)]
     public float PercentageLostMass;
@@ -14,7 +18,7 @@ public class ObstacleController : MonoBehaviour
     private float lostMassSprite;
     // Indicaremos si es un hazard
     public bool isAHazard;
-    // Tiempo para que se aumente daño al hazard progresivamente
+    [Tooltip("Tiempo para que se aumente daño al hazard progresivamente, solo si es hazard sera usado")]
     public float overTimeDamage = 0.5f;
     private bool isCollisioning;
     private float overTime;
@@ -50,6 +54,34 @@ public class ObstacleController : MonoBehaviour
         }
     }
 
+    /*
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            lostMass = GameController.instance.maxMass * PercentageLostMass;
+            lostMassSprite = GameController.instance.difSize * PercentageLostMass;
+            GameController.instance.LostMass(lostMass, lostMassSprite);
+
+            // Si no es un hazard, de la parte inferior de la pantalla
+            if (isAHazard) { isCollisioning = true; }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            // Si es un hazard y ha dejado de colisionar detenemos el if de update y reiniciamos el daño que hacia en el contacto
+            if (isAHazard)
+            {
+                isCollisioning = false;
+                PercentageLostMass = initialPercen;
+            }
+        }
+    }
+
+    */
 
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
@@ -72,5 +104,6 @@ public class ObstacleController : MonoBehaviour
             PercentageLostMass = initialPercen;
         }
     }
+    
 
 }

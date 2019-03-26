@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
 {
+
+    // Este script se encarga de la mecanica de ingerir enemigo si esta encima y gana 1 disparo.
+
     private Rigidbody2D playerRb;
     private Collider2D playerisOver;
 
@@ -27,6 +30,7 @@ public class EnemyCollision : MonoBehaviour
     {
         playerisOver = Physics2D.OverlapCircle(deadPoint, circleRadius, player);
 
+        // Si esta encima se muere y el player gana un disparo
         if (playerisOver)
         {
             GameController.instance.shoot = true;
@@ -40,4 +44,13 @@ public class EnemyCollision : MonoBehaviour
         }
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet"){
+
+            Destroy(gameObject);
+        }
+    }
+
 }

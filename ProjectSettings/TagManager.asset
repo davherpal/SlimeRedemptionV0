@@ -48,6 +48,12 @@ TagManager:
   - name: Background
     uniqueID: 2601552943
     locked: 0
+  - name: Enemies and others
+    uniqueID: 3130303355
+    locked: 0
+  - name: Hazard
+    uniqueID: 3488914859
+    locked: 0
   - name: Player
     uniqueID: 3141008271
     locked: 0

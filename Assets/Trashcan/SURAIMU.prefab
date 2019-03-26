@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3690858820549992028}
   - component: {fileID: 3690858820549992002}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: SURAIMU
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

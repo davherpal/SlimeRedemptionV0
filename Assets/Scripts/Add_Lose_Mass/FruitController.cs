@@ -5,6 +5,8 @@ using UnityEngine;
 public class FruitController : MonoBehaviour
 {
    
+    // Este script te añade masa
+
     [Tooltip("Porcentaje de masa que ganara al entrar en contacto")]
     [Range(0.0f, 1f)]
     public float PercentageGainedMass;
