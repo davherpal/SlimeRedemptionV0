@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool shoot;
     public Text textShoot;
 
+    private int score;
+    public Text scoreText;
 
     private void Awake()
     {
@@ -76,6 +78,26 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void AddScore(int newScore)
+    {
+        score += newScore;
+        scoreText.text = "Score:" + score.ToString();     
+    }
+
+    public void setShoot(bool shootable)
+    {
+        shoot = shootable;
+        if (shootable)
+        {
+            textShoot.text = "1";
+        }
+        else
+        {
+            textShoot.text = "0";
+        }
+
+    }
+    
     public void AddMass(float gainedMass, float gainedMassSprite)
     {
 

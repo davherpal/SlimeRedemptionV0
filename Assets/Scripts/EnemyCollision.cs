@@ -17,6 +17,8 @@ public class EnemyCollision : MonoBehaviour
     [Tooltip("Tiempo para que la velocidad del player baje a 0")]
     public float timeFall = 10;
 
+    public int score = 100; 
+
     private Vector3 deadPoint;
 
     private void Start()
@@ -33,7 +35,9 @@ public class EnemyCollision : MonoBehaviour
         // Si esta encima se muere y el player gana un disparo
         if (playerisOver)
         {
-            GameController.instance.shoot = true;
+            GameController.instance.AddScore(score);
+            GameController.instance.setShoot(true);
+            
             Destroy(gameObject);
 
             if (playerRb.velocity != Vector2.zero)
@@ -44,6 +48,8 @@ public class EnemyCollision : MonoBehaviour
         }
         
     }
+
+    // Si recibe un disparo por parte del enemigo, se muere
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
