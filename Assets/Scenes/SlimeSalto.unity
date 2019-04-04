@@ -609,11 +609,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363915023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.47, y: -0.27, z: -0.06611571}
+  m_LocalPosition: {x: -16.08, y: -2.69, z: -0.06611571}
   m_LocalScale: {x: 1.441872, y: 17.653116, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &426458753
 GameObject:
@@ -902,8 +902,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  roomsDistanceFromPlayer: 2
-  addRoomHeight: 0.5
 --- !u!1 &521979800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,7 +1550,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1693414353
-  m_SortingLayer: 0
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -1640,13 +1638,13 @@ GameObject:
   - component: {fileID: 917518081}
   - component: {fileID: 917518080}
   - component: {fileID: 917518079}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: HAZARD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &917518079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,8 +1658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  roomsDistanceFromPlayer: 2
-  addRoomHeight: 0.5
 --- !u!114 &917518080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2296,7 +2292,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1693414353
-  m_SortingLayer: 0
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: de41d366c687a46beb6a9acaa88c12db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2444,6 +2440,61 @@ PrefabInstance:
         type: 3}
       propertyPath: timeToSlip
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: whatIsWall.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: whatIsSticky.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: whatIsIce.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: timeWall
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: slipMultiplierWall
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: timeIce
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: slipSticky
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: whatIsRight.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: whatIsLeft.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: jumpVector.x
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb11efde35915e47af4040879105098, type: 3}

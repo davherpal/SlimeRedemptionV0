@@ -123,7 +123,6 @@ public class SlimeController : MonoBehaviour
         {
             timeToSlip = timeWall;
             slipMultiplier = slipMultiplierWall;
-            Debug.Log("wall");
             slip= true;
         }
 
@@ -131,7 +130,6 @@ public class SlimeController : MonoBehaviour
         {
             timeToSlip = timeIce;
             slipMultiplier = slipIce;
-            Debug.Log("ice");
             slip = true;
         }
         
@@ -139,7 +137,6 @@ public class SlimeController : MonoBehaviour
         {
             timeToSlip = timeSticky;
             slipMultiplier = slipSticky;
-            Debug.Log("sticky");
             slip = true;
         }
         
