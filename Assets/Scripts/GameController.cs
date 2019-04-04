@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         //Si se esta deslizando y no esta en el suelo
-        if (isSliding.isRight && !isSliding.isGround || isSliding.isLeft && !isSliding.isGround)
+        if (isSliding.isWall || isSliding.isStickyWall || isSliding.isIce && !isSliding.isGround )
         {
             if (mass >= 0)      //Pierde masa solo si es mayor de 0
             {

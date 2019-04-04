@@ -9,10 +9,11 @@ public class SlimeController : MonoBehaviour
     private float counter;      //contador para dictar en cuanto tiempo el slime dejara de estar quieto en las paredes
     public float timeToSlip;
     [HideInInspector] public bool isGround;     //booleanos que dictaran si el slime detecta si esta en contacto con el suelo, la izqueirda, la derecha o detenido
-    [HideInInspector] public bool isRight;
-    [HideInInspector] public bool isLeft;
+
     [HideInInspector] public bool stop;
     [HideInInspector] public bool isIce;
+    [HideInInspector] public bool isWall;
+    [HideInInspector] public bool isStickyWall;
 
     private Rigidbody2D rb;
     public Transform checkGround;       //gameobjects que detectaran la derecha, izquierda y suelo
@@ -22,27 +23,33 @@ public class SlimeController : MonoBehaviour
     public float checkRadiusGround;     // detectara el radio del suelo  
     public Vector3 jumpVector;          // discta el vector de salto del slime
     public LayerMask whatIsGround;      // las leyermask que definen parez izquierda, derecha,hielo y suelo
-    public LayerMask whatIsRight;
-    public LayerMask whatIsLeft;
     public LayerMask whatIsIce;
+    public LayerMask whatIsWall;
+    public LayerMask whatIsSticky;
     private int moreJumps;              // variable privada que traduce tus saltos restantes
     public int moreJumpsValue;          // int publica que dicta cuantos saltos extras puedes ahcer
-    public float slipMultiplier;        // multiplicador de velocidad al resbalarse por las paredes
     private bool jump;                  // booleano que se activa al saltar            
     public float aceleracion = 2f;      // constante que se va multiplicando a la velocidad al resbalarse
-    private float slipMultiplierConstant;       // variable privada, dicta el slip multiplayer
-    public float slipIce;               // contante de resbalarse en el hielo
     private float counterJump;          // contador entre saltos
     public float betweenJumps;
-    private bool nextJump;      // discta cuando el slime esta preparado apra el segundo salto
+    private bool nextJump;      // dicta cuando el slime esta preparado apra el segundo salto
     private bool almostStop;    // booleano dedicado a parar (en proceso)
     private bool counterBetweenJumps;
+    private bool slip;
+    public float timeWall;
+    public float timeIce;
+    public float timeSticky;
+    private float slipMultiplier;        // multiplicador de velocidad al resbalarse por las paredes
+    public float slipIce;               // contante de resbalarse en el hielo
+    public float slipMultiplierWall;
+    public float slipSticky;
+    public bool changeDirection;
+    public bool justOnce;
 
     // Start is called before the first frame update
     void Start()            //al empezar spot estara en true, sino al tocar las apredes no tendremos el lapso de tiempo en el que estamos quietos
     {
         stop = true;
-        slipMultiplierConstant = slipMultiplier;
         moreJumps = moreJumpsValue;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -50,9 +57,11 @@ public class SlimeController : MonoBehaviour
     void FixedUpdate()      // en fixed update se denominara cuando el slime esta en la pared derecha, en la izquierda o en el suelo
     {
         isGround = Physics2D.OverlapCircle(checkGround.position, checkRadiusGround, whatIsGround);
-        isRight = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsRight);
-        isLeft = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsLeft);
+        //isRight = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsRight);
+        //isLeft = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsLeft);
         isIce = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsIce);
+        isWall = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsWall);
+        isStickyWall = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsSticky);
 
         if (jump)       //al saltar, se le añade una velocidad y fuerza al slime, ademas que se resta un morejumps, asi que tienes un salto menos por hacer hasta que toques una apred o el suelo, el stop se pone en false y el jump tambien para que no se siga añadiendo fuerza
         {
@@ -61,14 +70,44 @@ public class SlimeController : MonoBehaviour
             moreJumps--;
             stop = false;
             jump = false;
+            slip = false;
         }
 
-        if (almostStop)         // en proceso
+        if (slip)
         {
-
+            nextJump = true;
+            changeDirection = true;
+            moreJumps = moreJumpsValue;
+            //Debug.Log("contacto izquierda");
+            if (stop)                               // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
+            {
+                counter += Time.deltaTime;
+                rb.velocity = Vector3.zero;
+                if (counter > timeToSlip)           // si el contador se pasa de la variable estimada, el slime dejara de estar quieto
+                {
+                    if (!isGround)                  // si el contador es mayor a timetoslip y no toca el suelo, el slime tendra una velocidad hacia abajo mayor, que se ira incrementando poco a poco
+                    {
+                        transform.Translate(Vector3.up * Time.deltaTime * -speed * slipMultiplier);
+                        speed += aceleracion * Time.deltaTime;
+                    }
+                }
+            }
         }
 
-
+        if (changeDirection)
+        {
+            if (justOnce){
+                if (jumpVector[0] == 3f)
+                {
+                    jumpVector[0] = -3f;
+                }
+                else
+                {
+                    jumpVector[0] = 3f;
+                }
+            }
+            justOnce = false;
+        }
     }
 
     // Update is called once per frame
@@ -76,20 +115,52 @@ public class SlimeController : MonoBehaviour
     {
        // Debug.Log(jump);
         //Debug.Log(counterJump);
-        if (!isRight && !isLeft && !isIce)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
+
+        if (isWall)
         {
+            timeToSlip = timeWall;
+            slipMultiplier = slipMultiplierWall;
+            slip= true;
+        }
+
+        if (isIce)
+        {
+            timeToSlip = timeIce;
+            slipMultiplier = slipIce;
+            slip = true;
+        }
+        
+        if (isStickyWall)
+        {
+            timeToSlip = timeSticky;
+            slipMultiplier = slipSticky;
+            slip = true;
+        }
+        
+        if (!isIce && !isWall)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
+        {
+            justOnce = true;
             stop = true;
             speed = 0;
             counter = 0;
+            slip = false;
+            changeDirection = false;
         }
+
 
         if (isGround == true)                           // si estas en el suelo, el siguiente salto sera true para poder slatar cuando quieras, se reinicia el slipmultiplayer y se reinicia el morejumps
         {
             nextJump = true;
-            slipMultiplierConstant = slipMultiplier;
             moreJumps = moreJumpsValue;
+            slipMultiplier = slipMultiplierWall;
             //Debug.Log("contacto suelo");
+            slip = false;
+            changeDirection = false;
+            justOnce = true;
+            stop = true;
         }
+
+        /*
 
         if (isRight == true)                            // si estas en la pared derecha, se cambia la direccion del siguiente salto y se reinician el numero de saltos que tienes
         {
@@ -156,6 +227,8 @@ public class SlimeController : MonoBehaviour
                 }
             }
         }
+
+        */
 
         if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0 && nextJump)       // salto
         {
