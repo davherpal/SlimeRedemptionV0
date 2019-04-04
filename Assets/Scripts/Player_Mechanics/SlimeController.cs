@@ -9,8 +9,7 @@ public class SlimeController : MonoBehaviour
     private float counter;      //contador para dictar en cuanto tiempo el slime dejara de estar quieto en las paredes
     public float timeToSlip;
     [HideInInspector] public bool isGround;     //booleanos que dictaran si el slime detecta si esta en contacto con el suelo, la izqueirda, la derecha o detenido
-    [HideInInspector] public bool isRight;      //eliminar
-    [HideInInspector] public bool isLeft;       //eliminar
+
     [HideInInspector] public bool stop;
     [HideInInspector] public bool isIce;
     [HideInInspector] public bool isWall;
@@ -24,8 +23,6 @@ public class SlimeController : MonoBehaviour
     public float checkRadiusGround;     // detectara el radio del suelo  
     public Vector3 jumpVector;          // discta el vector de salto del slime
     public LayerMask whatIsGround;      // las leyermask que definen parez izquierda, derecha,hielo y suelo
-    public LayerMask whatIsRight;
-    public LayerMask whatIsLeft;
     public LayerMask whatIsIce;
     public LayerMask whatIsWall;
     public LayerMask whatIsSticky;
