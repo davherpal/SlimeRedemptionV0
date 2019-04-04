@@ -1654,10 +1654,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 917518078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78837043cbedba2478bc265138859e88, type: 3}
+  m_Script: {fileID: 11500000, guid: bc62a417b5db4b745a2bb1be4b14e32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  roomsDistanceFromPlayer: 2
+  addRoomHeight: 0.5
 --- !u!114 &917518080
 MonoBehaviour:
   m_ObjectHideFlags: 0
