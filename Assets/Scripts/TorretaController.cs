@@ -10,6 +10,8 @@ public class TorretaController : MonoBehaviour
     public Transform spawnPoint;
     public GameObject laser;
     public float visionRadius;
+    public int cadaSegundos = 2;
+   
 
     private GameObject player;
     private Vector3 initialPosition;
@@ -17,7 +19,7 @@ public class TorretaController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Shoot", 1, 2);
+        InvokeRepeating("Shoot", 1, cadaSegundos);
         player = GameObject.FindGameObjectWithTag("Player");
         initialPosition = transform.position;
     }
