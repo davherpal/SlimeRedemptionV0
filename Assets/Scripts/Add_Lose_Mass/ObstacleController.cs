@@ -86,22 +86,28 @@ public class ObstacleController : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       lostMass = GameController.instance.maxMass * PercentageLostMass;
-       lostMassSprite = GameController.instance.difSize * PercentageLostMass;
-       GameController.instance.LostMass(lostMass, lostMassSprite);
+        if (collision.gameObject.tag == "Player")
+        {
+            lostMass = GameController.instance.maxMass * PercentageLostMass;
+            lostMassSprite = GameController.instance.difSize * PercentageLostMass;
+            GameController.instance.LostMass(lostMass, lostMassSprite);
 
-        // Si no es un hazard, de la parte inferior de la pantalla
-        if (isAHazard) { isCollisioning = true; }
+            // Si no es un hazard, de la parte inferior de la pantalla
+            if (isAHazard) { isCollisioning = true; }
+        }
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // Si es un hazard y ha dejado de colisionar detenemos el if de update y reiniciamos el daño que hacia en el contacto
-        if (isAHazard)
+        if (collision.gameObject.tag == "Player")
         {
-            isCollisioning = false;
-            PercentageLostMass = initialPercen;
+            // Si es un hazard y ha dejado de colisionar detenemos el if de update y reiniciamos el daño que hacia en el contacto
+            if (isAHazard)
+            {
+                isCollisioning = false;
+                PercentageLostMass = initialPercen;
+            }
         }
     }
     

@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4076478556708154134}
   - component: {fileID: 4076478556708154133}
   - component: {fileID: 4076478556708154138}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -239,8 +239,6 @@ MonoBehaviour:
   jumpPower: 4.3
   timeToSlip: 0.5
   isGround: 0
-  isRight: 0
-  isLeft: 0
   stop: 0
   isIce: 0
   isWall: 0
@@ -254,12 +252,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  whatIsRight:
-    serializedVersion: 2
-    m_Bits: 512
-  whatIsLeft:
-    serializedVersion: 2
-    m_Bits: 1024
   whatIsIce:
     serializedVersion: 2
     m_Bits: 0
