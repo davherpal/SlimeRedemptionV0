@@ -15,11 +15,9 @@ public class BulletEnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         Destroy(gameObject, time2Destroy);
         bulletRB.velocity = new Vector2(-bulletSpeed,bulletRB.velocity.y);
     }
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

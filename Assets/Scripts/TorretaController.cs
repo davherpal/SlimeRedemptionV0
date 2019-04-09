@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TorretaController : MonoBehaviour
 {
-    public Transform target;
     public float rotationSpeedDeg = 90f;
     public float shootImpulso = 10;
     public Transform spawnPoint;
@@ -32,7 +31,7 @@ public class TorretaController : MonoBehaviour
         if (dist < visionRadius)
         {
 
-            Vector3 delta = target.position - transform.position;
+            Vector3 delta = player.transform.position - transform.position;
             float angle = Mathf.Atan2(delta.y, delta.x);
             Quaternion rotZ = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
 
