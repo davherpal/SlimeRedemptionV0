@@ -50,13 +50,16 @@ public class TorretaController : MonoBehaviour
     void Shoot()
     {
         float dist = Vector3.Distance(player.transform.position, transform.position);
+          
         if (dist < visionRadius)
         {
+
             GameObject laserGo = Instantiate(laser);
             laserGo.transform.position = spawnPoint.position;
             laserGo.transform.rotation = spawnPoint.rotation;
             laserGo.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
         }
+       
         
     }
     void OnDrawGizmos()
