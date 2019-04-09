@@ -88,8 +88,8 @@ public class ShootController : MonoBehaviour
         {
             bulletInstance.velocity = new Vector2(vecDir.x * bulletSpeed, vecDir.y * bulletSpeed);
             instanced = false;
-
-            Destroy(ln, 3.5f);// Destruya linea para que no obstruya mucho en pantalla
+            
+           // Destroy(ln, 3.5f);// Destruya linea para que no obstruya mucho en pantalla
 
 
         }

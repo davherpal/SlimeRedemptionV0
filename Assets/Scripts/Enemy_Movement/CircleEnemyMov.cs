@@ -11,7 +11,6 @@ public class CircleEnemyMov : MonoBehaviour
     private float angulo;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         targetCenter = GameObject.FindGameObjectWithTag("Tag1").transform;
@@ -26,7 +25,7 @@ public class CircleEnemyMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Donde esta el asteroide
+        //Realiza giros mediante la funcion vector3, graduando las vueltas por sec que se realizaran con el flotante period_per_sec
         Vector3 posCenter = targetCenter.position;
         Vector3 offset = new Vector3(distance * Mathf.Cos(angulo), distance * Mathf.Sin(angulo), 0f);
         Vector3 newPos = posCenter + offset;
