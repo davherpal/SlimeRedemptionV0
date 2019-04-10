@@ -29,10 +29,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5421720537949686025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.45, y: 4.56, z: -0.24593258}
+  m_LocalPosition: {x: -1.45, y: 4.536, z: -0.24593258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5421720539044786037}
+  - {fileID: 5730033114204073404}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99,8 +100,9 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 4096
-  circleRadius: 0.15
-  deadPointTransform: {fileID: 5421720539044786037}
+  circleRadius: 0.13
+  deadPointTransUp: {fileID: 5421720539044786037}
+  deadPointTransDown: {fileID: 5730033114204073404}
   timeFall: 10
   score: 100
 --- !u!114 &5421720537949686029
@@ -131,9 +133,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06, y: -0.18}
+  m_Offset: {x: -0.06, y: -0.13}
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.45
 --- !u!58 &5421720537949686028
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +149,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06, y: -0.18}
+  m_Offset: {x: -0.06, y: -0.12}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!1 &5421720539044786034
@@ -179,4 +181,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5421720537949686026}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7777713931202712876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5730033114204073404}
+  m_Layer: 0
+  m_Name: DeadPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5730033114204073404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777713931202712876}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.08000004, y: -0.707, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5421720537949686026}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

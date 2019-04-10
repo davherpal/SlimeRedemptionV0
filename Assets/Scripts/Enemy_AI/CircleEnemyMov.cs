@@ -6,14 +6,14 @@ public class CircleEnemyMov : MonoBehaviour
 {
     public float periodo_rad_seg = 720;
 
-    private Transform targetCenter;
+    public Transform targetCenter;
     private float distance;
     private float angulo;
 
 
     void Start()
     {
-        targetCenter = GameObject.FindGameObjectWithTag("Tag1").transform;
+        
         distance = Vector3.Distance(transform.position, targetCenter.position);
         angulo = 0;
 

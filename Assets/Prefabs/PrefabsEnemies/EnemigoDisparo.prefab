@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 7278125673364006797}
   - component: {fileID: 7278125673364006796}
   - component: {fileID: 7278125673364006770}
+  - component: {fileID: 7506741035405944969}
+  - component: {fileID: 2690470001808889307}
+  - component: {fileID: 1862327322}
   m_Layer: 5
   m_Name: EnemigoDisparo
   m_TagString: Untagged
@@ -96,6 +99,54 @@ MonoBehaviour:
   bulletSpawner: {fileID: 7278125674498641794}
   bulletPrefab: {fileID: 3424726689548777386, guid: ba836fbfef1ee5c49a10f1be5d5f7da3,
     type: 3}
+  spawnRate: 1
+--- !u!114 &7506741035405944969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7278125673364006799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PercentageLostMass: 0.1
+  isAHazard: 0
+  overTimeDamage: 0.5
+--- !u!70 &2690470001808889307
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7278125673364006799}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08, y: 0}
+  m_Size: {x: 1.2, y: 2.22}
+  m_Direction: 0
+--- !u!70 &1862327322
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7278125673364006799}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08, y: 0}
+  m_Size: {x: 1.1, y: 2.1}
+  m_Direction: 0
 --- !u!1 &7278125674498641821
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 8363877617916693047}
   - component: {fileID: 8363877617916693046}
   - component: {fileID: 8363877617916693041}
+  - component: {fileID: 2667870469335654969}
+  - component: {fileID: 2181940467463876921}
+  - component: {fileID: 4578565369718895471}
   m_Layer: 0
   m_Name: EnemyTorreta
   m_TagString: Untagged
@@ -93,13 +96,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da868b86d1140e64cb61ed4546b7a907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   rotationSpeedDeg: 90
   shootImpulso: 10
   spawnPoint: {fileID: 8363877618232420500}
   laser: {fileID: 6410929647516463247, guid: 7055cf123afd7404897a76390af4e37b, type: 3}
   visionRadius: 15
   cadaSegundos: 2
+--- !u!114 &2667870469335654969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363877617916693040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PercentageLostMass: 0.1
+  isAHazard: 0
+  overTimeDamage: 0.5
+--- !u!70 &2181940467463876921
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363877617916693040}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.15, y: 0}
+  m_Size: {x: 0.79, y: 2.18}
+  m_Direction: 0
+--- !u!70 &4578565369718895471
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363877617916693040}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.15, y: 0}
+  m_Size: {x: 0.69, y: 2}
+  m_Direction: 0
 --- !u!1 &8363877618232420503
 GameObject:
   m_ObjectHideFlags: 0
