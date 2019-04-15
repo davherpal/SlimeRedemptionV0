@@ -21,6 +21,8 @@ public class FruitController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            GameController.instance.healed = true;
+
             gainedMass = GameController.instance.maxMass * PercentageGainedMass;//modificar cuando creemos game controller
             gainedMassSprite = GameController.instance.difSize * PercentageGainedMass;
 

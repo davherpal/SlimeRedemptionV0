@@ -103,7 +103,7 @@ MonoBehaviour:
   circleRadius: 0.13
   deadPointTransUp: {fileID: 5421720539044786037}
   deadPointTransDown: {fileID: 5730033114204073404}
-  timeFall: 10
+  timeFall: 20
   score: 100
 --- !u!114 &5421720537949686029
 MonoBehaviour:

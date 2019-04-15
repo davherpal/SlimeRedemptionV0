@@ -225,7 +225,7 @@ MonoBehaviour:
   circleRadius: 0.1
   deadPointTransUp: {fileID: 8289363677729663521}
   deadPointTransDown: {fileID: 1229193541227547641}
-  timeFall: 10
+  timeFall: 20
   score: 100
 --- !u!50 &7968698437883104942
 Rigidbody2D:

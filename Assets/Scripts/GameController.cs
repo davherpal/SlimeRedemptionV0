@@ -32,6 +32,18 @@ public class GameController : MonoBehaviour
     private int score;
     public Text scoreText;
 
+    [HideInInspector]public int timeFall = 20; // provisional
+
+    public float damageFlashSpeed = 5f;
+    public Color damageColor;
+    public Image damageImage;
+    [HideInInspector] public bool damaged;
+
+    public float healFlashSpeed = 5f;
+    public Color healColor;
+    public Image healImage;
+    [HideInInspector] public bool healed;
+
     private void Awake()
     {
         if (instance == null)
@@ -76,6 +88,9 @@ public class GameController : MonoBehaviour
                 player.transform.localScale = new Vector2(player.transform.localScale.x - (spriteSizeLost * Time.deltaTime), player.transform.localScale.y - (spriteSizeLost * Time.deltaTime));
             }
         }
+
+        DamageFlash();
+        HealFlash();
     }
 
     public void AddScore(int newScore)
@@ -142,7 +157,32 @@ public class GameController : MonoBehaviour
         }
         */
     }
+    
+    public void DamageFlash()
+    {
+        if (damaged)
+        {
+            damageImage.color = damageColor;
+        }
+        else
+        {
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, damageFlashSpeed * Time.deltaTime);
+        }
+        damaged = false;
+    }
 
+    public void HealFlash()
+    {
+        if (healed)
+        {
+            healImage.color = healColor;
+        }
+        else
+        {
+            healImage.color = Color.Lerp(healImage.color, Color.clear, healFlashSpeed * Time.deltaTime);
+        }
+        healed = false;
+    }
 
 
 }

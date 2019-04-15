@@ -88,6 +88,8 @@ public class ObstacleController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            GameController.instance.damaged = true;
+
             lostMass = GameController.instance.maxMass * PercentageLostMass;
             lostMassSprite = GameController.instance.difSize * PercentageLostMass;
             GameController.instance.LostMass(lostMass, lostMassSprite);

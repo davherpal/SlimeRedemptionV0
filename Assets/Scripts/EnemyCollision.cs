@@ -17,7 +17,7 @@ public class EnemyCollision : MonoBehaviour
     public Transform deadPointTransUp;
     public Transform deadPointTransDown;
     [Tooltip("Tiempo para que la velocidad del player baje a 0 despues de comer algo")]
-    public float timeFall = 10;
+    public float timeFall = 20;
 
     public int score = 100; 
 
@@ -48,7 +48,8 @@ public class EnemyCollision : MonoBehaviour
 
             if (playerRb.velocity != Vector2.zero)
             {
-                playerRb.velocity -= playerRb.velocity * Time.deltaTime * timeFall;
+                // playerRb.velocity -= playerRb.velocity * Time.deltaTime * GameController.instance.timeFall;     
+                playerRb.velocity -= playerRb.velocity * Time.deltaTime * timeFall;   
             }
 
         }

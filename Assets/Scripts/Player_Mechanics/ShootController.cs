@@ -63,7 +63,7 @@ public class ShootController : MonoBehaviour
                 if (insideArea)                                                                 
                 {
                     shootDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    vecDir = (shootDirection - startPosition).normalized;
+                    vecDir = (shootDirection - transform.position).normalized;
 
                     bulletInstance = Instantiate(prefBullet, transform.position + (vecDir * distanceSpawn), Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
               
@@ -90,7 +90,6 @@ public class ShootController : MonoBehaviour
             instanced = false;
             
            // Destroy(ln, 3.5f);// Destruya linea para que no obstruya mucho en pantalla
-
 
         }
     }
