@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4076478556708154134}
   - component: {fileID: 4076478556708154133}
   - component: {fileID: 4076478556708154138}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 1}
+    oldSize: {x: 0.8, y: 0.6666667}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -209,8 +209,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1153959025
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fd20d1ab521344b4a96baf6f99c62814, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -237,31 +237,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   jumpPower: 4.3
-  counter: 0
   timeToSlip: 0.5
   isGround: 0
-  isRight: 0
-  isLeft: 0
   stop: 0
+  isIce: 0
+  isWall: 0
+  isStickyWall: 0
   checkGround: {fileID: 202625006}
   checkRight: {fileID: 281434461}
   checkLeft: {fileID: 163283666}
   checkRadius: 0.75
   checkRadiusGround: 0.25
   jumpVector: {x: -2, y: 2.5, z: 0}
-  doubleJumpVector: {x: 0, y: 0, z: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  whatIsRight:
+  whatIsIce:
     serializedVersion: 2
-    m_Bits: 512
-  whatIsLeft:
+    m_Bits: 0
+  whatIsWall:
     serializedVersion: 2
-    m_Bits: 1024
-  moreJumps: 0
+    m_Bits: 0
+  whatIsSticky:
+    serializedVersion: 2
+    m_Bits: 0
   moreJumpsValue: 1
   aceleracion: 4
+  betweenJumps: 0.5
+  timeWall: 0
+  timeIce: 0
+  timeSticky: 0
+  slipIce: 2
+  slipMultiplierWall: 0
+  slipSticky: 0
+  changeDirection: 0
+  justOnce: 0
 --- !u!114 &4076478556708154138
 MonoBehaviour:
   m_ObjectHideFlags: 0

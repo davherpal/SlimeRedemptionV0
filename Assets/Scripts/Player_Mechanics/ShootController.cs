@@ -37,8 +37,8 @@ public class ShootController : MonoBehaviour
     {
         if (GameController.instance.shoot == true)
         {
-            GameController.instance.textShoot.text = "1";
 
+            // Cuando haces el primer click
             if (Input.GetMouseButtonDown(0))
             {
                 startPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -54,11 +54,13 @@ public class ShootController : MonoBehaviour
                 }
             }
 
+            // Cuando suelta el click
             else if (Input.GetMouseButtonUp(0))
             {
                 drawLn = false;
 
-                if (insideArea)                                                                 //INSTANCIAMOS BALA Y GUARDAMOS LA POSICION DONDE IRA
+                //INSTANCIAMOS BALA Y GUARDAMOS LA POSICION DONDE IRA
+                if (insideArea)                                                                 
                 {
                     shootDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     vecDir = (shootDirection - startPosition).normalized;
@@ -68,8 +70,7 @@ public class ShootController : MonoBehaviour
                     instanced = true;
                     insideArea = false;
 
-                    GameController.instance.textShoot.text = "0";
-                    GameController.instance.shoot = false;
+                    GameController.instance.setShoot(false);
                 }
             }
 
