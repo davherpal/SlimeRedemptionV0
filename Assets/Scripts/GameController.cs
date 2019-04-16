@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    // En este script se trabaja con todo aquello que se masa, puntos...
 
     public static GameController instance;
 
@@ -28,6 +29,8 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool shoot;
     public Text textShoot;
 
+    private int score;
+    public Text scoreText;
 
     private void Awake()
     {
@@ -64,7 +67,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         //Si se esta deslizando y no esta en el suelo
-        if (isSliding.isRight && !isSliding.isGround || isSliding.isLeft && !isSliding.isGround)
+        if (isSliding.isWall || isSliding.isStickyWall || isSliding.isIce && !isSliding.isGround )
         {
             if (mass >= 0)      //Pierde masa solo si es mayor de 0
             {
@@ -75,6 +78,26 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void AddScore(int newScore)
+    {
+        score += newScore;
+        scoreText.text = "Score:" + score.ToString();     
+    }
+
+    public void setShoot(bool shootable)
+    {
+        shoot = shootable;
+        if (shootable)
+        {
+            textShoot.text = "1";
+        }
+        else
+        {
+            textShoot.text = "0";
+        }
+
+    }
+    
     public void AddMass(float gainedMass, float gainedMassSprite)
     {
 
