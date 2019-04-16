@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 363915026}
   - component: {fileID: 363915025}
   - component: {fileID: 363915024}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363915023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.98, y: -1.84, z: -0.06611571}
+  m_LocalPosition: {x: -5.04, y: -1.84, z: -0.06611571}
   m_LocalScale: {x: 1.441872, y: 17.653116, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1493,7 +1493,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &917518078
 GameObject:
@@ -2227,6 +2227,31 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: fdb31a3151814224fa4944c2d030f19c, type: 2}
+    - target: {fileID: 4076478556708154136, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.004889488
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154136, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.6968422
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154136, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154136, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.7066202
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154136, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4076478556708154138, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
       propertyPath: ln
@@ -2300,7 +2325,7 @@ PrefabInstance:
     - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
       propertyPath: checkRadius
-      value: 0.9
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
@@ -2551,7 +2576,7 @@ PrefabInstance:
     - target: {fileID: 6148129925855549948, guid: 6e6f58722e849cb4a9a628f19baef48a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6148129925855549948, guid: 6e6f58722e849cb4a9a628f19baef48a,
         type: 3}

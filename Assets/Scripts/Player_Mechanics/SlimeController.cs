@@ -9,7 +9,6 @@ public class SlimeController : MonoBehaviour
     private float counter;      //contador para dictar en cuanto tiempo el slime dejara de estar quieto en las paredes
     public float timeToSlip;
     [HideInInspector] public bool isGround;     //booleanos que dictaran si el slime detecta si esta en contacto con el suelo, la izqueirda, la derecha o detenido
-
     [HideInInspector] public bool stop;
     [HideInInspector] public bool isIce;
     [HideInInspector] public bool isWall;
@@ -17,10 +16,7 @@ public class SlimeController : MonoBehaviour
 
     private Rigidbody2D rb;
     public Transform checkGround;       //gameobjects que detectaran la derecha, izquierda y suelo
-    public Transform checkRight;
-    public Transform checkLeft;
     public float checkRadius;           // el radio de esos gameobjects a la hora de detectar
-    public float checkRadiusGround;     // detectara el radio del suelo  
     public Vector3 jumpVector;          // discta el vector de salto del slime
     public LayerMask whatIsGround;      // las leyermask que definen parez izquierda, derecha,hielo y suelo
     public LayerMask whatIsIce;
@@ -29,7 +25,7 @@ public class SlimeController : MonoBehaviour
     private int moreJumps;              // variable privada que traduce tus saltos restantes
     public int moreJumpsValue;          // int publica que dicta cuantos saltos extras puedes ahcer
     private bool jump;                  // booleano que se activa al saltar            
-    public float aceleracion = 2f;      // constante que se va multiplicando a la velocidad al resbalarse
+    public float speedMultiplier = 2f;      // constante que se va multiplicando a la velocidad al resbalarse
     private float counterJump;          // contador entre saltos
     public float betweenJumps;
     private bool nextJump;      // dicta cuando el slime esta preparado apra el segundo salto
@@ -44,7 +40,7 @@ public class SlimeController : MonoBehaviour
     public float slipMultiplierWall;
     public float slipSticky;
     public bool changeDirection;
-    public float currentVelocity;
+    private float currentVelocity;
     public BoxCollider2D col;
 
     // Start is called before the first frame update
@@ -58,8 +54,6 @@ public class SlimeController : MonoBehaviour
     void FixedUpdate()      // en fixed update se denominara cuando el slime esta en la pared derecha, en la izquierda o en el suelo
     {
         isGround = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsGround);
-        //isRight = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsRight);
-        //isLeft = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsLeft);
         isIce = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsIce);
         isWall = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsWall);
         isStickyWall = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsSticky);
@@ -89,7 +83,7 @@ public class SlimeController : MonoBehaviour
                     if (!isGround)                  // si el contador es mayor a timetoslip y no toca el suelo, el slime tendra una velocidad hacia abajo mayor, que se ira incrementando poco a poco
                     {
                         transform.Translate(Vector3.up * Time.deltaTime * -speed * slipMultiplier);
-                        speed += aceleracion * Time.deltaTime;
+                        speed += speedMultiplier * Time.deltaTime;
                     }
                 }
             }
@@ -117,7 +111,7 @@ public class SlimeController : MonoBehaviour
         if (isWall)
         {
             timeToSlip = timeWall;
-            col.usedByEffector = false;
+            col.usedByEffector = true;
             slipMultiplier = slipMultiplierWall;
             slip= true;
         }
@@ -125,7 +119,7 @@ public class SlimeController : MonoBehaviour
         if (isIce)
         {
             timeToSlip = timeIce;
-            col.usedByEffector = false;
+            col.usedByEffector = true;
             slipMultiplier = slipIce;
             slip = true;
         }
@@ -133,7 +127,7 @@ public class SlimeController : MonoBehaviour
         if (isStickyWall)
         {
             timeToSlip = timeSticky;
-            col.usedByEffector = false;
+            col.usedByEffector = true;
             slipMultiplier = slipSticky;
             slip = true;
         }
@@ -141,7 +135,7 @@ public class SlimeController : MonoBehaviour
         if (!isIce && !isWall && !isStickyWall)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
         {
             currentVelocity = rb.velocity.x;
-            col.usedByEffector = true;
+            col.usedByEffector = false;
             stop = true;
             speed = 0;
             counter = 0;
