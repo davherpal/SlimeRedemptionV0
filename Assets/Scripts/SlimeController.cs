@@ -47,7 +47,8 @@ public class SlimeController : MonoBehaviour
     public float slipMultiplierWall;
     public float slipSticky;
     public bool changeDirection;
-    public bool justOnce;
+    public float currentVelocity;
+    public BoxCollider2D col;
 
     // Start is called before the first frame update
     void Start()            //al empezar spot estara en true, sino al tocar las apredes no tendremos el lapso de tiempo en el que estamos quietos
@@ -59,7 +60,7 @@ public class SlimeController : MonoBehaviour
 
     void FixedUpdate()      // en fixed update se denominara cuando el slime esta en la pared derecha, en la izquierda o en el suelo
     {
-        isGround = Physics2D.OverlapCircle(checkGround.position, checkRadiusGround, whatIsGround);
+        isGround = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsGround);
         //isRight = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsRight);
         //isLeft = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsLeft);
         isIce = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsIce);
@@ -99,29 +100,27 @@ public class SlimeController : MonoBehaviour
 
         if (changeDirection)
         {
-            if (justOnce){
-                if (jumpVector[0] == 3f)
-                {
-                    jumpVector[0] = -3f;
-                }
-                else
-                {
-                    jumpVector[0] = 3f;
-                }
+            if (currentVelocity > 0)
+            {
+                jumpVector[0] = -3;
+
             }
-            justOnce = false;
+            else
+            {
+                jumpVector[0] = 3;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log(jump);
-        //Debug.Log(counterJump);
+        
 
         if (isWall)
         {
             timeToSlip = timeWall;
+            col.usedByEffector = false;
             slipMultiplier = slipMultiplierWall;
             Debug.Log("wall");
             slip= true;
@@ -130,6 +129,7 @@ public class SlimeController : MonoBehaviour
         if (isIce)
         {
             timeToSlip = timeIce;
+            col.usedByEffector = false;
             slipMultiplier = slipIce;
             Debug.Log("ice");
             slip = true;
@@ -138,21 +138,22 @@ public class SlimeController : MonoBehaviour
         if (isStickyWall)
         {
             timeToSlip = timeSticky;
+            col.usedByEffector = false;
             slipMultiplier = slipSticky;
             Debug.Log("sticky");
             slip = true;
         }
         
-        if (!isIce && !isWall)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
+        if (!isIce && !isWall && !isStickyWall)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
         {
-            justOnce = true;
+            currentVelocity = rb.velocity.x;
+            col.usedByEffector = true;
             stop = true;
             speed = 0;
             counter = 0;
             slip = false;
             changeDirection = false;
         }
-
 
         if (isGround == true)                           // si estas en el suelo, el siguiente salto sera true para poder slatar cuando quieras, se reinicia el slipmultiplayer y se reinicia el morejumps
         {
@@ -161,9 +162,13 @@ public class SlimeController : MonoBehaviour
             slipMultiplier = slipMultiplierWall;
             //Debug.Log("contacto suelo");
             slip = false;
-            changeDirection = false;
-            justOnce = true;
+            //changeDirection = false;
             stop = true;
+        }
+
+        if(isGround && isWall)
+        {
+            changeDirection = true;
         }
 
         /*
@@ -240,6 +245,7 @@ public class SlimeController : MonoBehaviour
         {
             jump = true;
             counterBetweenJumps = true;     // se accionan el salto y el contador para el siguiente salto
+            
         }
 
         if (counterBetweenJumps)        // cuando el contador haya alcanzado el valor deseado, se podra volver a saltar
@@ -254,3 +260,17 @@ public class SlimeController : MonoBehaviour
         }
     }
 }
+
+/*
+if (justOnce){
+                if (jumpVector[0] == 3f)
+                {
+                    jumpVector[0] = -3f;
+                }
+                else
+                {
+                    jumpVector[0] = 3f;
+                }
+            }
+            justOnce = false;
+ */
