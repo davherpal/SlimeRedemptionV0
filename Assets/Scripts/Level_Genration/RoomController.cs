@@ -23,6 +23,7 @@ public class RoomController : MonoBehaviour
     // Calculamos Altura como ancho, antes que todo.
     private void Awake()
     {
+       // player = GameObject.FindGameObjectWithTag("Player").transform;
         ScreenHeight = 2f * Camera.main.orthographicSize;
         ScreenWidth = ScreenHeight * Camera.main.aspect;
     }

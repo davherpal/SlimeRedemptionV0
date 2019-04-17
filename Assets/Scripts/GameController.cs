@@ -44,6 +44,10 @@ public class GameController : MonoBehaviour
     public Image healImage;
     [HideInInspector] public bool healed;
 
+    public GameObject canvas;
+    
+    
+
     private void Awake()
     {
         if (instance == null)
@@ -58,6 +62,7 @@ public class GameController : MonoBehaviour
         }
 
     }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -89,8 +94,16 @@ public class GameController : MonoBehaviour
             }
         }
 
+        // 
         DamageFlash();
         HealFlash();
+
+       if(Input.GetKeyDown("p")){
+
+            Time.timeScale = 0;
+            canvas.GetComponent<MenusScript>().loadPauseMenu();
+
+        }
     }
 
     public void AddScore(int newScore)
@@ -157,7 +170,7 @@ public class GameController : MonoBehaviour
         }
         */
     }
-    
+    // Si se recibe daño pantallazo de un color determinado
     public void DamageFlash()
     {
         if (damaged)
@@ -171,6 +184,7 @@ public class GameController : MonoBehaviour
         damaged = false;
     }
 
+    // Si se cura pantallazo de un color determinado
     public void HealFlash()
     {
         if (healed)
