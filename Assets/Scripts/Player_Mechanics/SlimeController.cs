@@ -26,11 +26,9 @@ public class SlimeController : MonoBehaviour
     public int moreJumpsValue;          // int publica que dicta cuantos saltos extras puedes ahcer
     private bool jump;                  // booleano que se activa al saltar            
     public float speedMultiplier = 2f;      // constante que se va multiplicando a la velocidad al resbalarse
-    private float counterJump;          // contador entre saltos
     public float betweenJumps;
     private bool nextJump;      // dicta cuando el slime esta preparado apra el segundo salto
     private bool almostStop;    // booleano dedicado a parar (en proceso)
-    private bool counterBetweenJumps;
     private bool slip;
     public float timeWall;
     public float timeIce;
@@ -42,6 +40,9 @@ public class SlimeController : MonoBehaviour
     public bool changeDirection;
     private float currentVelocity;
     public BoxCollider2D col;
+    public float counterAfterJump;
+    private float counter2;
+    private bool inmunity;
 
     // Start is called before the first frame update
     void Start()            //al empezar spot estara en true, sino al tocar las apredes no tendremos el lapso de tiempo en el que estamos quietos
@@ -62,6 +63,8 @@ public class SlimeController : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpPower;
             rb.AddForce(jumpVector * jumpPower, ForceMode2D.Impulse);
+            //inmunity = true;
+            //counter2 = 0;
             moreJumps--;
             FindObjectOfType<audioController>().Play("jumpSoundEffect");
             stop = false;
@@ -149,117 +152,31 @@ public class SlimeController : MonoBehaviour
             nextJump = true;
             moreJumps = moreJumpsValue;
             slipMultiplier = slipMultiplierWall;
-            //Debug.Log("contacto suelo");
+            Debug.Log("contacto suelo");
             slip = false;
-            //changeDirection = false;
             stop = true;
         }
 
         if(isGround && isWall)
         {
+            Debug.Log("yeah");
             changeDirection = true;
         }
-
-        /*
-
-        if (isRight == true)                            // si estas en la pared derecha, se cambia la direccion del siguiente salto y se reinician el numero de saltos que tienes
-        {
-            nextJump = true;
-            slipMultiplierConstant = slipMultiplier;
-            jumpVector[0] = -3f;
-            moreJumps = moreJumpsValue;
-            //Debug.Log("contacto derecha");
-            if (stop)                                   // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
-            {
-                counter += Time.deltaTime;
-                rb.velocity = Vector3.zero;
-                if (counter > timeToSlip)       // si el contador se pasa de la variable estimada, el slime dejara de estar quieto
-                {             // si el contador es mayor a timetoslip y no toca el suelo, el slime tendra una velocidad hacia abajo mayor, que se ira incrementando poco a poco
-                    if (!isGround)
-                    {
-                        transform.Translate(Vector3.up * Time.deltaTime * -speed * slipMultiplierConstant);
-                        speed += aceleracion * Time.deltaTime;
-                    }
-                }
-            }
-        }
-
-        if (isLeft == true)                         // si estas en la pared izquierda, se cambia la direccion del siguiente salto y se reinician el numero de saltos que tienes
-        {
-            nextJump = true;
-            slipMultiplierConstant = slipMultiplier;
-            jumpVector[0] = 3f;
-            moreJumps = moreJumpsValue;
-            //Debug.Log("contacto izquierda");
-            if (stop)                               // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
-            {
-                counter += Time.deltaTime;
-                rb.velocity = Vector3.zero;
-                if (counter > timeToSlip)           // si el contador se pasa de la variable estimada, el slime dejara de estar quieto
-                {
-                    if (!isGround)                  // si el contador es mayor a timetoslip y no toca el suelo, el slime tendra una velocidad hacia abajo mayor, que se ira incrementando poco a poco
-                    {
-                        transform.Translate(Vector3.up * Time.deltaTime * -speed * slipMultiplierConstant);
-                        speed += aceleracion * Time.deltaTime;
-                    }
-                }
-            }
-        }
-
-        if (isIce == true)          // si estas en el hielo
-        {
-            nextJump = true;           // podras saltar de inmediato
-            slipMultiplierConstant = slipIce;       // la constante de slipmultiplayer sera igual a slipice, pues es necesario un valor diferente para recrear una pared mas resbaladiza
-            jumpVector[0] = -3f;
-            moreJumps = moreJumpsValue;             // se reinician los saltos extra
-            //Debug.Log("contacto derecha");
-            if (stop)                                   // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
-            {
-                counter += Time.deltaTime;
-                rb.velocity = Vector3.zero;
-                if (counter > timeToSlip)               // si el contador se pasa de la variable estimada, el slime dejara de estar quieto
-                {             // si el contador es mayor a timetoslip y no toca el suelo, el slime tendra una velocidad hacia abajo mayor, que se ira incrementando poco a poco
-                    if (!isGround)
-                    {
-                        transform.Translate(Vector3.up * Time.deltaTime * -speed * slipMultiplierConstant);      // si el contador es mayor a timetoslip y no toca el suelo, el slime tendra una velocidad hacia abajo mayor, que se ira incrementando poco a poco
-                        speed += aceleracion * Time.deltaTime;
-                    }
-                }
-            }
-        }
-
-        */
 
         if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0 && nextJump)       // salto
         {
             jump = true;
-            counterBetweenJumps = true;     // se accionan el salto y el contador para el siguiente salto
-            
         }
 
-        if (counterBetweenJumps)        // cuando el contador haya alcanzado el valor deseado, se podra volver a saltar
+        if (inmunity)
         {
-            counterJump = 0;
-            counterJump += Time.deltaTime;
-            if (counterJump > betweenJumps)
+            counter2 = Time.deltaTime;
+            col.enabled = !col.enabled;
+            if (counter2 == counterAfterJump)
             {
-                nextJump = true;
-                counterBetweenJumps = false;
+                col.enabled = col.enabled;
+                inmunity = false;
             }
         }
     }
 }
-
-/*
-if (justOnce){
-                if (jumpVector[0] == 3f)
-                {
-                    jumpVector[0] = -3f;
-                }
-                else
-                {
-                    jumpVector[0] = 3f;
-                }
-            }
-            justOnce = false;
- */
