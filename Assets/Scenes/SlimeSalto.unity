@@ -575,21 +575,25 @@ MonoBehaviour:
     volume: 0.35
     pitch: 1
     clip: {fileID: 8300000, guid: 47604a4827f3da14bbb759ce2d42ebab, type: 3}
+    Loop: 1
     source: {fileID: 0}
   - name: jumpSoundEffect
     volume: 0.1
     pitch: 1
     clip: {fileID: 8300000, guid: 4fd63f4f3b5964143a43332a5c122e5e, type: 3}
+    Loop: 0
     source: {fileID: 0}
   - name: giveHealth
     volume: 0.333
     pitch: 1
     clip: {fileID: 8300000, guid: 26a064cf91da1f94eb466d506931d7d3, type: 3}
+    Loop: 0
     source: {fileID: 0}
   - name: takeDamage
     volume: 0.333
     pitch: 1
     clip: {fileID: 8300000, guid: 1716f26d9f93f8a4190608fa7fe09af6, type: 3}
+    Loop: 0
     source: {fileID: 0}
 --- !u!4 &503814139
 Transform:

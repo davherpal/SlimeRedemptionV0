@@ -14,6 +14,8 @@ public class soundList
 
     public AudioClip clip;
 
+    public bool Loop;
+
     [HideInInspector]public AudioSource source;
 
 }
