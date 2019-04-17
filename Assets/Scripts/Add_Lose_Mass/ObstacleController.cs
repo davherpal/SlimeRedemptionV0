@@ -86,9 +86,10 @@ public class ObstacleController : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       lostMass = GameController.instance.maxMass * PercentageLostMass;
-       lostMassSprite = GameController.instance.difSize * PercentageLostMass;
-       GameController.instance.LostMass(lostMass, lostMassSprite);
+        lostMass = GameController.instance.maxMass * PercentageLostMass;
+        lostMassSprite = GameController.instance.difSize * PercentageLostMass;
+        GameController.instance.LostMass(lostMass, lostMassSprite);
+        FindObjectOfType<audioController>().Play("takeDamage");
 
         // Si no es un hazard, de la parte inferior de la pantalla
         if (isAHazard) { isCollisioning = true; }

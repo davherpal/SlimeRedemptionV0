@@ -63,6 +63,7 @@ public class SlimeController : MonoBehaviour
             rb.velocity = Vector2.up * jumpPower;
             rb.AddForce(jumpVector * jumpPower, ForceMode2D.Impulse);
             moreJumps--;
+            FindObjectOfType<audioController>().Play("jumpSoundEffect");
             stop = false;
             jump = false;
             slip = false;
