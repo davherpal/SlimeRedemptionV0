@@ -52,36 +52,13 @@ public class ObstacleController : MonoBehaviour
             }
 
         }
-    }
 
-    /*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        // Si el jugador ha muerto deja de restarle masa sino hacer saltar muchas veces el codigo de muerte
+        if (GameController.instance.isDead)
         {
-            lostMass = GameController.instance.maxMass * PercentageLostMass;
-            lostMassSprite = GameController.instance.difSize * PercentageLostMass;
-            GameController.instance.LostMass(lostMass, lostMassSprite);
-
-            // Si no es un hazard, de la parte inferior de la pantalla
-            if (isAHazard) { isCollisioning = true; }
+            isCollisioning = false;
         }
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            // Si es un hazard y ha dejado de colisionar detenemos el if de update y reiniciamos el daño que hacia en el contacto
-            if (isAHazard)
-            {
-                isCollisioning = false;
-                PercentageLostMass = initialPercen;
-            }
-        }
-    }
-
-    */
 
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
@@ -94,7 +71,7 @@ public class ObstacleController : MonoBehaviour
             lostMassSprite = GameController.instance.difSize * PercentageLostMass;
             GameController.instance.LostMass(lostMass, lostMassSprite);
 
-            // Si no es un hazard, de la parte inferior de la pantalla
+            // Si es un hazard, de la parte inferior de la pantalla
             if (isAHazard) { isCollisioning = true; }
         }
 

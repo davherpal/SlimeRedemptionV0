@@ -29,7 +29,10 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool shoot;
     public Text textShoot;
 
-    private int score;
+    [HideInInspector] public float alturaActual;
+    [HideInInspector] public int enemiesKilled;
+    [HideInInspector] public int score;
+    public Text alturaText;
     public Text scoreText;
 
     [HideInInspector]public int timeFall = 20; // provisional
@@ -45,11 +48,14 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool healed;
 
     public GameObject canvas;
-    
-    
 
+    public bool isDead = false;
+ 
     private void Awake()
     {
+        instance = this;
+        
+        /*
         if (instance == null)
         {
             instance = this;
@@ -59,8 +65,8 @@ public class GameController : MonoBehaviour
         {
             if (instance != this)
                 DestroyImmediate(gameObject);
-        }
-
+        }     
+        */
     }
     
 
@@ -77,7 +83,6 @@ public class GameController : MonoBehaviour
         slider.value = maxMass;
 
         isSliding = player.GetComponent<SlimeController>();
-
     }
 
     // Update is called once per frame
@@ -92,26 +97,38 @@ public class GameController : MonoBehaviour
                 slider.value = mass;
                 player.transform.localScale = new Vector2(player.transform.localScale.x - (spriteSizeLost * Time.deltaTime), player.transform.localScale.y - (spriteSizeLost * Time.deltaTime));
             }
+            else
+            {
+                //DEAD
+                playerDead();
+            }
         }
 
-        // 
+        // Checks si es true y en el siguiente hace un lerp entre colores a una velocidad x
         DamageFlash();
         HealFlash();
 
+
+       //PAUSEEEEEEEEEEEEEEEEEEEEEE
        if(Input.GetKeyDown("p")){
 
             Time.timeScale = 0;
             canvas.GetComponent<MenusScript>().loadPauseMenu();
 
         }
-    }
 
+        // ALTURA ACTUAL DEL JUGADOR
+        alturaActual = player.transform.position.y;
+        alturaText.text = alturaActual.ToString("#.#");
+
+    }
+    // Añade puntuacion cuando enemigo muere
     public void AddScore(int newScore)
     {
         score += newScore;
-        scoreText.text = "Score:" + score.ToString();     
+        scoreText.text = "Score:" + score.ToString();         
     }
-
+    // Permite disparar o no y modifica canvas
     public void setShoot(bool shootable)
     {
         shoot = shootable;
@@ -125,7 +142,7 @@ public class GameController : MonoBehaviour
         }
 
     }
-    
+    // Añade masa al player
     public void AddMass(float gainedMass, float gainedMassSprite)
     {
 
@@ -143,7 +160,7 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
+    // Hace perder masa al player y checkea si esta vivo o no
     public void LostMass(float lostMass, float lostMassSprite)
     {
         if (mass > 0)     //Gana masa solo si es menor la masa maxima
@@ -160,15 +177,13 @@ public class GameController : MonoBehaviour
             }
 
         }
-        /*
+        
         else
         {
-            mass = 0;
-            slider.value = 0;
-            transform.localScale = new Vector2(finSize, finSize);
-            //MUERTO
+            //DEAD
+            playerDead();
         }
-        */
+        
     }
     // Si se recibe daño pantallazo de un color determinado
     public void DamageFlash()
@@ -183,7 +198,6 @@ public class GameController : MonoBehaviour
         }
         damaged = false;
     }
-
     // Si se cura pantallazo de un color determinado
     public void HealFlash()
     {
@@ -197,7 +211,41 @@ public class GameController : MonoBehaviour
         }
         healed = false;
     }
+    // Añade un numeor mas cuando un enemigo ha sido matado
+    public void AddEnemyKilled()
+    {
+        enemiesKilled++;
+    }
+    // Cosas ha hacer cuando muere
+    public void playerDead()
+    {
+        isDead = true;
+        canvas.GetComponent<MenusScript>().loadGameOverMenu();
+        addHeightStat(alturaActual);
+        addEnemiesKilledStat(enemiesKilled);
+        addScoreStat(score);
+    }
 
+
+
+    // Añadimos a los stats la altura hecha
+    //BUSCAR COMO GUARDAR VALORES
+    public void addHeightStat(float altura)
+    {      
+        RestartLevel.instance.maxAltura += altura;
+    }
+
+    // Añadimos a los stats las eliminaciones hechas
+    public void addEnemiesKilledStat(int enemies)
+    {
+        RestartLevel.instance.enemiesKilled += enemies;
+    }
+
+    // Añade los puntos hechos a los stats
+    public void addScoreStat(int score)
+    {
+        RestartLevel.instance.totalScore += score;
+    }
 
 }
 

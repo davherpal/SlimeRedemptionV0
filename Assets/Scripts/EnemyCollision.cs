@@ -43,7 +43,8 @@ public class EnemyCollision : MonoBehaviour
         {
             GameController.instance.AddScore(score);
             GameController.instance.setShoot(true);
-            
+            GameController.instance.AddEnemyKilled();
+
             Destroy(gameObject);
 
             if (playerRb.velocity != Vector2.zero)
@@ -61,7 +62,8 @@ public class EnemyCollision : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet"){
-
+            GameController.instance.AddScore(score);
+            GameController.instance.AddEnemyKilled();
             Destroy(gameObject);
         }
     }
