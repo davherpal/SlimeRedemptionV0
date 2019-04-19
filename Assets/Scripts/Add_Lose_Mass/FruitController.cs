@@ -15,6 +15,8 @@ public class FruitController : MonoBehaviour
     private float gainedMass;
     // Tamaño que ganara el sprite segun el porcentaje de masa dada.
     private float gainedMassSprite;
+    // Puntos que añade al comer
+    public int score = 25;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,6 +24,8 @@ public class FruitController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GameController.instance.healed = true;
+
+            GameController.instance.AddScore(score);
 
             gainedMass = GameController.instance.maxMass * PercentageGainedMass;//modificar cuando creemos game controller
             gainedMassSprite = GameController.instance.difSize * PercentageGainedMass;
