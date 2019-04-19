@@ -38,11 +38,9 @@ public class SlimeController : MonoBehaviour
     public float slipMultiplierWall;
     public float slipSticky;
     public bool changeDirection;
-    private float currentVelocity;
+    public float currentVelocity;
     public BoxCollider2D col;
     public float counterAfterJump;
-    private float counter2;
-    private bool inmunity;
 
     // Start is called before the first frame update
     void Start()            //al empezar spot estara en true, sino al tocar las apredes no tendremos el lapso de tiempo en el que estamos quietos
@@ -63,8 +61,6 @@ public class SlimeController : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpPower;
             rb.AddForce(jumpVector * jumpPower, ForceMode2D.Impulse);
-            //inmunity = true;
-            //counter2 = 0;
             moreJumps--;
             FindObjectOfType<audioController>().Play("jumpSoundEffect");
             stop = false;
@@ -110,7 +106,7 @@ public class SlimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(name);
 
         if (isWall)
         {
@@ -166,17 +162,6 @@ public class SlimeController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0 && nextJump)       // salto
         {
             jump = true;
-        }
-
-        if (inmunity)
-        {
-            counter2 = Time.deltaTime;
-            col.enabled = !col.enabled;
-            if (counter2 == counterAfterJump)
-            {
-                col.enabled = col.enabled;
-                inmunity = false;
-            }
         }
     }
 }
