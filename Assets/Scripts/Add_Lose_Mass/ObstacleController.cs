@@ -48,7 +48,7 @@ public class ObstacleController : MonoBehaviour
                 PercentageLostMass += initialPercen;
                 overTime = overTimeDamage;
 
-   
+
             }
 
         }
@@ -89,6 +89,6 @@ public class ObstacleController : MonoBehaviour
             }
         }
     }
-    
+
 
 }

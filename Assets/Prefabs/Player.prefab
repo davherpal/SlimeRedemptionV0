@@ -223,8 +223,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80a32970854d25b4b9aab0ae63830ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   speed: 1.5
   jumpPower: 3.5
   timeToSlip: 0.2
@@ -272,8 +272,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c907997ec3c8231458c79830cac2b342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   prefBullet: {fileID: 2966581871319733684, guid: fb01b1e18eeb6f547a7f62d11f1f20bd,
     type: 3}
   distanceSpawn: 1

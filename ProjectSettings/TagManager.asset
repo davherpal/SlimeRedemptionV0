@@ -9,6 +9,7 @@ TagManager:
   - LineRenderer
   - Ground
   - Wall
+  - Tag1
   layers:
   - Default
   - TransparentFX
