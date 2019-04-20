@@ -13,6 +13,7 @@ public class SlimeController : MonoBehaviour
     [HideInInspector] public bool isIce;
     [HideInInspector] public bool isWall;
     [HideInInspector] public bool isStickyWall;
+    [HideInInspector] public bool isEnemy;
 
     private Rigidbody2D rb;
     public Transform checkGround;       //gameobjects que detectaran la derecha, izquierda y suelo
@@ -22,13 +23,13 @@ public class SlimeController : MonoBehaviour
     public LayerMask whatIsIce;
     public LayerMask whatIsWall;
     public LayerMask whatIsSticky;
+    //public LayerMask whatIsEnemy;
     private int moreJumps;              // variable privada que traduce tus saltos restantes
     public int moreJumpsValue;          // int publica que dicta cuantos saltos extras puedes ahcer
     private bool jump;                  // booleano que se activa al saltar            
     public float speedMultiplier = 2f;      // constante que se va multiplicando a la velocidad al resbalarse
     public float betweenJumps;
     private bool nextJump;      // dicta cuando el slime esta preparado apra el segundo salto
-    private bool almostStop;    // booleano dedicado a parar (en proceso)
     private bool slip;
     public float timeWall;
     public float timeIce;
@@ -37,7 +38,7 @@ public class SlimeController : MonoBehaviour
     public float slipIce;               // contante de resbalarse en el hielo
     public float slipMultiplierWall;
     public float slipSticky;
-    public bool changeDirection;
+    private bool changeDirection;
     public float currentVelocity;
     public BoxCollider2D col;
     public float counterAfterJump;
@@ -106,8 +107,6 @@ public class SlimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(name);
-
         if (isWall)
         {
             timeToSlip = timeWall;
@@ -143,19 +142,18 @@ public class SlimeController : MonoBehaviour
             changeDirection = false;
         }
 
-        if (isGround == true)                           // si estas en el suelo, el siguiente salto sera true para poder slatar cuando quieras, se reinicia el slipmultiplayer y se reinicia el morejumps
+        if (isGround)                           // si estas en el suelo, el siguiente salto sera true para poder slatar cuando quieras, se reinicia el slipmultiplayer y se reinicia el morejumps
         {
             nextJump = true;
             moreJumps = moreJumpsValue;
             slipMultiplier = slipMultiplierWall;
-            Debug.Log("contacto suelo");
+            //Debug.Log("contacto suelo");
             slip = false;
             stop = true;
         }
 
         if(isGround && isWall)
         {
-            Debug.Log("yeah");
             changeDirection = true;
         }
 
