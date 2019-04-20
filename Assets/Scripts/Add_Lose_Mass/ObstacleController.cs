@@ -66,6 +66,7 @@ public class ObstacleController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GameController.instance.damaged = true;
+            FindObjectOfType<audioController>().Play("takeDamage");
 
             lostMass = GameController.instance.maxMass * PercentageLostMass;
             lostMassSprite = GameController.instance.difSize * PercentageLostMass;
