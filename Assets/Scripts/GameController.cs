@@ -100,7 +100,10 @@ public class GameController : MonoBehaviour
             else
             {
                 //DEAD
-                playerDead();
+                if (!isDead)
+                {
+                    playerDead();
+                }
             }
         }
 
