@@ -31,7 +31,6 @@ public class FruitController : MonoBehaviour
             gainedMassSprite = GameController.instance.difSize * PercentageGainedMass;
 
             GameController.instance.AddMass(gainedMass, gainedMassSprite);//modificar cuando creemos game controller
-            FindObjectOfType<audioController>().Play("giveHealth");
             Destroy(gameObject);
         }
     }
