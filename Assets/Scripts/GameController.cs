@@ -222,11 +222,13 @@ public class GameController : MonoBehaviour
     // Cosas ha hacer cuando muere
     public void playerDead()
     {
+        /*
         isDead = true;
         canvas.GetComponent<MenusScript>().loadGameOverMenu();
         addHeightStat(alturaActual);
         addEnemiesKilledStat(enemiesKilled);
         addScoreStat(score);
+        */
     }
 
 
