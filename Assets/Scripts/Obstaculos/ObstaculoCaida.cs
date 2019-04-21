@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstaculoCaida : MonoBehaviour
 {
+    public float time2Destroy = 4f;
     private Rigidbody2D rb2d;
     public GameObject go;
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class ObstaculoCaida : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             rb2d.isKinematic = false;
+            Destroy(gameObject, time2Destroy);
         }
 
         
