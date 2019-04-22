@@ -218,37 +218,11 @@ public class GameController : MonoBehaviour
         
         isDead = true;
         canvas.GetComponent<MenusScript>().loadGameOverMenu();
-        /*
-        addHeightStat(alturaActual);
-        addEnemiesKilledStat(enemiesKilled);
-        addScoreStat(score);
-        */
         enemiesKilled += saveController.LoadDataEnemies();
         alturaActual +=saveController.LoadDataHeight();
         score += saveController.LoadDataScore();
 
         saveController.SaveData(score, alturaActual, enemiesKilled);
-    }
-
-
-
-    // Añadimos a los stats la altura hecha
-    //BUSCAR COMO GUARDAR VALORES
-    public void addHeightStat(float altura)
-    {      
-        RestartLevel.instance.maxAltura += altura;
-    }
-
-    // Añadimos a los stats las eliminaciones hechas
-    public void addEnemiesKilledStat(int enemies)
-    {
-        RestartLevel.instance.enemiesKilled += enemies;
-    }
-
-    // Añade los puntos hechos a los stats
-    public void addScoreStat(int score)
-    {
-        RestartLevel.instance.totalScore += score;
     }
 
 }

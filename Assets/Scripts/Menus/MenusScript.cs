@@ -65,11 +65,6 @@ public class MenusScript : MonoBehaviour
     public void loadStatsMenu() {
         ChangeMenu(menus[(int)menuState.Stats]);
 
-        /*
-        statEnemiesTotal.text = "Enemigos: " + RestartLevel.instance.enemiesKilled.ToString();
-        statHeightTotal.text = "Altura: " + RestartLevel.instance.maxAltura.ToString("#.#");
-        statScoreTotal.text = "Puntuacion: " + RestartLevel.instance.totalScore.ToString();
-        */
         statEnemiesTotal.text = "Enemigos: " + saveController.LoadDataEnemies();
         statHeightTotal.text = "Altura: " + saveController.LoadDataHeight();
         statScoreTotal.text = "Puntuacion: " + saveController.LoadDataScore();
