@@ -25,7 +25,7 @@ public class portalController : MonoBehaviour
         }
 
         else if(collision.gameObject.CompareTag("Bullet")){
-            FindObjectOfType<audioController>().Play("portalSound");
+            //FindObjectOfType<audioController>().Play("portalSound");
             if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0)
             {
                 finalPosition = otherPortalRight.position;
