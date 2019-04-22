@@ -48,8 +48,9 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool healed;
 
     public GameObject canvas;
+    private SaveController saveController;
 
-    public bool isDead = false;
+    [HideInInspector] public bool isDead = false;
  
     private void Awake()
     {
@@ -83,6 +84,7 @@ public class GameController : MonoBehaviour
         slider.value = maxMass;
 
         isSliding = player.GetComponent<SlimeController>();
+        saveController = GetComponent<SaveController>();
     }
 
     // Update is called once per frame
@@ -111,25 +113,16 @@ public class GameController : MonoBehaviour
         DamageFlash();
         HealFlash();
 
-
-       //PAUSEEEEEEEEEEEEEEEEEEEEEE
-       if(Input.GetKeyDown("p")){
-
-            Time.timeScale = 0;
-            canvas.GetComponent<MenusScript>().loadPauseMenu();
-
-        }
-
         // ALTURA ACTUAL DEL JUGADOR
         alturaActual = player.transform.position.y;
-        alturaText.text = alturaActual.ToString("#.#");
+        alturaText.text = alturaActual.ToString("F0") + " m";
 
     }
     // Añade puntuacion cuando enemigo muere
     public void AddScore(int newScore)
     {
         score += newScore;
-        scoreText.text = "Score:" + score.ToString();         
+        scoreText.text = score.ToString();         
     }
     // Permite disparar o no y modifica canvas
     public void setShoot(bool shootable)
@@ -222,13 +215,19 @@ public class GameController : MonoBehaviour
     // Cosas ha hacer cuando muere
     public void playerDead()
     {
-        /*
+        
         isDead = true;
         canvas.GetComponent<MenusScript>().loadGameOverMenu();
+        /*
         addHeightStat(alturaActual);
         addEnemiesKilledStat(enemiesKilled);
         addScoreStat(score);
         */
+        enemiesKilled += saveController.LoadDataEnemies();
+        alturaActual +=saveController.LoadDataHeight();
+        score += saveController.LoadDataScore();
+
+        saveController.SaveData(score, alturaActual, enemiesKilled);
     }
 
 
