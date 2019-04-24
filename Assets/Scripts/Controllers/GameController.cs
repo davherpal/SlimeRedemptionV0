@@ -27,7 +27,9 @@ public class GameController : MonoBehaviour
     private SlimeController isSliding;
 
     [HideInInspector] public bool shoot;
-    public Text textShoot;
+    public Image ShootImg;
+    private float alphaShootable = 1f;
+    private float alphaUnShootable = 0.4f;
 
     [HideInInspector] public float alturaActual;
     [HideInInspector] public int enemiesKilled;
@@ -127,14 +129,20 @@ public class GameController : MonoBehaviour
     // Permite disparar o no y modifica canvas
     public void setShoot(bool shootable)
     {
+        var tempColor = ShootImg.color;
         shoot = shootable;
         if (shootable)
         {
-            textShoot.text = "1";
+       
+            tempColor.a = alphaShootable;
+            ShootImg.color = tempColor;
+            
         }
         else
         {
-            textShoot.text = "0";
+      
+            tempColor.a = alphaUnShootable;
+            ShootImg.color = tempColor;
         }
 
     }
