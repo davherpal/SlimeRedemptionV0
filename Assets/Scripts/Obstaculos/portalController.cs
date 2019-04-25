@@ -21,7 +21,8 @@ public class portalController : MonoBehaviour
             {
                 finalPosition = otherPortalLeft.position;
             }
-            collision.gameObject.transform.position = finalPosition;          
+            collision.gameObject.transform.position = finalPosition;
+            collision.gameObject.GetComponent<SlimeController>().moreJumps = collision.gameObject.GetComponent<SlimeController>().moreJumpsValue;
         }
 
         else if(collision.gameObject.CompareTag("Bullet")){
