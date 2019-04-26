@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2197681883697597377}
   m_Layer: 0
-  m_Name: setPortals (1)
+  m_Name: setPortals 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 4880392481046522599}
   - component: {fileID: 6066405217359885017}
   - component: {fileID: 8861727517356451667}
-  - component: {fileID: 1561446379306462819}
   m_Layer: 0
   m_Name: portal1
   m_TagString: Untagged
@@ -168,8 +167,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 386ab9efa0696e24692bb2e2421d82db, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   otherPortalRight: {fileID: 1919027292052433901}
   otherPortalLeft: {fileID: 8754389926548493376}
 --- !u!61 &6066405217359885017
@@ -189,7 +188,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.95, y: 2.75}
+    oldSize: {x: 0.32, y: 0.96}
     newSize: {x: 1.9, y: 5.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -235,7 +234,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b042cccb4b28eaa4bbede6b90461bba9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ad6578662c0ebe498ace2506eee1725, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -246,25 +245,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1561446379306462819
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7535727524969311812}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f0d20b6bb9c613e48a5b9a6d06b5af89, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage:
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7675959501621892060
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +257,6 @@ GameObject:
   - component: {fileID: 805556143148687425}
   - component: {fileID: 640289591969731665}
   - component: {fileID: 3908450185724130514}
-  - component: {fileID: 8108361453740254037}
   m_Layer: 0
   m_Name: portal2
   m_TagString: Untagged
@@ -311,8 +290,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 386ab9efa0696e24692bb2e2421d82db, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   otherPortalRight: {fileID: 5705878256863656361}
   otherPortalLeft: {fileID: 420359229867351569}
 --- !u!61 &640289591969731665
@@ -332,7 +311,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.95, y: 2.75}
+    oldSize: {x: 0.32, y: 0.96}
     newSize: {x: 0.6333333, y: 1.8333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -378,7 +357,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b042cccb4b28eaa4bbede6b90461bba9, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 0ad6578662c0ebe498ace2506eee1725, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -389,25 +368,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8108361453740254037
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7675959501621892060}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f0d20b6bb9c613e48a5b9a6d06b5af89, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage:
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7923053277829614303
 GameObject:
   m_ObjectHideFlags: 0

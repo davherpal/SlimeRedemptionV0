@@ -13,6 +13,8 @@ public class MenusScript : MonoBehaviour
     public Text statHeightTotal, statScoreTotal, statEnemiesTotal;
     public Text GameOverHeight, GameOverScore, GameOverEnemies;
 
+    public SaveController saveController;
+
     // Default Menu screen
     private void Awake()
     {
@@ -63,9 +65,10 @@ public class MenusScript : MonoBehaviour
     public void loadStatsMenu() {
         ChangeMenu(menus[(int)menuState.Stats]);
 
-        statEnemiesTotal.text = "Enemigos: " + RestartLevel.instance.enemiesKilled.ToString();
-        statHeightTotal.text = "Altura: " + RestartLevel.instance.maxAltura.ToString("#.#");
-        statScoreTotal.text = "Puntuacion: " + RestartLevel.instance.totalScore.ToString();
+        statEnemiesTotal.text = "Enemigos: " + saveController.LoadDataEnemies();
+        statHeightTotal.text = "Altura: " + saveController.LoadDataHeight();
+        statScoreTotal.text = "Puntuacion: " + saveController.LoadDataScore();
+
     }
 
     // Load Skins menu
@@ -82,6 +85,7 @@ public class MenusScript : MonoBehaviour
     // Load Pause Menu
     public void loadPauseMenu()
     {
+        Time.timeScale = 0;
         ChangeMenu(menus[(int)menuState.Pause]);
     }
 
