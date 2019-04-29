@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CameraController : MonoBehaviour
 {
@@ -26,6 +27,12 @@ public class CameraController : MonoBehaviour
             Vector3 newPosition = new Vector3(transform.position.x + xMov, transform.position.y + yMov, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, newPosition, smoothCam);
         }
+
+        if (GameController.instance.damaged)
+        {
+            transform.DOShakePosition(.3f, .5f, 30, 90, false, true);
+        }
+
     }
 
     bool IsTargetInDeadZone(out float xMov, out float yMov)
