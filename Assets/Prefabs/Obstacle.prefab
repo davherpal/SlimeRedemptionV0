@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PercentageLostMass: 0.5
+  PercentageLostMass: 0.1
   isAHazard: 0
   overTimeDamage: 0.5
 --- !u!58 &6148129925855549951
