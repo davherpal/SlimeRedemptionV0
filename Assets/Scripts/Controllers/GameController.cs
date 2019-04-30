@@ -53,29 +53,20 @@ public class GameController : MonoBehaviour
     private SaveController saveController;
 
     [HideInInspector] public bool isDead = false;
+
+    // Particle System cuando se desliza
+    public GameObject particle;
  
     private void Awake()
     {
         instance = this;
-        
-        /*
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            if (instance != this)
-                DestroyImmediate(gameObject);
-        }     
-        */
     }
     
 
     // Start is called before the first frame update
     void Start()
     {
+
         mass = maxMass;
         lostMassPerSecond = maxMass / time2LoseAllMass;         //Masa que se pierde por segundo
 
@@ -87,6 +78,8 @@ public class GameController : MonoBehaviour
 
         isSliding = player.GetComponent<SlimeController>();
         saveController = GetComponent<SaveController>();
+
+        particle.SetActive(false);
     }
 
     // Update is called once per frame
@@ -95,6 +88,9 @@ public class GameController : MonoBehaviour
         //Si se esta deslizando y no esta en el suelo
         if (isSliding.isWall || isSliding.isStickyWall || isSliding.isIce && !isSliding.isGround )
         {
+
+            particle.SetActive(true);
+
             if (mass >= 0)      //Pierde masa solo si es mayor de 0
             {
                 mass = mass - (lostMassPerSecond * Time.deltaTime);
@@ -109,6 +105,10 @@ public class GameController : MonoBehaviour
                     playerDead();
                 }
             }
+        }
+        else
+        {
+            particle.SetActive(false);
         }
 
         // Checks si es true y en el siguiente hace un lerp entre colores a una velocidad x
