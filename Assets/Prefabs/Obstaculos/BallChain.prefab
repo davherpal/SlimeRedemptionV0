@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604971810431911798}
   m_LocalRotation: {x: 0, y: 0, z: 0.23344536, w: 0.97236997}
-  m_LocalPosition: {x: -4.35, y: 12.18, z: 0}
+  m_LocalPosition: {x: -4.26, y: 12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1164663941
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7979c5d099df64446a7ce0532070b67e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -129,7 +129,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.9}
+  m_Offset: {x: 0, y: -1.14}
   serializedVersion: 2
   m_Radius: 1.5
 --- !u!58 &1604971810431911793
@@ -145,9 +145,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.9}
+  m_Offset: {x: 0, y: -1.14}
   serializedVersion: 2
-  m_Radius: 1.35
+  m_Radius: 1.4
 --- !u!50 &1604971810431911792
 Rigidbody2D:
   serializedVersion: 4
@@ -184,7 +184,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 1.3, y: 2.14}
-  m_ConnectedAnchor: {x: -4.1632314, y: 14.676942}
+  m_ConnectedAnchor: {x: -4.0732317, y: 14.496942}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
