@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: music1
-    volume: 0.35
+    volume: 0.172
     pitch: 1
     clip: {fileID: 8300000, guid: 47604a4827f3da14bbb759ce2d42ebab, type: 3}
     Loop: 1
@@ -57,20 +57,74 @@ MonoBehaviour:
     Loop: 0
     source: {fileID: 0}
   - name: giveHealth
-    volume: 0.333
+    volume: 0.744
     pitch: 1
-    clip: {fileID: 8300000, guid: 26a064cf91da1f94eb466d506931d7d3, type: 3}
+    clip: {fileID: 8300000, guid: 00868cea893bd51478505cd0a0e91a39, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: takeDamage
-    volume: 0.333
+    volume: 0.511
     pitch: 1
     clip: {fileID: 8300000, guid: 1716f26d9f93f8a4190608fa7fe09af6, type: 3}
     Loop: 0
     source: {fileID: 0}
-  - name: portalSound
+  - name: 'bruh moment #2'
     volume: 0.333
     pitch: 1
     clip: {fileID: 8300000, guid: cf2da55b8e6d1f54cafba2b6e7db4a74, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: shootSound
+    volume: 0.089
+    pitch: 1
+    clip: {fileID: 8300000, guid: 4a727467085805a43aadc874dcaec081, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: confirmSound
+    volume: 0.089
+    pitch: 1
+    clip: {fileID: 8300000, guid: 4512da7bfbbf83745a28bd0ae4abb939, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: explosionSound
+    volume: 0.089
+    pitch: 1
+    clip: {fileID: 8300000, guid: 8babfd972a4246b4da8bbbacd54d2c0b, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: iceMusic
+    volume: 0.333
+    pitch: 1
+    clip: {fileID: 8300000, guid: d430e68feee5c4641a38a2c4240dcbda, type: 3}
+    Loop: 1
+    source: {fileID: 0}
+  - name: skyTowerMusic
+    volume: 0.333
+    pitch: 1
+    clip: {fileID: 8300000, guid: fd96e834f678d154497896daee786641, type: 3}
+    Loop: 1
+    source: {fileID: 0}
+  - name: portalSound
+    volume: 0.596
+    pitch: 1
+    clip: {fileID: 8300000, guid: d21ed500156fc6f4fafe01ded4f9bace, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: gameOver
+    volume: 0.596
+    pitch: 1
+    clip: {fileID: 8300000, guid: c97940537dc7bcf46a71cefece91e3eb, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: axesoundeffect
+    volume: 0.596
+    pitch: 1
+    clip: {fileID: 8300000, guid: f1aa7107776e3d2428584ee4647ad6fb, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: icebreakingsoundeffect
+    volume: 0.596
+    pitch: 1
+    clip: {fileID: 8300000, guid: 5026e09c32d6e7041b34b93813b38e7f, type: 3}
     Loop: 0
     source: {fileID: 0}

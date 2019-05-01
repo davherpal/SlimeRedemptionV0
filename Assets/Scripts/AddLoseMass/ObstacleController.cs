@@ -9,6 +9,8 @@ public class ObstacleController : MonoBehaviour
 
     // Esta en trigger para poder ser aplicado a todo aquello que hagaa perder vida, se le añadi un box collider encima y ya.
 
+    public AudioSource playAudio;
+    
     [Tooltip("Porcentaje de masa que perdera al entrar en contacto")]
     [Range(0.0f, 1f)]
     public float PercentageLostMass;
@@ -66,6 +68,11 @@ public class ObstacleController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GameController.instance.damaged = true;
+
+            if (playAudio != null)
+            {
+                playAudio.Play();
+            }
 
             lostMass = GameController.instance.maxMass * PercentageLostMass;
             lostMassSprite = GameController.instance.difSize * PercentageLostMass;

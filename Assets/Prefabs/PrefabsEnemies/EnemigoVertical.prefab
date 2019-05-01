@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 2285845284533512857}
   - component: {fileID: 7826276874845748416}
   - component: {fileID: 3842041558667921294}
-  - component: {fileID: 2285845284533512860}
+  - component: {fileID: 8725521139119825830}
   - component: {fileID: 2285845284533512858}
   - component: {fileID: 8820179193975926291}
   - component: {fileID: 2285845284533512859}
@@ -182,7 +182,7 @@ MonoBehaviour:
   deadPointTransDown: {fileID: 5455712108118760821}
   timeFall: 20
   score: 100
---- !u!114 &2285845284533512860
+--- !u!114 &8725521139119825830
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Wall
   - Tag1
+  - LimiterEnemy
   layers:
   - Default
   - TransparentFX

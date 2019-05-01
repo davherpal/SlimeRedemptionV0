@@ -17,6 +17,7 @@ public class EnemigoDisparoController : MonoBehaviour
     public void EnemyShooting()
     {
         Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
+        //FindObjectOfType<audioController>().Play("shootSound");
     }
 
 }

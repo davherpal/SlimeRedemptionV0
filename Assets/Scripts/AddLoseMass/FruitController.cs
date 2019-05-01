@@ -23,6 +23,8 @@ public class FruitController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            FindObjectOfType<audioController>().Play("giveHealth");
+
             GameController.instance.healed = true;
 
             GameController.instance.AddScore(score);

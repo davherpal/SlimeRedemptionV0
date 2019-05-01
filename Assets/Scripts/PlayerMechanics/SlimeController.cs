@@ -24,7 +24,7 @@ public class SlimeController : MonoBehaviour
     public LayerMask whatIsWall;
     public LayerMask whatIsSticky;
     //public LayerMask whatIsEnemy;
-    private int moreJumps;              // variable privada que traduce tus saltos restantes
+    [HideInInspector]public int moreJumps;              // variable privada que traduce tus saltos restantes
     public int moreJumpsValue;          // int publica que dicta cuantos saltos extras puedes ahcer
     private bool jump;                  // booleano que se activa al saltar            
     public float speedMultiplier = 2f;      // constante que se va multiplicando a la velocidad al resbalarse

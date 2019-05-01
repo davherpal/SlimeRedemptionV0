@@ -21,11 +21,12 @@ public class portalController : MonoBehaviour
             {
                 finalPosition = otherPortalLeft.position;
             }
-            collision.gameObject.transform.position = finalPosition;          
+            collision.gameObject.transform.position = finalPosition;
+            collision.gameObject.GetComponent<SlimeController>().moreJumps = collision.gameObject.GetComponent<SlimeController>().moreJumpsValue;
         }
 
         else if(collision.gameObject.CompareTag("Bullet")){
-            FindObjectOfType<audioController>().Play("portalSound");
+            //FindObjectOfType<audioController>().Play("portalSound");
             if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0)
             {
                 finalPosition = otherPortalRight.position;

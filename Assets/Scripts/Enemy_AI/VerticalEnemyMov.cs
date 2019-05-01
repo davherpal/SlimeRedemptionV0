@@ -28,5 +28,14 @@ public class VerticalEnemyMov : MonoBehaviour
         }
        
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag == "LimiterEnemy")
+        {
+            speed = -speed;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, speed);
+        }
+    }
+
 }
