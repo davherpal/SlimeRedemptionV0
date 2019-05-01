@@ -2700,7 +2700,7 @@ PrefabInstance:
     - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
         type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 0.008
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
         type: 3}
@@ -2716,6 +2716,16 @@ PrefabInstance:
         type: 3}
       propertyPath: sounds.Array.data[12].volume
       value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.284
+      objectReference: {fileID: 0}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04bcf53aa278edf489402f38d9aeb92f, type: 3}
@@ -8544,11 +8554,11 @@ MonoBehaviour:
   distance2SpawnFromPlayer: 5
   numberRoomNextBioma: 5
   bioma1:
-  - {fileID: 1388923234615628187, guid: 7e83d22b2bf7e4747b9e89f4539da1de, type: 3}
-  - {fileID: 8803967538720950381, guid: be498461891da7f48a5255408f15023d, type: 3}
-  - {fileID: 6637116802931759330, guid: 69b361e74300a3a43bd834bbb2138f01, type: 3}
-  - {fileID: 8263397755290957003, guid: 59c4c4e77813b5346b1fa99900e07931, type: 3}
-  - {fileID: 4316550900893742139, guid: 62fb0bb1876484844b19323e6f6815d6, type: 3}
+  - {fileID: 1388923234615628187, guid: 57735c92ccb21ab488313c258ce1bad6, type: 3}
+  - {fileID: 7544955841079540793, guid: cbf465940d1a4254cba4eee3ce0ffc56, type: 3}
+  - {fileID: 7786377491640177864, guid: 1e0df1deff5c66947b22364a32068307, type: 3}
+  - {fileID: 723292891956728206, guid: 433e8fbde07a2c844a92197f4c7122e1, type: 3}
+  - {fileID: 1079488243533011347, guid: 80935d45d0c66b94ca3d2aab04b6c7d3, type: 3}
   bioma2:
   - {fileID: 1388923234615628187, guid: 8a93088121678274eb2fa865c8b3d4fd, type: 3}
   - {fileID: 4327677378005882323, guid: 3c848d2cf6b5d1b40b44537a3010fde0, type: 3}

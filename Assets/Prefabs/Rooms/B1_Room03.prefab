@@ -150,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6546200632922193011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.73, y: -11.57, z: 0.25474688}
+  m_LocalPosition: {x: 3.62, y: -11.82, z: 0.25474688}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4184084616309507579}
@@ -581,11 +581,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4184084616309507579}
     m_Modifications:
-    - target: {fileID: 7133265203056794784, guid: 3adcc5ab6900c0b4aa18f38e74f731eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Limitador (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 5339260420078476097, guid: 3adcc5ab6900c0b4aa18f38e74f731eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -640,6 +635,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133265203056794784, guid: 3adcc5ab6900c0b4aa18f38e74f731eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Limitador (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3adcc5ab6900c0b4aa18f38e74f731eb, type: 3}
@@ -741,11 +741,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4184084616309507579}
     m_Modifications:
-    - target: {fileID: 2285845284533512861, guid: f522e3b9565d468498e4243d83f74539,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemigoVertical 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2285845284533512856, guid: f522e3b9565d468498e4243d83f74539,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -800,6 +795,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285845284533512861, guid: f522e3b9565d468498e4243d83f74539,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemigoVertical 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f522e3b9565d468498e4243d83f74539, type: 3}
@@ -901,11 +901,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4184084616309507579}
     m_Modifications:
-    - target: {fileID: 7133265203056794784, guid: 3adcc5ab6900c0b4aa18f38e74f731eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Limitador
-      objectReference: {fileID: 0}
     - target: {fileID: 5339260420078476097, guid: 3adcc5ab6900c0b4aa18f38e74f731eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -960,6 +955,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133265203056794784, guid: 3adcc5ab6900c0b4aa18f38e74f731eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Limitador
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3adcc5ab6900c0b4aa18f38e74f731eb, type: 3}
