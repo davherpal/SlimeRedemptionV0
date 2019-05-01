@@ -69,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1153959025
-  m_SortingLayer: 4
+  m_SortingLayerID: -1164663941
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 94bd4a80131c37d47958b1dc7d471900, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -114,8 +114,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   PercentageLostMass: 0.437
   isAHazard: 0
   overTimeDamage: 0
@@ -135,10 +135,10 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.07866722, y: -0.78502846}
-  - {x: 0.5887105, y: 0.80238616}
-  - {x: -0.49347216, y: 0.81163967}
-  - {x: 0.06769398, y: -0.78502834}
+  - {x: 0.100728154, y: -0.9173937}
+  - {x: 0.6593054, y: 0.8112105}
+  - {x: -0.5375939, y: 0.8248762}
+  - {x: 0.09857929, y: -0.91739357}
 --- !u!68 &8480315568318072007
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -155,10 +155,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.62238675, y: 0.8302789}
-  - {x: -0.5363659, y: 0.84553486}
-  - {x: 0.07842553, y: -0.8454288}
-  - {x: 0.61651117, y: 0.82158494}
+  - {x: 0.72827905, y: 0.83469117}
+  - {x: -0.5760755, y: 0.84553486}
+  - {x: 0.09607425, y: -1.0086793}
+  - {x: 0.7268157, y: 0.83040935}
+  - {x: 0.7312278, y: 0.81717277}
 --- !u!1 &7721144332584542166
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,8 +230,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43e2c977f76cc9d4d87c08a8b5a35907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   time2Destroy: 4
   playAudio: {fileID: 3841478412358805211}
   go: {fileID: 7721144332391957304}
