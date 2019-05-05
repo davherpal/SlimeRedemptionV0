@@ -24,6 +24,8 @@ public class RoomController : MonoBehaviour
     // Cada cuentas habitaciones empieza nuevo bioma
     public float numberRoomNextBioma = 5;
 
+
+    public GameObject firstRoom;
     public GameObject[] bioma1;
     public GameObject[] bioma2;
     public GameObject[] bioma3;
@@ -49,9 +51,9 @@ public class RoomController : MonoBehaviour
 
         PosRoom = startRoomPosition.transform.position;
 
-        SpawnRoom(bioma1);
+        Instantiate(firstRoom, PosRoom, Quaternion.identity);
 
-       // numberRoomNextLevel = ScreenHeight * numberRoomNextLevel;
+        // numberRoomNextLevel = ScreenHeight * numberRoomNextLevel;
     }
 
     // Update is called once per frame
