@@ -41,7 +41,8 @@ public class MenusScript : MonoBehaviour
         {
             if (menu.name == menuToActivate.name)
             {
-               menu.SetActive(true);
+                menu.SetActive(true);
+               
             }
             else
             {
@@ -73,18 +74,21 @@ public class MenusScript : MonoBehaviour
 
     // Load Skins menu
     public void loadSkinsMenu() {
+        FindObjectOfType<audioController>().Play("confirmSound");
         ChangeMenu(menus[(int)menuState.Skins]);
     }
 
     // Load main menu without restarting scene
     public void loadMainMenu()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         ChangeMenu(menus[(int)menuState.Mainmenu]);
     }
 
     // Load Pause Menu
     public void loadPauseMenu()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         Time.timeScale = 0;
         ChangeMenu(menus[(int)menuState.Pause]);
     }
@@ -92,21 +96,24 @@ public class MenusScript : MonoBehaviour
     // Load sound setting menu when player comes from pause menu
     public void loadSoundMenuInGame()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         ChangeMenu(menus[(int)menuState.SoundIngame]);
     }
     
     // Load main menu restarting the scene, only avaliable from pause menu
     public void loadMainMenuInGame()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         RestartLevel.instance.retry = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     // Load Game Over Menu
     public void loadGameOverMenu()
     {
+        
         Time.timeScale = 0;
         ChangeMenu(menus[(int)menuState.GameOver]);
-
+        
         GameOverEnemies.text = "Enemigos: " + GameController.instance.enemiesKilled.ToString();
         GameOverHeight.text = "Altura: " + GameController.instance.alturaActual.ToString("#.#");
         GameOverScore.text = "Puntuacion: " + GameController.instance.score.ToString();
@@ -116,6 +123,7 @@ public class MenusScript : MonoBehaviour
     // Restarts game
     public void retryGame()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         RestartLevel.instance.retry = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
