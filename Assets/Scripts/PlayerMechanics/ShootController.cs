@@ -18,7 +18,8 @@ public class ShootController : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 vecDir;
 
-    public LineRenderer ln;
+    public GameObject lineRenderer;
+    private LineRenderer ln;
     private bool drawLn;
     private Vector3 mousePos;
     private bool insideArea;
@@ -41,6 +42,8 @@ public class ShootController : MonoBehaviour
             // Cuando haces el primer click
             if (Input.GetMouseButtonDown(0))
             {
+                ln = Instantiate(lineRenderer, Vector2.right, Quaternion.identity).GetComponent<LineRenderer>();
+
                 startPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 drawLn = true;
                 ln.SetPosition(0, startPosition + Vector3.forward * 10);                        // PRIMER PUNTO DE LA LINEA
@@ -89,7 +92,7 @@ public class ShootController : MonoBehaviour
             bulletInstance.velocity = new Vector2(vecDir.x * bulletSpeed, vecDir.y * bulletSpeed);
             instanced = false;
             
-           // Destroy(ln, 3.5f);// Destruya linea para que no obstruya mucho en pantalla
+            Destroy(ln, .5f);// Destruya linea para que no obstruya mucho en pantalla
 
         }
     }
