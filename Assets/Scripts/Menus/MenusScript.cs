@@ -35,6 +35,7 @@ public class MenusScript : MonoBehaviour
         }
         else
         {
+            background.SetActive(true);
             hazard.SetActive(false);
             moveMenus[(int)menuState.Mainmenu].DOAnchorPos(Vector2.zero, .5f).From(Vector2.up * -750);
 

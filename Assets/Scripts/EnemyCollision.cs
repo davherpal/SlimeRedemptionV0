@@ -15,14 +15,14 @@ public class EnemyCollision : MonoBehaviour
     public float circleRadius = 0.2f;
     [Tooltip("Posicion por donde el player tendra que pasar para abatir enemigo")]
     public Transform deadPointTransUp;
-    public Transform deadPointTransDown;
+    //public Transform deadPointTransDown;
     [Tooltip("Tiempo para que la velocidad del player baje a 0 despues de comer algo")]
     public float timeFall = 20;
 
     public int score = 100; 
 
     private Vector3 deadPointUp;
-    private Vector3 deadPointDown;
+    //private Vector3 deadPointDown;
 
     private void Start()
     {
@@ -33,19 +33,19 @@ public class EnemyCollision : MonoBehaviour
     void Update()
     {
         deadPointUp = deadPointTransUp.position;
-        deadPointDown = deadPointTransDown.position;
+        //deadPointDown = deadPointTransDown.position;
 
         playerisOver = Physics2D.OverlapCircle(deadPointUp, circleRadius, player);
-        playerisUnder = Physics2D.OverlapCircle(deadPointDown, circleRadius, player);
+        //playerisUnder = Physics2D.OverlapCircle(deadPointDown, circleRadius, player);
 
         // Si esta encima se muere y el player gana un disparo
-        if (playerisOver || playerisUnder)
+        if (playerisOver /*|| playerisUnder*/)
         {
             GameController.instance.AddScore(score);
             GameController.instance.setShoot(true);
             GameController.instance.AddEnemyKilled();
 
-            Destroy(gameObject);
+            Destroy(transform.root.gameObject);
 
             if (playerRb.velocity != Vector2.zero)
             {

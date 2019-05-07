@@ -3177,6 +3177,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4610757604351201888}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &285421605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4610757605333784714, guid: b8e552942f3f255458385390347beda5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4610757604351201888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285421604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc62a417b5db4b745a2bb1be4b14e32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &298416878
 GameObject:
   m_ObjectHideFlags: 0
@@ -4480,7 +4492,7 @@ RectTransform:
   - {fileID: 930234263}
   - {fileID: 1434304523}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5414,7 +5426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 443, y: 632}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &785056424
@@ -5717,7 +5729,7 @@ PrefabInstance:
     - target: {fileID: 2441778109171120119, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2441778109171120119, guid: 3bb11efde35915e47af4040879105098,
         type: 3}
@@ -6031,7 +6043,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &995554137
 GameObject:
@@ -6062,7 +6074,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &995554139
 MonoBehaviour:
@@ -6943,7 +6955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1239593623
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9830,7 +9842,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1978266093
 MonoBehaviour:
@@ -9848,6 +9860,7 @@ MonoBehaviour:
   startRoomPosition: {fileID: 1705771700}
   distance2SpawnFromPlayer: 1
   numberRoomNextBioma: 1
+  hazard: {fileID: 285421605}
   firstRoom: {fileID: 1388923234615628187, guid: 05a77bf0d7cff3644a2a792d8c3a511a,
     type: 3}
   bioma1:

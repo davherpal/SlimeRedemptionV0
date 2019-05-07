@@ -10,12 +10,16 @@ public class EnemyFollowerController : MonoBehaviour
     private GameObject player;
     private Vector3 initialPosition;
 
+    private Animator ator;
+
 
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         initialPosition = transform.position;
+
+        ator = gameObject.GetComponent<Animator>();
 
     }
 
@@ -28,7 +32,15 @@ public class EnemyFollowerController : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position);
         //En el caso que la distancia sea menor a la visionradius el gameobject se ira moviendo hacia el objetivo a la velocidad
         //puesta eb fixedSpeed
-        if (dist < visionRadius) target = player.transform.position;
+        if (dist < visionRadius)
+        {
+            target = player.transform.position;
+            ator.SetBool("perseguir", true);
+        }
+        else
+        {
+            ator.SetBool("perseguir", false);
+        }
 
         float fixedSpeed = speed * Time.deltaTime;
 
@@ -36,6 +48,8 @@ public class EnemyFollowerController : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target, fixedSpeed);
 
         Debug.DrawLine(transform.position, target, Color.green);
+
+
     }
 
     //Funcion para dibujar un circulo que sera del mismo tamaño que el rango que le pongamos al gameobject

@@ -24,6 +24,8 @@ public class RoomController : MonoBehaviour
     // Cada cuentas habitaciones empieza nuevo bioma
     public float numberRoomNextBioma = 5;
 
+    public HazardController hazard;
+
 
     public GameObject firstRoom;
     public GameObject[] bioma1;
@@ -77,11 +79,13 @@ public class RoomController : MonoBehaviour
                     SpawnRoom(bioma2);
                     spawnedRooms++;
                     changeBiomaEnum(bioma.bioma3);
+                    hazard.speed = 4;
                     break;
 
                 case bioma.bioma3:
                     SpawnRoom(bioma3);
                     spawnedRooms++;
+                    hazard.speed = 5;
                     break;
             }      
         }
