@@ -3,68 +3,128 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MenusScript : MonoBehaviour
 {
-   // Enum y el array de gameobject tienen el mismo, tener en cuenta los dos.
-    public enum menuState {Mainmenu, Play, Sound, Stats, Skins, Pause, SoundIngame, GameOver}
-    public GameObject[] menus;
+    // Enum y el array de gameobject tienen el mismo, tener en cuenta los dos.
+    public enum menuState { Mainmenu, Play, Sound, SoundIngame, Skins, Stats, Pause, GameOver }
+    public RectTransform[] moveMenus;
 
     public Text statHeightTotal, statScoreTotal, statEnemiesTotal;
     public Text GameOverHeight, GameOverScore, GameOverEnemies;
 
     public SaveController saveController;
+    public GameObject hazard;
+    public GameObject player;
 
-    // Default Menu screen
-    private void Awake()
-    {
-        ChangeMenu(menus[(int)menuState.Mainmenu]);
-        Time.timeScale = 0;
-       // ChangeMenu(menus[(int)menuState.Play]);
-    }
+    // Para que no se vea el fondo del juego cuando te mueve por los menus
+    public GameObject background;
 
     void Start()
     {
+
         // If player retry game
         if (RestartLevel.instance.retry)
         {
-            ChangeMenu(menus[(int)menuState.Play]);
-            Time.timeScale = 1;
+            // Mostramos se vea juego
+            background.SetActive(false);
+
+            ChangeMenu(moveMenus[(int)menuState.Play]);
+            hazard.SetActive(true);
+        }
+        else
+        {
+            background.SetActive(true);
+            hazard.SetActive(false);
+            moveMenus[(int)menuState.Mainmenu].DOAnchorPos(Vector2.zero, .5f).From(Vector2.up * -750);
+
         }
 
     }
 
-    // Hides all canvas panels that are not the one we want
-    public void ChangeMenu(GameObject menuToActivate)
+    // Mueve desde abajo al medio el canvas q nos interesa sino lo desplaza los otros dentro del array hacia arriba
+    public void ChangeMenu(RectTransform menuToActivate)
     {
-        foreach (GameObject menu in menus)
+        foreach (RectTransform menu in moveMenus)
         {
             if (menu.name == menuToActivate.name)
             {
-                menu.SetActive(true);
-               
+                menuToActivate.DOAnchorPos(Vector2.zero, .5f).From(Vector2.up * -750);
             }
             else
             {
-                menu.SetActive(false);
+                menu.DOAnchorPos(Vector2.up * 750, .5f).From(Vector2.zero);
+            }
+        }
+
+    }
+
+    // Load main menu without restarting scene
+    public void loadMainMenu()
+    {
+        ChangeMenu(moveMenus[(int)menuState.Mainmenu]);
+    }
+
+    // Load main menu restarting the scene, only avaliable from pause menu
+    public void loadMainMenuInGame()
+    {
+        RestartLevel.instance.retry = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Load in game menu
+    public void loadPlayMenu()
+    {
+        // Activamos hazard y player ya que no podemos pausar sino animaciones no funcionarian
+        hazard.SetActive(true);
+        player.SetActive(true);
+        // Escondemos se pueda ver juego
+        background.SetActive(false);
+
+        ChangeMenu(moveMenus[(int)menuState.Play]);
+
+        // Escondemos los canvas cuando se esta dentro del juego para que no molesten y cuando se presione barra espaciadora el juego corra bien
+        StartCoroutine(wait());
+
+        IEnumerator wait()
+        {
+            yield return new WaitForSeconds(.5f);
+
+            foreach (RectTransform menu in moveMenus)
+            {
+                if (menu.name != "InGameUI")
+                {
+                    menu.gameObject.SetActive(false);
+                }
             }
         }
     }
 
-    // Load game menu
-    public void loadPlayMenu() {
-        ChangeMenu(menus[(int)menuState.Play]);
-        Time.timeScale = 1;
+    // Loud sound setting menu
+    public void loadSoundMenu()
+    {
+        ChangeMenu(moveMenus[(int)menuState.Sound]);
     }
 
-    // Loud sound setting menu
-    public void loadSoundMenu() {
-        ChangeMenu(menus[(int)menuState.Sound]);
+    // Load sound setting menu when player comes from pause menu
+    public void loadSoundMenuInGame()
+    {
+        ChangeMenu(moveMenus[(int)menuState.SoundIngame]);
+    }
+
+    // Load Skins menu
+    public void loadSkinsMenu()
+    {
+        ChangeMenu(moveMenus[(int)menuState.Skins]);
+
     }
 
     // Load player stats menu
-    public void loadStatsMenu() {
-        ChangeMenu(menus[(int)menuState.Stats]);
+    public void loadStatsMenu()
+    {
+
+        ChangeMenu(moveMenus[(int)menuState.Stats]);
 
         statEnemiesTotal.text = "Enemigos: " + saveController.LoadDataEnemies();
         statHeightTotal.text = "Altura: " + saveController.LoadDataHeight();
@@ -72,52 +132,59 @@ public class MenusScript : MonoBehaviour
 
     }
 
-    // Load Skins menu
-    public void loadSkinsMenu() {
-        FindObjectOfType<audioController>().Play("confirmSound");
-        ChangeMenu(menus[(int)menuState.Skins]);
-    }
-
-    // Load main menu without restarting scene
-    public void loadMainMenu()
-    {
-        FindObjectOfType<audioController>().Play("confirmSound");
-        ChangeMenu(menus[(int)menuState.Mainmenu]);
-    }
-
     // Load Pause Menu
     public void loadPauseMenu()
     {
-        FindObjectOfType<audioController>().Play("confirmSound");
-        Time.timeScale = 0;
-        ChangeMenu(menus[(int)menuState.Pause]);
+        // Escondemos hazard y player, no podemos pausar nivel
+        hazard.SetActive(false);
+        player.SetActive(false);
+        // Mostramos no se vea juego de fondo
+        background.SetActive(true);
+
+        // Activamos todos los canvas escondidos anteriormente, es ineficaz porque recorre todos los canvs. Se podria crear un array canvas solo ingame y otros fuera.
+        foreach (RectTransform menu in moveMenus)
+        {
+            menu.gameObject.SetActive(true);
+        }
+
+        // Movemos pantalla pause y que se vea que la ultima fue la ingame, si se usa la funcion ChangeMenu()  se mostrara la ultima pantalla recorrida en el array y se veria mal.
+        moveMenus[(int)menuState.Pause].DOAnchorPos(Vector2.zero, .5f).From(Vector2.up * -750);
+        moveMenus[(int)menuState.Play].DOAnchorPos(Vector2.up * 750, .5f).From(Vector2.zero);
     }
 
-    // Load sound setting menu when player comes from pause menu
-    public void loadSoundMenuInGame()
+    // Load Pause Menu
+    public void loadPauseMenuFromSoundMenu()
     {
-        FindObjectOfType<audioController>().Play("confirmSound");
-        ChangeMenu(menus[(int)menuState.SoundIngame]);
+        // Movemos pantalla pause y que se vea que la ultima fue la SoundInGame, si se usa la funcion ChangeMenu() se mostrara la ultima pantalla recorrida en el array y se veria mal.
+        moveMenus[(int)menuState.Pause].DOAnchorPos(Vector2.zero, .5f).From(Vector2.up * -750);
+        moveMenus[(int)menuState.SoundIngame].DOAnchorPos(Vector2.up * 750, .5f).From(Vector2.zero);
     }
-    
-    // Load main menu restarting the scene, only avaliable from pause menu
-    public void loadMainMenuInGame()
-    {
-        FindObjectOfType<audioController>().Play("confirmSound");
-        RestartLevel.instance.retry = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+
     // Load Game Over Menu
     public void loadGameOverMenu()
     {
-        
-        Time.timeScale = 0;
-        ChangeMenu(menus[(int)menuState.GameOver]);
-        
+        // Activamos todos los canvas escondidos anteriormente, es ineficaz porque recorre todos los canvs. Se podria crear un array canvas solo ingame y otros fuera.
+
+        foreach (RectTransform menu in moveMenus)
+        {
+            menu.gameObject.SetActive(true);
+        }
+
+        // Movemos game over al centro de la pantalla, si se usa la funcion ChangeMenu()  se mostrara la ultima pantalla recorrida en el array y se veria mal.
+        moveMenus[(int)menuState.GameOver].DOAnchorPos(Vector2.zero, 2f).From(Vector2.up * -750);
+
         GameOverEnemies.text = "Enemigos: " + GameController.instance.enemiesKilled.ToString();
         GameOverHeight.text = "Altura: " + GameController.instance.alturaActual.ToString("#.#");
         GameOverScore.text = "Puntuacion: " + GameController.instance.score.ToString();
 
+        // Escondemos player y hazard una vez la pantalla ya se vea, para evitar errores y que el hazard deje de subir cargando el nivel.
+        StartCoroutine(wait());
+
+        IEnumerator wait()
+        {
+            yield return new WaitForSeconds(2f);
+            hazard.SetActive(false);
+        }
 
     }
     // Restarts game
@@ -130,5 +197,5 @@ public class MenusScript : MonoBehaviour
 
     public void quitButton() { }
 
- 
+
 }

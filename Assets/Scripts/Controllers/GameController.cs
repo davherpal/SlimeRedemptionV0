@@ -56,6 +56,9 @@ public class GameController : MonoBehaviour
 
     // Particle System cuando se desliza
     public GameObject particle;
+
+    // Particle sistem cuando muere
+    public GameObject particleGO;
  
     private void Awake()
     {
@@ -231,6 +234,11 @@ public class GameController : MonoBehaviour
         score += saveController.LoadDataScore();
 
         saveController.SaveData(score, alturaActual, enemiesKilled);
+
+        player.gameObject.SetActive(false);
+        Instantiate(particleGO, player.position, Quaternion.identity);
+        particleGO.GetComponent<ParticleSystem>().Play();
+
     }
 
 }

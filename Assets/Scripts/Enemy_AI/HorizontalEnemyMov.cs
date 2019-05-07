@@ -31,6 +31,14 @@ public class HorizontalEnemyMov : MonoBehaviour
             //StartCoroutine("Fade");
             speed = -speed;
             rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
+            if (gameObject.GetComponent<SpriteRenderer>().flipX)
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
        
     }
