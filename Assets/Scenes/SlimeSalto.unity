@@ -4273,7 +4273,7 @@ PrefabInstance:
     - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
         type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 0.015
+      value: 0.113
       objectReference: {fileID: 0}
     - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
         type: 3}
@@ -5728,6 +5728,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4076478556708154133, guid: 3bb11efde35915e47af4040879105098,
+        type: 3}
+      propertyPath: moreJumpsValue
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb11efde35915e47af4040879105098, type: 3}
 --- !u!1 &881859109
@@ -5929,7 +5934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 29.800049, y: -5.3999023}
+  m_AnchoredPosition: {x: 29.799805, y: -5.3999023}
   m_SizeDelta: {x: 58, y: 26.299988}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &951962861
