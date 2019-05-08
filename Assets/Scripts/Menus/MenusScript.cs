@@ -195,7 +195,11 @@ public class MenusScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void quitButton() { }
+    public void quitButton() {
+        FindObjectOfType<audioController>().Play("cancelsound");
+
+
+    }
 
 
 }
