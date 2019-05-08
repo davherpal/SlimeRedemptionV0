@@ -197,6 +197,7 @@ MonoBehaviour:
   deadPointTransUp: {fileID: 8289363677729663521}
   timeFall: 20
   score: 100
+  isCircleEnemy: 1
 --- !u!50 &7968698437883104942
 Rigidbody2D:
   serializedVersion: 4
