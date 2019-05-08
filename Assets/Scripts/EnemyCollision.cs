@@ -22,7 +22,8 @@ public class EnemyCollision : MonoBehaviour
     public int score = 100; 
 
     private Vector3 deadPointUp;
-    //private Vector3 deadPointDown;
+
+    public bool isCircleEnemy;
 
     private void Start()
     {
@@ -33,19 +34,27 @@ public class EnemyCollision : MonoBehaviour
     void Update()
     {
         deadPointUp = deadPointTransUp.position;
-        //deadPointDown = deadPointTransDown.position;
+        
 
         playerisOver = Physics2D.OverlapCircle(deadPointUp, circleRadius, player);
-        //playerisUnder = Physics2D.OverlapCircle(deadPointDown, circleRadius, player);
-
+        
         // Si esta encima se muere y el player gana un disparo
-        if (playerisOver /*|| playerisUnder*/)
+        if (playerisOver)
         {
             GameController.instance.AddScore(score);
             GameController.instance.setShoot(true);
             GameController.instance.AddEnemyKilled();
 
-            Destroy(transform.root.gameObject);
+            if (isCircleEnemy)
+            {
+               Destroy(transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
+ 
 
             if (playerRb.velocity != Vector2.zero)
             {
