@@ -51,9 +51,9 @@ MonoBehaviour:
     Loop: 1
     source: {fileID: 0}
   - name: jumpSoundEffect
-    volume: 0.1
+    volume: 0.372
     pitch: 1
-    clip: {fileID: 8300000, guid: 4fd63f4f3b5964143a43332a5c122e5e, type: 3}
+    clip: {fileID: 8300000, guid: de25e24f54e669649a0391d4c072d89b, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: giveHealth
@@ -75,7 +75,7 @@ MonoBehaviour:
     Loop: 0
     source: {fileID: 0}
   - name: shootSound
-    volume: 0.089
+    volume: 0.076
     pitch: 1
     clip: {fileID: 8300000, guid: 4a727467085805a43aadc874dcaec081, type: 3}
     Loop: 0

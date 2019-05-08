@@ -23,7 +23,7 @@ public class MenusScript : MonoBehaviour
 
     void Start()
     {
- 
+
         // If player retry game
         if (RestartLevel.instance.retry)
         {
@@ -190,6 +190,7 @@ public class MenusScript : MonoBehaviour
     // Restarts game
     public void retryGame()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         RestartLevel.instance.retry = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

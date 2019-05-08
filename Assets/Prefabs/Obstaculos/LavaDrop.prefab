@@ -114,8 +114,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b17727e72b60534f82ace9216adb9f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   time2Destroy: 3.5
   lavaSpeed: 10
 --- !u!114 &1489597235651278125
@@ -128,8 +128,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
+  playAudio: {fileID: 1765438964376744904}
   PercentageLostMass: 0.1
   isAHazard: 0
   overTimeDamage: 0.5
