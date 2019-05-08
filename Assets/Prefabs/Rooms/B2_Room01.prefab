@@ -576,11 +576,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 430557148554664539}
     m_Modifications:
-    - target: {fileID: 6946585011323633690, guid: fe5cc45118abe5d428342434d145e131,
-        type: 3}
-      propertyPath: m_Name
-      value: littlePlataform (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 6946585011323633670, guid: fe5cc45118abe5d428342434d145e131,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -646,6 +641,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 8.131471
       objectReference: {fileID: 0}
+    - target: {fileID: 6946585011323633690, guid: fe5cc45118abe5d428342434d145e131,
+        type: 3}
+      propertyPath: m_Name
+      value: littlePlataform (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe5cc45118abe5d428342434d145e131, type: 3}
 --- !u!4 &4294179829105620930 stripped
@@ -661,11 +661,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 430557148554664539}
     m_Modifications:
-    - target: {fileID: 8325329383210438874, guid: ee161b56b6820554a8190dfce0d3580c,
-        type: 3}
-      propertyPath: m_Name
-      value: SnowParticles
-      objectReference: {fileID: 0}
     - target: {fileID: 8325329383210438871, guid: ee161b56b6820554a8190dfce0d3580c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -674,7 +669,7 @@ PrefabInstance:
     - target: {fileID: 8325329383210438871, guid: ee161b56b6820554a8190dfce0d3580c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.4
+      value: 13.92
       objectReference: {fileID: 0}
     - target: {fileID: 8325329383210438871, guid: ee161b56b6820554a8190dfce0d3580c,
         type: 3}
@@ -721,6 +716,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8325329383210438874, guid: ee161b56b6820554a8190dfce0d3580c,
+        type: 3}
+      propertyPath: m_Name
+      value: SnowParticles
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee161b56b6820554a8190dfce0d3580c, type: 3}
 --- !u!4 &1330171494098745155 stripped
@@ -736,11 +736,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 430557148554664539}
     m_Modifications:
-    - target: {fileID: 6946585011323633690, guid: fe5cc45118abe5d428342434d145e131,
-        type: 3}
-      propertyPath: m_Name
-      value: littlePlataform (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 6946585011323633670, guid: fe5cc45118abe5d428342434d145e131,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -805,6 +800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 8.131471
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946585011323633690, guid: fe5cc45118abe5d428342434d145e131,
+        type: 3}
+      propertyPath: m_Name
+      value: littlePlataform (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe5cc45118abe5d428342434d145e131, type: 3}
