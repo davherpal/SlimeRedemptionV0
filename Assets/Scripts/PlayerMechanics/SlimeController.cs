@@ -43,6 +43,8 @@ public class SlimeController : MonoBehaviour
     public CircleCollider2D col;
     public float counterAfterJump;
 
+    private bool jumpButtonPressed;
+
     // Start is called before the first frame update
     void Start()            //al empezar spot estara en true, sino al tocar las apredes no tendremos el lapso de tiempo en el que estamos quietos
     {
@@ -66,6 +68,7 @@ public class SlimeController : MonoBehaviour
             stop = false;
             jump = false;
             slip = false;
+            jumpButtonPressed = false;
         }
 
         if (slip)
@@ -156,10 +159,18 @@ public class SlimeController : MonoBehaviour
             changeDirection = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && moreJumps > 0 && nextJump)       // salto
+        if (jumpButtonPressed && moreJumps > 0 && nextJump)       // salto
         {
             jump = true;
             FindObjectOfType<audioController>().Play("jumpSoundEffect");
+        }
+    }
+
+    public void JumpButtonPressed()
+    {
+        if (moreJumps > 0 && nextJump)
+        {
+            jumpButtonPressed = true;
         }
     }
 }
