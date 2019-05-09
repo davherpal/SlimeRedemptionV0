@@ -140,6 +140,8 @@ public class MenusScript : MonoBehaviour
         player.SetActive(false);
         // Mostramos no se vea juego de fondo
         background.SetActive(true);
+        FindObjectOfType<audioController>().Play("confirmSound");
+
 
         // Activamos todos los canvas escondidos anteriormente, es ineficaz porque recorre todos los canvs. Se podria crear un array canvas solo ingame y otros fuera.
         foreach (RectTransform menu in moveMenus)
@@ -155,6 +157,7 @@ public class MenusScript : MonoBehaviour
     // Load Pause Menu
     public void loadPauseMenuFromSoundMenu()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         // Movemos pantalla pause y que se vea que la ultima fue la SoundInGame, si se usa la funcion ChangeMenu() se mostrara la ultima pantalla recorrida en el array y se veria mal.
         moveMenus[(int)menuState.Pause].DOAnchorPos(Vector2.zero, .5f).From(Vector2.up * -750);
         moveMenus[(int)menuState.SoundIngame].DOAnchorPos(Vector2.up * 750, .5f).From(Vector2.zero);
@@ -163,6 +166,7 @@ public class MenusScript : MonoBehaviour
     // Load Game Over Menu
     public void loadGameOverMenu()
     {
+        FindObjectOfType<audioController>().Play("gameover");
         // Activamos todos los canvas escondidos anteriormente, es ineficaz porque recorre todos los canvs. Se podria crear un array canvas solo ingame y otros fuera.
 
         foreach (RectTransform menu in moveMenus)

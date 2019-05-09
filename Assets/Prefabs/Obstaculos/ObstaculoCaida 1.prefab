@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time2Destroy: 4
-  playAudio: {fileID: 2596593287561347112}
+  playAudio: {fileID: 0}
   go: {fileID: 7721144332391957304}
 --- !u!82 &2596593287561347112
 AudioSource:
