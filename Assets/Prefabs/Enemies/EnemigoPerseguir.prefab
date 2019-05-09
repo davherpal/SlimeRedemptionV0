@@ -120,6 +120,7 @@ MonoBehaviour:
   deadPointTransUp: {fileID: 6586687492594487637}
   timeFall: 20
   score: 100
+  isCircleEnemy: 0
 --- !u!114 &2183771818470327626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,9 +179,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cf2da55b8e6d1f54cafba2b6e7db4a74, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2af2ac02743a8cb45b70c265eb1a9eff, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.327
   m_Pitch: 1
   Loop: 0
   Mute: 0

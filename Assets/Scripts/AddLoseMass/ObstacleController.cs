@@ -59,6 +59,7 @@ public class ObstacleController : MonoBehaviour
         if (GameController.instance.isDead)
         {
             isCollisioning = false;
+            FindObjectOfType<audioController>().Play("gameover");
         }
     }
 
@@ -67,6 +68,8 @@ public class ObstacleController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+
+            FindObjectOfType<audioController>().Play("takeDamage");
             GameController.instance.damaged = true;
 
             if (playAudio != null)
