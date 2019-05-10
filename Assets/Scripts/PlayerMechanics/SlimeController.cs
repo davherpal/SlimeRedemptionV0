@@ -43,6 +43,7 @@ public class SlimeController : MonoBehaviour
     public CircleCollider2D col;
     public float counterAfterJump;
 
+
     private bool jumpButtonPressed;
 
     // Start is called before the first frame update
@@ -76,7 +77,6 @@ public class SlimeController : MonoBehaviour
             nextJump = true;
             changeDirection = true;
             moreJumps = moreJumpsValue;
-            //Debug.Log("contacto izquierda");
             if (stop)                               // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
             {
                 counter += Time.deltaTime;
@@ -109,7 +109,9 @@ public class SlimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (isWall)
+        Debug.Log(moreJumps);
+
+        if (isWall)
         {
             timeToSlip = timeWall;
             col.usedByEffector = true;
@@ -161,8 +163,8 @@ public class SlimeController : MonoBehaviour
 
         if (jumpButtonPressed && moreJumps > 0 && nextJump)       // salto
         {
-            jump = true;
             FindObjectOfType<audioController>().Play("jumpSoundEffect");
+            jump = true;
         }
     }
 
@@ -171,6 +173,7 @@ public class SlimeController : MonoBehaviour
         if (moreJumps > 0 && nextJump)
         {
             jumpButtonPressed = true;
+            //Debug.Log(moreJumps);
         }
     }
 }

@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9111b3edf8a8732488b0160d52386582, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   bulletSpawner: {fileID: 1285754891217102486}
   bulletPrefab: {fileID: 694034451291077204, guid: fe1a6533712c6c440840f39a90bd9aaa,
     type: 3}
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   playAudio: {fileID: 4020704198404063140}
   PercentageLostMass: 0.1
   isAHazard: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   deadPointTransUp: {fileID: 3974983584242351263}
   timeFall: 20
   score: 100
+  isCircleEnemy: 0
 --- !u!70 &4792052796654893026
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -211,7 +212,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f1aa7107776e3d2428584ee4647ad6fb, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.206
   m_Pitch: 1
