@@ -228,6 +228,7 @@ public class GameController : MonoBehaviour
     {
         
         isDead = true;
+        FindObjectOfType<audioController>().Play("gameover");
         canvas.GetComponent<MenusScript>().loadGameOverMenu();
         enemiesKilled += saveController.LoadDataEnemies();
         alturaActual +=saveController.LoadDataHeight();

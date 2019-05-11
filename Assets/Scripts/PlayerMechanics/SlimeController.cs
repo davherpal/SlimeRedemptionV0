@@ -16,6 +16,7 @@ public class SlimeController : MonoBehaviour
     [HideInInspector] public bool isEnemy;
 
     private Rigidbody2D rb;
+    private SpriteRenderer sp;
     public Transform checkGround;       //gameobjects que detectaran la derecha, izquierda y suelo
     public float checkRadius;           // el radio de esos gameobjects a la hora de detectar
     public Vector3 jumpVector;          // discta el vector de salto del slime
@@ -52,6 +53,7 @@ public class SlimeController : MonoBehaviour
         stop = true;
         moreJumps = moreJumpsValue;
         rb = GetComponent<Rigidbody2D>();
+        sp = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()      // en fixed update se denominara cuando el slime esta en la pared derecha, en la izquierda o en el suelo
@@ -97,11 +99,13 @@ public class SlimeController : MonoBehaviour
             if (currentVelocity > 0)
             {
                 jumpVector[0] = -3;
+                sp.flipX = false;
 
             }
             else
             {
                 jumpVector[0] = 3;
+                sp.flipX = true;
             }
         }
     }
