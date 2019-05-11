@@ -59,7 +59,6 @@ public class ObstacleController : MonoBehaviour
         if (GameController.instance.isDead)
         {
             isCollisioning = false;
-            FindObjectOfType<audioController>().Play("gameover");
         }
     }
 

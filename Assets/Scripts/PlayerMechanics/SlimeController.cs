@@ -113,8 +113,6 @@ public class SlimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(moreJumps);
-
         if (isWall)
         {
             timeToSlip = timeWall;
