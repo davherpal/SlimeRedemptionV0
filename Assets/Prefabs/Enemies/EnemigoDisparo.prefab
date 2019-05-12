@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9142149535345948036}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: DeadPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1862327322}
   - component: {fileID: 749018234306647334}
   - component: {fileID: 950234327}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: EnemigoDisparo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7278125674498641794}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: BulletSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}

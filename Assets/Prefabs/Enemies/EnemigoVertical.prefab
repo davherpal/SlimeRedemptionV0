@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6949533356939490707}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: DeadPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8820179193975926291}
   - component: {fileID: 2285845284533512859}
   - component: {fileID: 3924343262849762038}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemigoVertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}

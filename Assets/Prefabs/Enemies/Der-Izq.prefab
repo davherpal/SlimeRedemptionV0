@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3624817656675843402}
   - component: {fileID: 4311265709235170271}
   - component: {fileID: 7197414109736588203}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Der-Izq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5202213121790195255}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: DeadPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}

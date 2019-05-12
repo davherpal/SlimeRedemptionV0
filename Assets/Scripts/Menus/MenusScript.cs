@@ -200,13 +200,11 @@ public class MenusScript : MonoBehaviour
     // Restarts game
     public void retryGame()
     {
-        FindObjectOfType<audioController>().Play("confirmSound");
         RestartLevel.instance.retry = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void quitButton() {
-        FindObjectOfType<audioController>().Play("cancel");
 
     }
 

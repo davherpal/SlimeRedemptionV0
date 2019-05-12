@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2181940467463876921}
   - component: {fileID: 4578565369718895471}
   - component: {fileID: 7570979267070238595}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemyTorreta
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8363877618232420500}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

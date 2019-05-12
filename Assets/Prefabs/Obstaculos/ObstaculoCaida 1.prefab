@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8098423286299572536}
   - component: {fileID: 734536562660928164}
   - component: {fileID: 605325924405820302}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Objeto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 7721144332584542164}
   - component: {fileID: 7721144332584542165}
   - component: {fileID: 2596593287561347112}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ObstaculoCaida 1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}

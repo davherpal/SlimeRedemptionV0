@@ -24,6 +24,7 @@ public class SlimeController : MonoBehaviour
     public LayerMask whatIsIce;
     public LayerMask whatIsWall;
     public LayerMask whatIsSticky;
+    public LayerMask whatIsEnemy;
     //public LayerMask whatIsEnemy;
     [HideInInspector]public int moreJumps;              // variable privada que traduce tus saltos restantes
     public int moreJumpsValue;          // int publica que dicta cuantos saltos extras puedes ahcer
@@ -62,6 +63,7 @@ public class SlimeController : MonoBehaviour
         isIce = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsIce);
         isWall = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsWall);
         isStickyWall = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsSticky);
+        isEnemy = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsEnemy);
 
         if (jump)       //al saltar, se le añade una velocidad y fuerza al slime, ademas que se resta un morejumps, asi que tienes un salto menos por hacer hasta que toques una apred o el suelo, el stop se pone en false y el jump tambien para que no se siga añadiendo fuerza
         {
@@ -136,8 +138,15 @@ public class SlimeController : MonoBehaviour
             slipMultiplier = slipSticky;
             slip = true;
         }
+
+        if (isEnemy)
+        {
+            Debug.Log("isEnemy");
+            changeDirection = true;
+            moreJumps = moreJumpsValue;
+        }
         
-        if (!isIce && !isWall && !isStickyWall)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
+        if (!isIce && !isWall && !isStickyWall && !isEnemy)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
         {
             currentVelocity = rb.velocity.x;
             col.usedByEffector = false;
