@@ -44,12 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-  - {fileID: 1333104396633310646, guid: 997cdfc4393fda44fa24b7fd5d307ab0, type: 3}
-  - {fileID: 7993133731258387278, guid: b937ccb2c4af71047a0abd62258a195c, type: 3}
   - {fileID: 8273264369447982274, guid: 1c8456b1bcd0199498410cb1c28a685d, type: 3}
   - {fileID: 8115595931068685581, guid: b3c6ef0507a16e140a65407e8d695a0f, type: 3}
   - {fileID: 5679450686976558532, guid: c5b225ac9018056499d1d4955a6521e5, type: 3}
-  - {fileID: 1952724607196707750, guid: b3f5743364652b4438c1dec089454a73, type: 3}
   - {fileID: 4713510625389162699, guid: c5b8595920f7b8c48a28e4cf4c2d6803, type: 3}
 --- !u!1 &1388923234615628187
 GameObject:
@@ -270,7 +267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7883754041824501743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 8.4, z: 0.25474688}
+  m_LocalPosition: {x: -0.03, y: 10.58, z: 0.25474688}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 430557148554664539}
@@ -293,6 +290,7 @@ MonoBehaviour:
   - {fileID: 7968698437231484635, guid: 664f2576e20909b4296caa63def783be, type: 3}
   - {fileID: 7993133731258387278, guid: b937ccb2c4af71047a0abd62258a195c, type: 3}
   - {fileID: 4713510625389162699, guid: c5b8595920f7b8c48a28e4cf4c2d6803, type: 3}
+  - {fileID: 1604971810431911798, guid: eedca5c0df7d90940927fea3df48e110, type: 3}
 --- !u!1 &7883943546233060548
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 6878896757640106375, guid: 8c09ca1badeaa444b99c1260dce042b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.88
+      value: 1.83
       objectReference: {fileID: 0}
     - target: {fileID: 6878896757640106375, guid: 8c09ca1badeaa444b99c1260dce042b8,
         type: 3}
@@ -1627,7 +1625,7 @@ PrefabInstance:
     - target: {fileID: 6878896757640106375, guid: 8c09ca1badeaa444b99c1260dce042b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3
+      value: 0.25000006
       objectReference: {fileID: 0}
     - target: {fileID: 6878896757640106375, guid: 8c09ca1badeaa444b99c1260dce042b8,
         type: 3}

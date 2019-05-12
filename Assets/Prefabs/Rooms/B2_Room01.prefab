@@ -88,6 +88,7 @@ Transform:
   - {fileID: 7960044270443316940}
   - {fileID: 4520602479109624646}
   - {fileID: 5394568611703466492}
+  - {fileID: 2937490090619287833}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -104,6 +105,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomsToDelete: 2
+--- !u!1 &2392060372019926473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2937490090619287833}
+  - component: {fileID: 3848119557467764769}
+  m_Layer: 0
+  m_Name: Spawner02 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2937490090619287833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392060372019926473}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.06, y: 0.67, z: 0.25474688}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 430557148554664539}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3848119557467764769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392060372019926473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda159c7e0edb574c8a744249d94683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 1604971810431911798, guid: eedca5c0df7d90940927fea3df48e110, type: 3}
+  - {fileID: 4713510625389162699, guid: c5b8595920f7b8c48a28e4cf4c2d6803, type: 3}
 --- !u!1 &6760570385756840472
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,15 +529,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88250a9c5cb890b40808b43007d19bf2, type: 3}
---- !u!4 &1560776071499225452 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2133965649513639112, guid: 88250a9c5cb890b40808b43007d19bf2,
-    type: 3}
-  m_PrefabInstance: {fileID: 591559120977491364}
-  m_PrefabAsset: {fileID: 0}
 --- !u!19719996 &4588354880779761273 stripped
 TilemapCollider2D:
   m_CorrespondingSourceObject: {fileID: 4006162523032110045, guid: 88250a9c5cb890b40808b43007d19bf2,
+    type: 3}
+  m_PrefabInstance: {fileID: 591559120977491364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1560776071499225452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2133965649513639112, guid: 88250a9c5cb890b40808b43007d19bf2,
     type: 3}
   m_PrefabInstance: {fileID: 591559120977491364}
   m_PrefabAsset: {fileID: 0}
