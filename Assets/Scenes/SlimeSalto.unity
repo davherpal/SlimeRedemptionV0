@@ -4196,6 +4196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
         type: 3}
+      propertyPath: sounds.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
       propertyPath: sounds.Array.data[0].volume
       value: 0
       objectReference: {fileID: 0}
@@ -4279,6 +4284,36 @@ PrefabInstance:
       propertyPath: sounds.Array.data[16].volume
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
+      propertyPath: sounds.Array.data[17].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
+      propertyPath: sounds.Array.data[17].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d6eef866ea9557246b2c4d4f95d53c66, type: 3}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
+      propertyPath: sounds.Array.data[18].name
+      value: enemydeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
+      propertyPath: sounds.Array.data[18].volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
+      propertyPath: sounds.Array.data[18].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
+      propertyPath: sounds.Array.data[18].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 085745b6e0b17f0438c258fac09c8d0e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04bcf53aa278edf489402f38d9aeb92f, type: 3}
 --- !u!1 &502161657
