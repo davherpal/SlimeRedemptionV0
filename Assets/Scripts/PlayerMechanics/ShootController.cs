@@ -55,6 +55,10 @@ public class ShootController : MonoBehaviour
                 {
                     insideArea = true;
                 }
+                else
+                {
+                    Destroy(ln, 1f);
+                }
             }
 
             // Cuando suelta el click

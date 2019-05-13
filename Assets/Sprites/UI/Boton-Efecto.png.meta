@@ -1,21 +1,16 @@
 fileFormatVersion: 2
-guid: 3a2abd21aafeead4f94c7cf0e70b334d
+guid: 3eabcfd2788f08247aa74881827bedd1
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Controller Pack-Sheet_0
-    21300002: Controller Pack-Sheet_1
-    21300004: Controller Pack-Sheet_2
-    21300006: Controller Pack-Sheet_3
-    21300008: Controller Pack-Sheet_4
-    21300010: Controller Pack-Sheet_5
-    21300012: Controller Pack-Sheet_6
-    21300014: Controller Pack-Sheet_7
-    21300016: Controller Pack-Sheet_8
-    21300018: Controller Pack-Sheet_9
-    21300020: Controller Pack-Sheet_10
-    21300022: Controller Pack-Sheet_11
-    21300024: Controller Pack-Sheet_12
-    21300026: Controller Pack-Sheet_13
+    21300000: Idle clone_0
+    21300002: Idle clone_1
+    21300004: Idle clone_2
+    21300006: Idle clone_3
+    21300008: Idle clone_4
+    21300010: Idle clone_5
+    21300012: Idle clone_6
+    21300014: Idle clone_7
+    21300016: Idle clone_8
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -98,253 +93,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Controller Pack-Sheet_0
+      name: Idle clone_0
       rect:
         serializedVersion: 2
-        x: 553
-        y: 84
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 057500790c1a31749b9ecfdf2a158370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 84
-        width: 7
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3129ffb814a5fe743a4d1d3c83b47f0f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 545
-        y: 91
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97882205139359a4ca3d3882097ee9ac
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 545
-        y: 84
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04f397c59ea5fde45a68ecd4c68124d5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 553
-        y: 91
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4bed4ad001ce58c4aa99eea138b34328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 716
-        y: 84
-        width: 7
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78cde60edce701a4fb57f805148e03f8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 716
-        y: 91
-        width: 7
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ddbc7c4ce7d8d749bbaeab3496244bc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 91
-        width: 7
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28d91e7e88762974c9a0a8914da29a42
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 372
-        y: 74
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 417ea715047238344bbc79a04a446643
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 70
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 154367337847f7242a2e10911df5e0c8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 771
-        y: 70
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fa8bd0b61e889347b132b079fb66ff3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 662
-        y: 82
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2940ec15d0af4fa45a027736a4ca5562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Controller Pack-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 81
-        width: 9
-        height: 10
+        x: 7
+        y: 73
+        width: 15
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -352,19 +107,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43438459251019a46991c332363fe365
+      spriteID: d77b834c64a7ba24ab7b325315d42933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Controller Pack-Sheet_13
+      name: Idle clone_1
       rect:
         serializedVersion: 2
-        x: 771
-        y: 81
-        width: 9
-        height: 9
+        x: 39
+        y: 73
+        width: 15
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,7 +127,147 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e2b67b42aa24814b9e238448ae7f7d0
+      spriteID: c6539ee7b01d5bf4895d4c68d2da14fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 73
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e018ee93432ecb74ba6ee590603cfdff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone_3
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 41
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1749010043a96b4498c07ae69f682efc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone_4
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 41
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba73e45be18aba4987dc049062a85b8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone_5
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 38
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c380962f0f23ee42a6d24a4f2a68043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone_6
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 9
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d115665c72b8e894da37ebb755216471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone_7
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 9
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d367a8de94c6a498bca9dafb6c0363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone_8
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 6
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb48d5576e67e3948bbc2db219d9e506
       vertices: []
       indices: 
       edges: []
@@ -380,7 +275,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4a3c9c89af39c3d46a7334ae61f60b94
+    spriteID: 708190e1dbfcfeb4f980f038aea06b11
     vertices: []
     indices: 
     edges: []
