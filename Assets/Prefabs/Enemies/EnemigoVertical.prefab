@@ -151,6 +151,7 @@ MonoBehaviour:
   deadPointTransUp: {fileID: 6949533356939490707}
   timeFall: 20
   score: 100
+  isCircleEnemy: 0
 --- !u!114 &8725521139119825830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +167,8 @@ MonoBehaviour:
   speed: 5
   maxSpeed: 5
   rb2d: {fileID: 2285845284533512859}
+  circle: {fileID: 8820179193975926291}
+  box: {fileID: 0}
 --- !u!58 &2285845284533512858
 CircleCollider2D:
   m_ObjectHideFlags: 0
