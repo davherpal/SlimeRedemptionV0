@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f3558daef06e44ca1f121980321a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRadius: 10
+  visionRadius: 6
   speed: 4.5
 --- !u!114 &7835585275073174259
 MonoBehaviour:
@@ -120,6 +120,7 @@ MonoBehaviour:
   deadPointTransUp: {fileID: 6586687492594487637}
   timeFall: 20
   score: 100
+  isCircleEnemy: 0
 --- !u!114 &2183771818470327626
 MonoBehaviour:
   m_ObjectHideFlags: 0
