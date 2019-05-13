@@ -79,13 +79,13 @@ public class RoomController : MonoBehaviour
                     SpawnRoom(bioma2);
                     spawnedRooms++;
                     changeBiomaEnum(bioma.bioma3);
-                    hazard.speed = 4;
+                    hazard.speed = 1;
                     break;
 
                 case bioma.bioma3:
                     SpawnRoom(bioma3);
                     spawnedRooms++;
-                    hazard.speed = 5;
+                    hazard.speed = 2;
                     break;
             }      
         }

@@ -43,8 +43,6 @@ public class SlimeController : MonoBehaviour
     private bool changeDirection;
     public float currentVelocity;
     public CircleCollider2D col;
-    public float counterAfterJump;
-
 
     private bool jumpButtonPressed;
 
@@ -184,7 +182,7 @@ public class SlimeController : MonoBehaviour
         if (moreJumps > 0 && nextJump)
         {
             jumpButtonPressed = true;
-            //Debug.Log(moreJumps);
+
         }
     }
 }
