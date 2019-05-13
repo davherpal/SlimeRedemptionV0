@@ -79,17 +79,17 @@ public class RoomController : MonoBehaviour
                     SpawnRoom(bioma2);
                     spawnedRooms++;
                     changeBiomaEnum(bioma.bioma3);
-                    hazard.speed = 3;
+                    hazard.speed = 3.5f;
                     break;
 
                 case bioma.bioma3:
                     SpawnRoom(bioma3);
                     spawnedRooms++;
-                    hazard.speed = 4;
+                    hazard.speed = 4.5f;
                     break;
-            }      
+            }
         }
-    }  
+    }
 
 
     // Spawnea habitaciones del bioma determinado

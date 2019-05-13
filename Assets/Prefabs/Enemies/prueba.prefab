@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5421720537949686029}
   - component: {fileID: 5421720537949686031}
   - component: {fileID: 5421720537949686028}
-  m_Layer: 0
-  m_Name: Enemy
+  m_Layer: 13
+  m_Name: prueba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,9 +102,9 @@ MonoBehaviour:
     m_Bits: 4096
   circleRadius: 0.13
   deadPointTransUp: {fileID: 5421720539044786037}
-  deadPointTransDown: {fileID: 5730033114204073404}
   timeFall: 20
   score: 100
+  isCircleEnemy: 0
 --- !u!114 &5421720537949686029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAudio: {fileID: 0}
   PercentageLostMass: 0.1
   isAHazard: 0
   overTimeDamage: 0.5
@@ -161,7 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5421720539044786037}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: DeadPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -191,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5730033114204073404}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: DeadPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}

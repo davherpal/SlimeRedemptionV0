@@ -7,6 +7,8 @@ public class VerticalEnemyMov : MonoBehaviour
     public float speed = 5f;
     public float maxSpeed = 5f;
     public Rigidbody2D rb2d;
+    public CircleCollider2D circle;
+    public BoxCollider2D box;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,25 @@ public class VerticalEnemyMov : MonoBehaviour
         {
             speed = -speed;
             rb2d.velocity = new Vector2(rb2d.velocity.x, speed);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Hazard")
+        {
+            if(circle != null)
+            {
+                circle.isTrigger = true;
+                speed = -speed;
+                Destroy(gameObject, 2);
+            }
+            else if(box != null)
+            {
+                box.isTrigger = true;
+                speed = -speed;
+                Destroy(gameObject, 2);
+            }
         }
     }
 

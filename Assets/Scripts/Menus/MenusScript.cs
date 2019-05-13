@@ -63,12 +63,14 @@ public class MenusScript : MonoBehaviour
     // Load main menu without restarting scene
     public void loadMainMenu()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         ChangeMenu(moveMenus[(int)menuState.Mainmenu]);
     }
 
     // Load main menu restarting the scene, only avaliable from pause menu
     public void loadMainMenuInGame()
     {
+        FindObjectOfType<audioController>().Play("cancel");
         RestartLevel.instance.retry = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -76,6 +78,7 @@ public class MenusScript : MonoBehaviour
     // Load in game menu
     public void loadPlayMenu()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         // Activamos hazard y player ya que no podemos pausar sino animaciones no funcionarian
         hazard.SetActive(true);
         player.SetActive(true);
@@ -104,18 +107,21 @@ public class MenusScript : MonoBehaviour
     // Loud sound setting menu
     public void loadSoundMenu()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         ChangeMenu(moveMenus[(int)menuState.Sound]);
     }
 
     // Load sound setting menu when player comes from pause menu
     public void loadSoundMenuInGame()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         ChangeMenu(moveMenus[(int)menuState.SoundIngame]);
     }
 
     // Load Skins menu
     public void loadSkinsMenu()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         ChangeMenu(moveMenus[(int)menuState.Skins]);
 
     }
@@ -123,7 +129,7 @@ public class MenusScript : MonoBehaviour
     // Load player stats menu
     public void loadStatsMenu()
     {
-
+        FindObjectOfType<audioController>().Play("confirmSound");
         ChangeMenu(moveMenus[(int)menuState.Stats]);
 
         statEnemiesTotal.text = "Enemigos: " + saveController.LoadDataEnemies();
@@ -140,6 +146,8 @@ public class MenusScript : MonoBehaviour
         player.SetActive(false);
         // Mostramos no se vea juego de fondo
         background.SetActive(true);
+        FindObjectOfType<audioController>().Play("confirmSound");
+
 
         // Activamos todos los canvas escondidos anteriormente, es ineficaz porque recorre todos los canvs. Se podria crear un array canvas solo ingame y otros fuera.
         foreach (RectTransform menu in moveMenus)
@@ -155,6 +163,7 @@ public class MenusScript : MonoBehaviour
     // Load Pause Menu
     public void loadPauseMenuFromSoundMenu()
     {
+        FindObjectOfType<audioController>().Play("confirmSound");
         // Movemos pantalla pause y que se vea que la ultima fue la SoundInGame, si se usa la funcion ChangeMenu() se mostrara la ultima pantalla recorrida en el array y se veria mal.
         moveMenus[(int)menuState.Pause].DOAnchorPos(Vector2.zero, .5f).From(Vector2.up * -750);
         moveMenus[(int)menuState.SoundIngame].DOAnchorPos(Vector2.up * 750, .5f).From(Vector2.zero);
@@ -163,6 +172,7 @@ public class MenusScript : MonoBehaviour
     // Load Game Over Menu
     public void loadGameOverMenu()
     {
+        //FindObjectOfType<audioController>().Play("gameover");
         // Activamos todos los canvas escondidos anteriormente, es ineficaz porque recorre todos los canvs. Se podria crear un array canvas solo ingame y otros fuera.
 
         foreach (RectTransform menu in moveMenus)
@@ -190,12 +200,17 @@ public class MenusScript : MonoBehaviour
     // Restarts game
     public void retryGame()
     {
-        FindObjectOfType<audioController>().Play("confirmSound");
         RestartLevel.instance.retry = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void quitButton() { }
+    public void quitButton() {
 
+    }
 
+    public void quitGame()
+    {
+        FindObjectOfType<audioController>().Play("cancel");
+        Application.Quit();
+    }
 }

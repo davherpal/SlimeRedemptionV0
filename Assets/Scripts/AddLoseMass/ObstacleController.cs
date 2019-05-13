@@ -67,6 +67,8 @@ public class ObstacleController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+
+            FindObjectOfType<audioController>().Play("takeDamage");
             GameController.instance.damaged = true;
 
             if (playAudio != null)
