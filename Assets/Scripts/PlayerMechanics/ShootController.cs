@@ -69,7 +69,9 @@ public class ShootController : MonoBehaviour
                     vecDir = (shootDirection - transform.position).normalized;
 
                     bulletInstance = Instantiate(prefBullet, transform.position + (vecDir * distanceSpawn), Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-              
+
+                    FindObjectOfType<audioController>().Play("slimeshooting");
+
                     instanced = true;
                     insideArea = false;
 

@@ -87,9 +87,9 @@ public class RoomController : MonoBehaviour
                     spawnedRooms++;
                     hazard.speed = 4;
                     break;
-            }      
+            }
         }
-    }  
+    }
 
 
     // Spawnea habitaciones del bioma determinado

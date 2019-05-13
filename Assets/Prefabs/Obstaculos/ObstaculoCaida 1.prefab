@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   playAudio: {fileID: 605325924405820302}
   PercentageLostMass: 0.437
   isAHazard: 0
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 7721144332584542164}
   - component: {fileID: 7721144332584542165}
   - component: {fileID: 2596593287561347112}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ObstaculoCaida 1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -337,10 +337,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43e2c977f76cc9d4d87c08a8b5a35907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   time2Destroy: 4
-  playAudio: {fileID: 2596593287561347112}
+  playAudio: {fileID: 0}
   go: {fileID: 7721144332391957304}
 --- !u!82 &2596593287561347112
 AudioSource:
