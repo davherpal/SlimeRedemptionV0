@@ -104,8 +104,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1164663941
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1978ad6ed00ab9b45ac3d0ea1bfcf95b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9111b3edf8a8732488b0160d52386582, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   bulletSpawner: {fileID: 7278125674498641794}
   bulletPrefab: {fileID: 694034451291077204, guid: 6a8feb5bd68803046a5558925f8e33ff,
     type: 3}
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   playAudio: {fileID: 749018234306647334}
   PercentageLostMass: 0.1
   isAHazard: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   deadPointTransUp: {fileID: 9142149535345948036}
   timeFall: 20
   score: 100
+  isCircleEnemy: 0
 --- !u!70 &2690470001808889307
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -312,7 +313,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
