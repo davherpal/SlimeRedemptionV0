@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6148129925855549948}
   - component: {fileID: 6148129925855549949}
-  - component: {fileID: 6148129925855549950}
   - component: {fileID: 6148129925855549951}
   - component: {fileID: 390047722602165190}
+  - component: {fileID: 2981168865761530892}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -82,22 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6148129925855549950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148129925855549440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playAudio: {fileID: 390047722602165190}
-  PercentageLostMass: 0.1
-  isAHazard: 0
-  overTimeDamage: 0.5
 --- !u!58 &6148129925855549951
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -124,9 +108,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cf2da55b8e6d1f54cafba2b6e7db4a74, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 26a064cf91da1f94eb466d506931d7d3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.274
+  m_Volume: 0.146
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -210,3 +194,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2981168865761530892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6148129925855549440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f436dff5b1c9c94988e008ba58e05e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PercentageGainedMass: 0
+  score: 100

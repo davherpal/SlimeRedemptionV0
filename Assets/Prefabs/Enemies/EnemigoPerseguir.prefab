@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3929583498490011724}
   - component: {fileID: 5806602835681073896}
   - component: {fileID: 3356769705147312002}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemigoPerseguir
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -120,6 +120,7 @@ MonoBehaviour:
   deadPointTransUp: {fileID: 6586687492594487637}
   timeFall: 20
   score: 100
+  isCircleEnemy: 0
 --- !u!114 &2183771818470327626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,9 +179,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cf2da55b8e6d1f54cafba2b6e7db4a74, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 069bbe0ea658c7f44861dd05a82684a0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -292,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6586687492594487637}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: DeadPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}

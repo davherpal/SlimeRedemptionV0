@@ -10,6 +10,7 @@ public class simplePortalController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            FindObjectOfType<audioController>().Play("portalSound");
             collision.gameObject.transform.position = otherPortal.position;
             collision.gameObject.GetComponent<SlimeController>().moreJumps = collision.gameObject.GetComponent<SlimeController>().moreJumpsValue;
         }

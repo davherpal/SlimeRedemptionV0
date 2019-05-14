@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9142149535345948036}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: DeadPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1862327322}
   - component: {fileID: 749018234306647334}
   - component: {fileID: 950234327}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: EnemigoDisparo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,9 +212,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f1aa7107776e3d2428584ee4647ad6fb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 069bbe0ea658c7f44861dd05a82684a0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.211
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7278125674498641794}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: BulletSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}

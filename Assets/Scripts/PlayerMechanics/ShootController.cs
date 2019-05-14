@@ -55,6 +55,10 @@ public class ShootController : MonoBehaviour
                 {
                     insideArea = true;
                 }
+                else
+                {
+                    Destroy(ln, 1f);
+                }
             }
 
             // Cuando suelta el click
@@ -69,7 +73,9 @@ public class ShootController : MonoBehaviour
                     vecDir = (shootDirection - transform.position).normalized;
 
                     bulletInstance = Instantiate(prefBullet, transform.position + (vecDir * distanceSpawn), Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-              
+
+                    FindObjectOfType<audioController>().Play("slimeshooting");
+
                     instanced = true;
                     insideArea = false;
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2623926640960541166}
   - component: {fileID: 3803993808522707491}
   - component: {fileID: 6352688100313427230}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemigoVertical 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +116,8 @@ MonoBehaviour:
   speed: 5
   maxSpeed: 5
   rb2d: {fileID: 2285845284533512859}
+  circle: {fileID: 0}
+  box: {fileID: 3803993808522707491}
 --- !u!50 &2285845284533512859
 Rigidbody2D:
   serializedVersion: 4
