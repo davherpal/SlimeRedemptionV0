@@ -104,22 +104,28 @@ public class ShootController : MonoBehaviour
             bulletInstance.velocity = new Vector2(vecDir.x * bulletSpeed, vecDir.y * bulletSpeed);
             instanced = false;          
             Destroy(ln, .5f);// Destruya linea para que no obstruya mucho en pantalla
-
-            ator.SetBool("Shoot", false);
+           
             animating = false;
             
         }
     }
 
+    // Se usan en la animation timeline
     private void ShootAnim()
     {
         instanced = true;
     }
 
+    // Se usan en la animation timeline
     private void Insts()
     {
         bulletInstance = Instantiate(prefBullet, transform.position + (vecDir * distanceSpawn), Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+    }
 
+    // Se usa en animation timeline
+    private void finalAnim()
+    {
+        ator.SetBool("Shoot", false);
     }
 }
 
