@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playAudio: {fileID: 0}
+  soundToPlay: 
+  notSound: 1
   PercentageLostMass: 0.437
   isAHazard: 0
   overTimeDamage: 0
@@ -234,7 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time2Destroy: 4
-  playAudio: {fileID: 3841478412358805211}
+  soundToPlay: icebreakingsoundeffect
+  notsound: 0
   go: {fileID: 7721144332391957304}
 --- !u!82 &3841478412358805211
 AudioSource:

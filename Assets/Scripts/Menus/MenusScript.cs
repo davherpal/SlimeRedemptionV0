@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using DG.Tweening;
 
 public class MenusScript : MonoBehaviour
 {
+    private bool musicstate = true;
     // Enum y el array de gameobject tienen el mismo, tener en cuenta los dos.
     public enum menuState { Mainmenu, Play, Sound, SoundIngame, Skins, Stats, Pause, GameOver }
     public RectTransform[] moveMenus;
@@ -204,13 +206,29 @@ public class MenusScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void quitButton() {
-
-    }
-
+    // apagar el juego
     public void quitGame()
     {
         FindObjectOfType<audioController>().Play("cancel");
         Application.Quit();
+    }
+
+    public void music()
+    {
+        if (musicstate)
+        {
+            musicstate=false;
+            FindObjectOfType<audioController>().StopPlaying("music1");
+        }
+        else
+        {
+            musicstate = true;
+            FindObjectOfType<audioController>().Play("music1");
+        }
+    }
+
+    public void sounds()
+    {
+
     }
 }

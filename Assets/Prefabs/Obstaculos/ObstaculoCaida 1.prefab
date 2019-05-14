@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playAudio: {fileID: 0}
+  soundToPlay: axesoundeffect
+  notSound: 0
   PercentageLostMass: 0.437
   isAHazard: 0
   overTimeDamage: 0
@@ -243,7 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time2Destroy: 4
-  playAudio: {fileID: 2596593287561347112}
+  soundToPlay: 
+  notsound: 1
   go: {fileID: 7721144332391957304}
 --- !u!82 &2596593287561347112
 AudioSource:

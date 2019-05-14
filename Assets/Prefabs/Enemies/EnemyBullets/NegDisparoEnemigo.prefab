@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playAudio: {fileID: 0}
+  soundToPlay: 
+  notSound: 1
   PercentageLostMass: 0.1
   isAHazard: 0
   overTimeDamage: 0.5
@@ -163,7 +164,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 79f12b060470c7548822b555fb464167, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.019
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 0
   Mute: 0
