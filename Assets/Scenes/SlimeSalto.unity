@@ -3486,7 +3486,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 329231111}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 510139815}
+        m_MethodName: music
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &329231111
@@ -4202,7 +4213,7 @@ PrefabInstance:
     - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
         type: 3}
       propertyPath: sounds.Array.data[0].volume
-      value: 0.015
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
         type: 3}
@@ -4414,6 +4425,16 @@ PrefabInstance:
       propertyPath: sounds.Array.data[23].clip
       value: 
       objectReference: {fileID: 8300000, guid: 069bbe0ea658c7f44861dd05a82684a0, type: 3}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
+      propertyPath: sounds.Array.data[0].Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 907656133402510095, guid: 04bcf53aa278edf489402f38d9aeb92f,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volumeVariance
+      value: 1.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04bcf53aa278edf489402f38d9aeb92f, type: 3}
 --- !u!1 &502161657

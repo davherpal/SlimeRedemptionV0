@@ -11,6 +11,10 @@ public class soundList
 
     [Range(0f,3f)]
     public float pitch;
+    [Range(0f, 3f)]
+    public float volumeVariance;
+    [Range(0f, 3f)]
+    public float pitchVariance;
 
     public AudioClip clip;
 

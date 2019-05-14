@@ -8,6 +8,7 @@ using DG.Tweening;
 
 public class MenusScript : MonoBehaviour
 {
+    private bool musicstate = true;
     // Enum y el array de gameobject tienen el mismo, tener en cuenta los dos.
     public enum menuState { Mainmenu, Play, Sound, SoundIngame, Skins, Stats, Pause, GameOver }
     public RectTransform[] moveMenus;
@@ -214,7 +215,16 @@ public class MenusScript : MonoBehaviour
 
     public void music()
     {
-
+        if (musicstate)
+        {
+            musicstate=false;
+            FindObjectOfType<audioController>().StopPlaying("music1");
+        }
+        else
+        {
+            musicstate = true;
+            FindObjectOfType<audioController>().Play("music1");
+        }
     }
 
     public void sounds()
