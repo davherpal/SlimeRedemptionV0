@@ -8,13 +8,13 @@ public class audioController : MonoBehaviour
 
     private void Awake()
     {
-        foreach (soundList a in sounds)
+        foreach (soundList s in sounds)
         {
-            a.source = gameObject.AddComponent<AudioSource>();
-            a.source.clip = a.clip;
-            a.source.loop = a.Loop;
-            a.source.volume = a.volume;
-            a.source.pitch = a.pitch;
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.loop = s.Loop;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
         }
     }
 
