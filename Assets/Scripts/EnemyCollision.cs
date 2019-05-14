@@ -52,7 +52,6 @@ public class EnemyCollision : MonoBehaviour
             else
             {
                 Destroy(gameObject);
-                FindObjectOfType<audioController>().Play("enemydeath");
             }
 
  
@@ -72,7 +71,6 @@ public class EnemyCollision : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet"){
-            FindObjectOfType<audioController>().Play("enemydeath");
             GameController.instance.AddScore(score);
             GameController.instance.AddEnemyKilled();
             Destroy(gameObject);

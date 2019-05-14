@@ -128,27 +128,3 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5026e09c32d6e7041b34b93813b38e7f, type: 3}
     Loop: 0
     source: {fileID: 0}
-  - name: cancel
-    volume: 0.297
-    pitch: 1
-    clip: {fileID: 8300000, guid: 9038c5d17d2ee3643bd6f74eef9ce5f0, type: 3}
-    Loop: 0
-    source: {fileID: 0}
-  - name: gameover
-    volume: 0.183
-    pitch: 1
-    clip: {fileID: 8300000, guid: 8ae33f3e8c26e04459a0a62e4ca9e249, type: 3}
-    Loop: 0
-    source: {fileID: 0}
-  - name: enemykilled
-    volume: 0.183
-    pitch: 1
-    clip: {fileID: 8300000, guid: aaed2d01179a2ee4cb90d791f1b1bab2, type: 3}
-    Loop: 0
-    source: {fileID: 0}
-  - name: slimeshooting
-    volume: 0.183
-    pitch: 1
-    clip: {fileID: 8300000, guid: c26223a9ee2e12745a0d7394df8427a0, type: 3}
-    Loop: 0
-    source: {fileID: 0}

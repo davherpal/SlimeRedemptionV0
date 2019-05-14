@@ -188,8 +188,6 @@ public class GameController : MonoBehaviour
         else
         {
             //DEAD
-            //Debug.Log("dead");
-            //FindObjectOfType<audioController>().Play("gameover");
             playerDead();
         }
         
@@ -228,8 +226,8 @@ public class GameController : MonoBehaviour
     // Cosas ha hacer cuando muere
     public void playerDead()
     {
+        
         isDead = true;
-        FindObjectOfType<audioController>().Play("gameover");
         canvas.GetComponent<MenusScript>().loadGameOverMenu();
         enemiesKilled += saveController.LoadDataEnemies();
         alturaActual +=saveController.LoadDataHeight();

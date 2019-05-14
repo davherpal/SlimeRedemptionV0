@@ -16,7 +16,6 @@ public class SlimeController : MonoBehaviour
     [HideInInspector] public bool isEnemy;
 
     private Rigidbody2D rb;
-    private SpriteRenderer sp;
     public Transform checkGround;       //gameobjects que detectaran la derecha, izquierda y suelo
     public float checkRadius;           // el radio de esos gameobjects a la hora de detectar
     public Vector3 jumpVector;          // discta el vector de salto del slime
@@ -24,7 +23,6 @@ public class SlimeController : MonoBehaviour
     public LayerMask whatIsIce;
     public LayerMask whatIsWall;
     public LayerMask whatIsSticky;
-    public LayerMask whatIsEnemy;
     //public LayerMask whatIsEnemy;
     [HideInInspector]public int moreJumps;              // variable privada que traduce tus saltos restantes
     public int moreJumpsValue;          // int publica que dicta cuantos saltos extras puedes ahcer
@@ -43,6 +41,7 @@ public class SlimeController : MonoBehaviour
     private bool changeDirection;
     public float currentVelocity;
     public CircleCollider2D col;
+    public float counterAfterJump;
 
     private bool jumpButtonPressed;
 
@@ -52,7 +51,6 @@ public class SlimeController : MonoBehaviour
         stop = true;
         moreJumps = moreJumpsValue;
         rb = GetComponent<Rigidbody2D>();
-        sp = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()      // en fixed update se denominara cuando el slime esta en la pared derecha, en la izquierda o en el suelo
@@ -61,7 +59,6 @@ public class SlimeController : MonoBehaviour
         isIce = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsIce);
         isWall = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsWall);
         isStickyWall = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsSticky);
-        isEnemy = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsEnemy);
 
         if (jump)       //al saltar, se le añade una velocidad y fuerza al slime, ademas que se resta un morejumps, asi que tienes un salto menos por hacer hasta que toques una apred o el suelo, el stop se pone en false y el jump tambien para que no se siga añadiendo fuerza
         {
@@ -79,6 +76,7 @@ public class SlimeController : MonoBehaviour
             nextJump = true;
             changeDirection = true;
             moreJumps = moreJumpsValue;
+            //Debug.Log("contacto izquierda");
             if (stop)                               // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
             {
                 counter += Time.deltaTime;
@@ -99,13 +97,11 @@ public class SlimeController : MonoBehaviour
             if (currentVelocity > 0)
             {
                 jumpVector[0] = -3;
-                sp.flipX = false;
 
             }
             else
             {
                 jumpVector[0] = 3;
-                sp.flipX = true;
             }
         }
     }
@@ -113,7 +109,7 @@ public class SlimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isWall)
+            if (isWall)
         {
             timeToSlip = timeWall;
             col.usedByEffector = true;
@@ -136,15 +132,8 @@ public class SlimeController : MonoBehaviour
             slipMultiplier = slipSticky;
             slip = true;
         }
-
-        if (isEnemy)
-        {
-            Debug.Log("isEnemy");
-            changeDirection = true;
-            moreJumps = moreJumpsValue;
-        }
         
-        if (!isIce && !isWall && !isStickyWall && !isEnemy)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
+        if (!isIce && !isWall && !isStickyWall)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
         {
             currentVelocity = rb.velocity.x;
             col.usedByEffector = false;
@@ -172,8 +161,8 @@ public class SlimeController : MonoBehaviour
 
         if (jumpButtonPressed && moreJumps > 0 && nextJump)       // salto
         {
-            FindObjectOfType<audioController>().Play("jumpSoundEffect");
             jump = true;
+            FindObjectOfType<audioController>().Play("jumpSoundEffect");
         }
     }
 
@@ -182,7 +171,6 @@ public class SlimeController : MonoBehaviour
         if (moreJumps > 0 && nextJump)
         {
             jumpButtonPressed = true;
-
         }
     }
 }
