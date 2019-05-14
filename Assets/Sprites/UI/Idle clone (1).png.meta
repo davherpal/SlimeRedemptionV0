@@ -1,16 +1,18 @@
 fileFormatVersion: 2
-guid: 3eabcfd2788f08247aa74881827bedd1
+guid: b70974914adc88648b35075035d76061
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Idle clone_0
-    21300002: Idle clone_1
-    21300004: Idle clone_2
-    21300006: Idle clone_3
-    21300008: Idle clone_4
-    21300010: Idle clone_5
-    21300012: Idle clone_6
-    21300014: Idle clone_7
-    21300016: Idle clone_8
+    21300000: Idle clone (1)_0
+    21300002: Idle clone (1)_1
+    21300004: Idle clone (1)_2
+    21300006: Idle clone (1)_3
+    21300008: Idle clone (1)_4
+    21300010: Idle clone (1)_5
+    21300012: Idle clone (1)_6
+    21300014: Idle clone (1)_7
+    21300016: Idle clone (1)_8
+    21300018: Idle clone (1)_9
+    21300020: Idle clone (1)_10
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -89,15 +91,70 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle clone_0
+      name: Idle clone (1)_0
       rect:
         serializedVersion: 2
         x: 7
-        y: 73
+        y: 105
         width: 15
         height: 15
       alignment: 0
@@ -107,17 +164,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d77b834c64a7ba24ab7b325315d42933
+      spriteID: 31876b0212ae3b542876fd0a76f32574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone_1
+      name: Idle clone (1)_1
       rect:
         serializedVersion: 2
         x: 39
-        y: 73
+        y: 105
         width: 15
         height: 15
       alignment: 0
@@ -127,16 +184,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6539ee7b01d5bf4895d4c68d2da14fe
+      spriteID: 16a0a8adf94a57448b27c8478bf9ce89
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone_2
+      name: Idle clone (1)_2
       rect:
         serializedVersion: 2
         x: 71
+        y: 105
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56d28bf7e4d42434f885bf32ab3990bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone (1)_3
+      rect:
+        serializedVersion: 2
+        x: 7
         y: 73
         width: 15
         height: 15
@@ -147,37 +224,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e018ee93432ecb74ba6ee590603cfdff
+      spriteID: 0f6b04566a87b6d40ab712dfa0228245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone_3
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 41
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1749010043a96b4498c07ae69f682efc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle clone_4
+      name: Idle clone (1)_4
       rect:
         serializedVersion: 2
         x: 39
-        y: 41
+        y: 73
         width: 15
         height: 15
       alignment: 0
@@ -187,17 +244,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eba73e45be18aba4987dc049062a85b8
+      spriteID: 9f0f6088232e95048bb792a851f6217d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone_5
+      name: Idle clone (1)_5
       rect:
         serializedVersion: 2
         x: 68
-        y: 38
+        y: 70
         width: 21
         height: 21
       alignment: 0
@@ -207,17 +264,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c380962f0f23ee42a6d24a4f2a68043
+      spriteID: 28a668eac4a68c747a28ea62059907df
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone_6
+      name: Idle clone (1)_6
       rect:
         serializedVersion: 2
         x: 7
-        y: 9
+        y: 41
         width: 15
         height: 15
       alignment: 0
@@ -227,17 +284,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d115665c72b8e894da37ebb755216471
+      spriteID: 4a927089b806c7649968d619283ecb4b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone_7
+      name: Idle clone (1)_7
       rect:
         serializedVersion: 2
         x: 39
-        y: 9
+        y: 41
         width: 15
         height: 15
       alignment: 0
@@ -247,16 +304,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6d367a8de94c6a498bca9dafb6c0363
+      spriteID: 86a442f69e42d014c96e1041e9c6364b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone_8
+      name: Idle clone (1)_8
       rect:
         serializedVersion: 2
-        x: 68
+        x: 71
+        y: 41
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78feb64a8001b9c4c9e34f1f9dfa5935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone (1)_9
+      rect:
+        serializedVersion: 2
+        x: 4
         y: 6
         width: 21
         height: 21
@@ -267,7 +344,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb48d5576e67e3948bbc2db219d9e506
+      spriteID: cddb708ab146efd488b8160ceabbf7f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone (1)_10
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 9
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb08e5d5c5933e41aaa14082d7a24df
       vertices: []
       indices: 
       edges: []
@@ -275,7 +372,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 708190e1dbfcfeb4f980f038aea06b11
+    spriteID: 2d83e2ed2784feb429a956e8b8df86b6
     vertices: []
     indices: 
     edges: []
