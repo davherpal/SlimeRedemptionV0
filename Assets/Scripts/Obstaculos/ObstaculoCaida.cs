@@ -6,7 +6,8 @@ using UnityEngine.Audio;
 public class ObstaculoCaida : MonoBehaviour
 {
     public float time2Destroy = 4f;
-    public AudioSource playAudio;
+    public string soundToPlay;
+    public bool notsound;
     private Rigidbody2D rb2d;
     public GameObject go;
     private bool once = true;
@@ -14,7 +15,6 @@ public class ObstaculoCaida : MonoBehaviour
     void Start()
     {
         rb2d = go.GetComponent<Rigidbody2D>();
-        AudioSource playAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,7 +28,10 @@ public class ObstaculoCaida : MonoBehaviour
         {
             if (once)
             {
-                playAudio.Play();
+                if (!notsound)
+                {
+                    FindObjectOfType<audioController>().Play(soundToPlay);
+                }
                 once = false;
             }
             rb2d.isKinematic = false;

@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playAudio: {fileID: 3924343262849762038}
+  soundToPlay: firesoundeffect
   PercentageLostMass: 0.1
   isAHazard: 0
   overTimeDamage: 0.5

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6414570018356650978}
   - component: {fileID: 3727981847650979305}
   m_Layer: 0
-  m_Name: Enemigo 1
+  m_Name: Shuriken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playAudio: {fileID: 0}
+  soundToPlay: axesoundeffect
+  notSound: 0
   PercentageLostMass: 0.1
   isAHazard: 0
   overTimeDamage: 0.5

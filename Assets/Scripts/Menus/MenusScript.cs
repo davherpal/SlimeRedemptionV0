@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using DG.Tweening;
 
 public class MenusScript : MonoBehaviour
@@ -204,13 +205,20 @@ public class MenusScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void quitButton() {
-
-    }
-
+    // apagar el juego
     public void quitGame()
     {
         FindObjectOfType<audioController>().Play("cancel");
         Application.Quit();
+    }
+
+    public void music()
+    {
+
+    }
+
+    public void sounds()
+    {
+
     }
 }

@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playAudio: {fileID: 6799604802025473478}
+  soundToPlay: enemyhit2
   PercentageLostMass: 0.1
   isAHazard: 0
   overTimeDamage: 0.5

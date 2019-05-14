@@ -49,6 +49,7 @@ public class SlimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()            //al empezar spot estara en true, sino al tocar las apredes no tendremos el lapso de tiempo en el que estamos quietos
     {
+        //FindObjectOfType<audioController>().Play("skyTowerMusic");
         stop = true;
         moreJumps = moreJumpsValue;
         rb = GetComponent<Rigidbody2D>();
@@ -136,13 +137,6 @@ public class SlimeController : MonoBehaviour
             slipMultiplier = slipSticky;
             slip = true;
         }
-
-        if (isEnemy)
-        {
-            Debug.Log("isEnemy");
-            changeDirection = true;
-            moreJumps = moreJumpsValue;
-        }
         
         if (!isIce && !isWall && !isStickyWall && !isEnemy)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
         {
@@ -184,5 +178,12 @@ public class SlimeController : MonoBehaviour
             jumpButtonPressed = true;
 
         }
+    }
+
+    public void getHit()
+    {
+        Debug.Log("isEnemy");
+        changeDirection = true;
+        moreJumps = moreJumpsValue;
     }
 }

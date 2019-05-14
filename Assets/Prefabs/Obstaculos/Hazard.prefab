@@ -5011,6 +5011,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b5ade79738f546afbc869eebb347e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAudio: {fileID: 0}
+  soundToPlay: firesoundeffect
+  notSound: 0
   PercentageLostMass: 0.1
   isAHazard: 1
   overTimeDamage: 0.5

@@ -6,16 +6,15 @@ public class audioController : MonoBehaviour
 {
     public soundList[] sounds;
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
-        foreach (soundList s in sounds)
+        foreach (soundList a in sounds)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.Loop;
+            a.source = gameObject.AddComponent<AudioSource>();
+            a.source.clip = a.clip;
+            a.source.loop = a.Loop;
+            a.source.volume = a.volume;
+            a.source.pitch = a.pitch;
         }
     }
 
@@ -27,7 +26,7 @@ public class audioController : MonoBehaviour
     // Update is called once per frame
     public void Play(string name)
     {
-        soundList s = Array.Find(sounds,sound => sound.name == name);
+        soundList s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
     }
 }
