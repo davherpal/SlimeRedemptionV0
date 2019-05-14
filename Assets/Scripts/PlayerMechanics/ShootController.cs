@@ -24,7 +24,8 @@ public class ShootController : MonoBehaviour
     private Vector3 mousePos;
     private bool insideArea;
 
-
+    public Animator ator;
+    private bool animating = false;
 
 
     // Start is called before the first frame update
@@ -68,18 +69,22 @@ public class ShootController : MonoBehaviour
 
                 //INSTANCIAMOS BALA Y GUARDAMOS LA POSICION DONDE IRA
                 if (insideArea)                                                                 
-                {
+                {                  
                     shootDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     vecDir = (shootDirection - transform.position).normalized;
 
-                    bulletInstance = Instantiate(prefBullet, transform.position + (vecDir * distanceSpawn), Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-
+                    if (!animating)
+                    {
+                        ator.SetBool("Shoot", true);
+                        animating = true;
+                    }
+                    
                     FindObjectOfType<audioController>().Play("slimeshooting");
-
-                    instanced = true;
+           
                     insideArea = false;
-
                     GameController.instance.setShoot(false);
+                    
+
                 }
             }
 
@@ -93,14 +98,28 @@ public class ShootController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (instanced)                                                                       //LE DAMOS VELOCIDAD A LA BALA HACIA EL PUNTO ELEGIDO
         {
             bulletInstance.velocity = new Vector2(vecDir.x * bulletSpeed, vecDir.y * bulletSpeed);
-            instanced = false;
-            
+            instanced = false;          
             Destroy(ln, .5f);// Destruya linea para que no obstruya mucho en pantalla
 
+            ator.SetBool("Shoot", false);
+            animating = false;
+            
         }
+    }
+
+    private void ShootAnim()
+    {
+        instanced = true;
+    }
+
+    private void Insts()
+    {
+        bulletInstance = Instantiate(prefBullet, transform.position + (vecDir * distanceSpawn), Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+
     }
 }
 

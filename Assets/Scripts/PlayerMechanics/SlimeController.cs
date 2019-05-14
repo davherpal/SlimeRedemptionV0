@@ -16,7 +16,6 @@ public class SlimeController : MonoBehaviour
     [HideInInspector] public bool isEnemy;
 
     private Rigidbody2D rb;
-    private SpriteRenderer sp;
     public Transform checkGround;       //gameobjects que detectaran la derecha, izquierda y suelo
     public float checkRadius;           // el radio de esos gameobjects a la hora de detectar
     public Vector3 jumpVector;          // discta el vector de salto del slime
@@ -44,6 +43,9 @@ public class SlimeController : MonoBehaviour
     public float currentVelocity;
     public CircleCollider2D col;
 
+    public SpriteRenderer sp;
+    public Animator ator;
+
     private bool jumpButtonPressed;
 
     // Start is called before the first frame update
@@ -52,7 +54,7 @@ public class SlimeController : MonoBehaviour
         stop = true;
         moreJumps = moreJumpsValue;
         rb = GetComponent<Rigidbody2D>();
-        sp = GetComponent<SpriteRenderer>();
+
     }
 
     void FixedUpdate()      // en fixed update se denominara cuando el slime esta en la pared derecha, en la izquierda o en el suelo
@@ -119,6 +121,8 @@ public class SlimeController : MonoBehaviour
             col.usedByEffector = true;
             slipMultiplier = slipMultiplierWall;
             slip= true;
+
+            ator.SetBool("isSliding", true);
         }
 
         if (isIce)
@@ -127,6 +131,8 @@ public class SlimeController : MonoBehaviour
             col.usedByEffector = true;
             slipMultiplier = slipIce;
             slip = true;
+
+            ator.SetBool("isSliding", true);
         }
         
         if (isStickyWall)
@@ -135,6 +141,8 @@ public class SlimeController : MonoBehaviour
             col.usedByEffector = true;
             slipMultiplier = slipSticky;
             slip = true;
+
+            ator.SetBool("isSliding", true);
         }
 
         if (isEnemy)
@@ -153,6 +161,8 @@ public class SlimeController : MonoBehaviour
             counter = 0;
             slip = false;
             changeDirection = false;
+
+            ator.SetBool("isSliding", false);
         }
 
         if (isGround)                           // si estas en el suelo, el siguiente salto sera true para poder slatar cuando quieras, se reinicia el slipmultiplayer y se reinicia el morejumps
