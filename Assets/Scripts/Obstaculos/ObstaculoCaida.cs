@@ -5,12 +5,12 @@ using UnityEngine.Audio;
 
 public class ObstaculoCaida : MonoBehaviour
 {
-    public float time2Destroy = 4f;
-    public string soundToPlay;
-    public bool notsound;
+    public float time2Destroy = 4f; // tiempo para destruir el gameobject despues de detectar al player
+    public string soundToPlay;      //aqui pondremos que sonido de la lista queremos que suene cuando el enemigo detecte al player
+    public bool notsound;       // si esta en false, no sonara ningun sonido al detectar al player, es necesario para evitar errores
     private Rigidbody2D rb2d;
     public GameObject go;
-    private bool once = true;
+    private bool once = true;       // para que solo suene una vez
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class ObstaculoCaida : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)         // si detectamos al con el player
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -30,9 +30,12 @@ public class ObstaculoCaida : MonoBehaviour
             {
                 if (!notsound)
                 {
-                    FindObjectOfType<audioController>().Play(soundToPlay);
+                    if (notsound)
+                    {
+                        FindObjectOfType<audioController>().Play(soundToPlay);      //suena el sonido
+                    }
                 }
-                once = false;
+                once = false;               //ponemos esto en falso para que no suene mas d euna vez
             }
             rb2d.isKinematic = false;
             Destroy(gameObject, time2Destroy);

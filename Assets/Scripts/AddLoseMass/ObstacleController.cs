@@ -65,7 +65,7 @@ public class ObstacleController : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")       // si colisiona con el player, sonara el sonido de recibir daño, inciiaremso al funcion get hit y perderemos masa
         {
             collision.gameObject.GetComponent<SlimeController>().getHit();
             FindObjectOfType<audioController>().Play("takeDamage");
@@ -99,6 +99,4 @@ public class ObstacleController : MonoBehaviour
             }
         }
     }
-
-
 }

@@ -15,6 +15,7 @@ public class NegBulletEnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<audioController>().StopPlaying("shootSound");
         Destroy(gameObject, time2Destroy);
         bulletRB.velocity = new Vector2(bulletSpeed, bulletRB.velocity.y);
     }
