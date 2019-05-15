@@ -13,7 +13,6 @@ public class SlimeController : MonoBehaviour
     [HideInInspector] public bool isIce;
     [HideInInspector] public bool isWall;
     [HideInInspector] public bool isStickyWall;
-    [HideInInspector] public bool isEnemy;
 
     private Rigidbody2D rb;
     public Transform checkGround;       //gameobjects que detectaran la derecha, izquierda y suelo
@@ -39,7 +38,7 @@ public class SlimeController : MonoBehaviour
     public float slipIce;               // contante de resbalarse en el hielo
     public float slipMultiplierWall;
     public float slipSticky;
-    private bool changeDirection;
+    //private bool changeDirection;
     public float currentVelocity;
     public CircleCollider2D col;
 
@@ -64,7 +63,6 @@ public class SlimeController : MonoBehaviour
         isIce = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsIce);
         isWall = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsWall);
         isStickyWall = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsSticky);
-        isEnemy = Physics2D.OverlapCircle(checkGround.position, checkRadius, whatIsEnemy);
 
         if (jump)       //al saltar, se le añade una velocidad y fuerza al slime, ademas que se resta un morejumps, asi que tienes un salto menos por hacer hasta que toques una apred o el suelo, el stop se pone en false y el jump tambien para que no se siga añadiendo fuerza
         {
@@ -80,7 +78,7 @@ public class SlimeController : MonoBehaviour
         if (slip)
         {
             nextJump = true;
-            changeDirection = true;
+            changeDirection();
             moreJumps = moreJumpsValue;
             if (stop)                               // si stop es igual a true: el contador empezara a rodar y la velocidad del slime sera 0, haciendo que se resbale my poco a poco
             {
@@ -96,28 +94,14 @@ public class SlimeController : MonoBehaviour
                 }
             }
         }
-
-        if (changeDirection)
-        {
-            if (currentVelocity > 0)
-            {
-                jumpVector[0] = -3;
-                sp.flipX = false;
-
-            }
-            else
-            {
-                jumpVector[0] = 3;
-                sp.flipX = true;
-            }
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isWall)
+        if (isWall)                                                     // cuando es una pared normal, el slime se pega a la pared y se va resvalando poco a poco
         {
+            changeDirection();
             timeToSlip = timeWall;
             col.usedByEffector = true;
             slipMultiplier = slipMultiplierWall;
@@ -126,8 +110,9 @@ public class SlimeController : MonoBehaviour
             ator.SetBool("isSliding", true);
         }
 
-        if (isIce)
+        if (isIce)                                                      // cando la pared es de hielo, la velocidad de slip es mucho mayor
         {
+            changeDirection();
             timeToSlip = timeIce;
             col.usedByEffector = true;
             slipMultiplier = slipIce;
@@ -136,8 +121,9 @@ public class SlimeController : MonoBehaviour
             ator.SetBool("isSliding", true);
         }
         
-        if (isStickyWall)
+        if (isStickyWall)                                               // cuando estas en una pared pegajosa, se cambia la velocidad de slip a un amucho mas baja
         {
+            changeDirection();
             timeToSlip = timeSticky;
             col.usedByEffector = true;
             slipMultiplier = slipSticky;
@@ -146,7 +132,7 @@ public class SlimeController : MonoBehaviour
             ator.SetBool("isSliding", true);
         }
         
-        if (!isIce && !isWall && !isStickyWall && !isEnemy)                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
+        if (!isIce && !isWall && !isStickyWall )                        // si estas en el aire, stop es true y el contador y la velocidad es igual a 0 y stop sera falso
         {
             currentVelocity = rb.velocity.x;
             col.usedByEffector = false;
@@ -154,12 +140,9 @@ public class SlimeController : MonoBehaviour
             speed = 0;
             counter = 0;
             slip = false;
-            changeDirection = false;
-
-            ator.SetBool("isSliding", false);
         }
 
-        if (isGround)                           // si estas en el suelo, el siguiente salto sera true para poder slatar cuando quieras, se reinicia el slipmultiplayer y se reinicia el morejumps
+        if (isGround)                           // si estas en el suelo, el siguiente salto sera true para poder saltar cuando quieras, se reinicia el slipmultiplayer y se reinicia el morejumps
         {
             nextJump = true;
             moreJumps = moreJumpsValue;
@@ -171,7 +154,7 @@ public class SlimeController : MonoBehaviour
 
         if(isGround && isWall)
         {
-            changeDirection = true;
+            changeDirection();
         }
 
         if (jumpButtonPressed && moreJumps > 0 && nextJump)       // salto
@@ -190,10 +173,25 @@ public class SlimeController : MonoBehaviour
         }
     }
 
-    public void getHit()
+    public void getHit()  //cuando eres golpeado cambias tu direccion de trayectoria y se reinician los saltos
     {
         Debug.Log("isEnemy");
-        changeDirection = true;
+        changeDirection();
         moreJumps = moreJumpsValue;
+    }
+
+    public void changeDirection()  // cambia la direccion de trayectoria
+    {
+        if (currentVelocity > 0)
+        {
+            jumpVector[0] = -3;
+            sp.flipX = false;
+
+        }
+        else
+        {
+            jumpVector[0] = 3;
+            sp.flipX = true;
+        }
     }
 }

@@ -9,6 +9,7 @@ using DG.Tweening;
 public class MenusScript : MonoBehaviour
 {
     private bool musicstate = true;
+    private bool soundstate = true;
     // Enum y el array de gameobject tienen el mismo, tener en cuenta los dos.
     public enum menuState { Mainmenu, Play, Sound, SoundIngame, Skins, Stats, Pause, GameOver }
     public RectTransform[] moveMenus;
@@ -213,6 +214,7 @@ public class MenusScript : MonoBehaviour
         Application.Quit();
     }
 
+    //apaga la musica o vuelve a encenderla
     public void music()
     {
         if (musicstate)
@@ -227,8 +229,64 @@ public class MenusScript : MonoBehaviour
         }
     }
 
+    //apaga todos los sonidos o devulve el volumen a todos los sonidos
     public void sounds()
     {
-
-    }
+        if (soundstate)
+        {
+            soundstate = false;
+            FindObjectOfType<audioController>().sounds[1].volume = 0f;
+            FindObjectOfType<audioController>().sounds[2].volume = 0f;
+            FindObjectOfType<audioController>().sounds[3].volume = 0f;
+            FindObjectOfType<audioController>().sounds[4].volume = 0f;
+            FindObjectOfType<audioController>().sounds[5].volume = 0f;
+            FindObjectOfType<audioController>().sounds[6].volume = 0f;
+            FindObjectOfType<audioController>().sounds[7].volume = 0f;
+            FindObjectOfType<audioController>().sounds[8].volume = 0f;
+            FindObjectOfType<audioController>().sounds[9].volume = 0f;
+            FindObjectOfType<audioController>().sounds[10].volume = 0f;
+            FindObjectOfType<audioController>().sounds[11].volume = 0f;
+            FindObjectOfType<audioController>().sounds[12].volume = 0f;
+            FindObjectOfType<audioController>().sounds[13].volume = 0f;
+            FindObjectOfType<audioController>().sounds[14].volume = 0f;
+            FindObjectOfType<audioController>().sounds[15].volume = 0f;
+            FindObjectOfType<audioController>().sounds[16].volume = 0f;
+            FindObjectOfType<audioController>().sounds[17].volume = 0f;
+            FindObjectOfType<audioController>().sounds[18].volume = 0f;
+            FindObjectOfType<audioController>().sounds[18].volume = 0f;
+            FindObjectOfType<audioController>().sounds[19].volume = 0f;
+            FindObjectOfType<audioController>().sounds[20].volume = 0f;
+            FindObjectOfType<audioController>().sounds[21].volume = 0f;
+            FindObjectOfType<audioController>().sounds[22].volume = 0f;
+            FindObjectOfType<audioController>().sounds[23].volume = 0f;
+        }
+        else
+        {
+            soundstate = true;
+            FindObjectOfType<audioController>().sounds[1].volume = 0.25f;
+            FindObjectOfType<audioController>().sounds[2].volume = 0.25f;
+            FindObjectOfType<audioController>().sounds[3].volume = 0.35f;
+            FindObjectOfType<audioController>().sounds[4].volume = 0f;
+            FindObjectOfType<audioController>().sounds[5].volume = 0.09f;
+            FindObjectOfType<audioController>().sounds[6].volume = 0.45f;
+            FindObjectOfType<audioController>().sounds[7].volume = 0.089f;
+            FindObjectOfType<audioController>().sounds[8].volume = 0.333f;
+            FindObjectOfType<audioController>().sounds[9].volume = 0.333f;
+            FindObjectOfType<audioController>().sounds[10].volume = 0.3f;
+            FindObjectOfType<audioController>().sounds[11].volume = 0.65f;
+            FindObjectOfType<audioController>().sounds[12].volume = 0.35f;
+            FindObjectOfType<audioController>().sounds[13].volume = 0.55f;
+            FindObjectOfType<audioController>().sounds[14].volume = 0.4f;
+            FindObjectOfType<audioController>().sounds[15].volume = 1f;
+            FindObjectOfType<audioController>().sounds[16].volume = 0.3f;
+            FindObjectOfType<audioController>().sounds[17].volume = 0.3f;
+            FindObjectOfType<audioController>().sounds[18].volume = 0.4f;
+            FindObjectOfType<audioController>().sounds[18].volume = 0.4f;
+            FindObjectOfType<audioController>().sounds[19].volume = 0.3f;
+            FindObjectOfType<audioController>().sounds[20].volume = 0.3f;
+            FindObjectOfType<audioController>().sounds[21].volume = 0.3f;
+            FindObjectOfType<audioController>().sounds[22].volume = 0.3f;
+            FindObjectOfType<audioController>().sounds[23].volume = 0.3f;
+        }
+    }   
 }

@@ -28,12 +28,13 @@ public class audioController : MonoBehaviour
         }
     }
 
+    //al iniciar el juego sonara la musica
     void Start()
     {
         Play("music1");
     }
 
-    // Update is called once per frame
+    // la funcion play busca de entre toda la lista de sonidos y ejecuta el sonido escrito, si no lo encuentra devuelve un mensaje d eerror
     public void Play(string name)
     {
         soundList s = Array.Find(sounds, sound => sound.name == name);
@@ -47,6 +48,7 @@ public class audioController : MonoBehaviour
         s.source.Play();
     }
 
+    //esta funcion detiene los sonidos, util para detener la musica en loop
     public void StopPlaying(string sound)
     {
         soundList s = Array.Find(sounds, item => item.name == sound);
