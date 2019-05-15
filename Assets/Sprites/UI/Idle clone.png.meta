@@ -1,18 +1,16 @@
 fileFormatVersion: 2
-guid: b70974914adc88648b35075035d76061
+guid: 9972d2caa3e749c4db38b1c83112c4f9
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Idle clone (1)_0
-    21300002: Idle clone (1)_1
-    21300004: Idle clone (1)_2
-    21300006: Idle clone (1)_3
-    21300008: Idle clone (1)_4
-    21300010: Idle clone (1)_5
-    21300012: Idle clone (1)_6
-    21300014: Idle clone (1)_7
-    21300016: Idle clone (1)_8
-    21300018: Idle clone (1)_9
-    21300020: Idle clone (1)_10
+    21300000: Idle clone_0
+    21300002: Idle clone_1
+    21300004: Idle clone_2
+    21300006: Idle clone_3
+    21300008: Idle clone_4
+    21300010: Idle clone_5
+    21300012: Idle clone_6
+    21300014: Idle clone_7
+    21300016: Idle clone_8
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -150,11 +148,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle clone (1)_0
+      name: Idle clone_0
       rect:
         serializedVersion: 2
         x: 7
-        y: 105
+        y: 73
         width: 15
         height: 15
       alignment: 0
@@ -164,17 +162,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31876b0212ae3b542876fd0a76f32574
+      spriteID: 41f87f1683b43cb4c8f982c4e5b7e359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone (1)_1
+      name: Idle clone_1
       rect:
         serializedVersion: 2
         x: 39
-        y: 105
+        y: 73
         width: 15
         height: 15
       alignment: 0
@@ -184,17 +182,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16a0a8adf94a57448b27c8478bf9ce89
+      spriteID: 8524e3fd32d5e144595bbdcc2052b4eb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone (1)_2
+      name: Idle clone_2
       rect:
         serializedVersion: 2
         x: 71
-        y: 105
+        y: 73
         width: 15
         height: 15
       alignment: 0
@@ -204,17 +202,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56d28bf7e4d42434f885bf32ab3990bb
+      spriteID: 5ea16b300c03a8946b3a08081ce11123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone (1)_3
+      name: Idle clone_3
       rect:
         serializedVersion: 2
         x: 7
-        y: 73
+        y: 41
         width: 15
         height: 15
       alignment: 0
@@ -224,17 +222,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f6b04566a87b6d40ab712dfa0228245
+      spriteID: 506116c198a85bf4a9868e6b47166171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone (1)_4
+      name: Idle clone_4
       rect:
         serializedVersion: 2
         x: 39
-        y: 73
+        y: 41
         width: 15
         height: 15
       alignment: 0
@@ -244,17 +242,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f0f6088232e95048bb792a851f6217d
+      spriteID: dd0b8154514a705488592a6ca4a60d67
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone (1)_5
+      name: Idle clone_5
       rect:
         serializedVersion: 2
         x: 68
-        y: 70
+        y: 38
         width: 21
         height: 21
       alignment: 0
@@ -264,17 +262,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28a668eac4a68c747a28ea62059907df
+      spriteID: cc84afcb589e1df469db50d656adc90c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone (1)_6
+      name: Idle clone_6
       rect:
         serializedVersion: 2
         x: 7
-        y: 41
+        y: 9
         width: 15
         height: 15
       alignment: 0
@@ -284,73 +282,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a927089b806c7649968d619283ecb4b
+      spriteID: 295526c8e660f8f43b6fff5b8cb9bd67
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle clone (1)_7
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 41
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86a442f69e42d014c96e1041e9c6364b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle clone (1)_8
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 41
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78feb64a8001b9c4c9e34f1f9dfa5935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle clone (1)_9
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 6
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cddb708ab146efd488b8160ceabbf7f6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle clone (1)_10
+      name: Idle clone_7
       rect:
         serializedVersion: 2
         x: 39
@@ -364,7 +302,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acb08e5d5c5933e41aaa14082d7a24df
+      spriteID: 841affc9b45bd7144b841dd15e500b58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle clone_8
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 6
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac8641e682de6c43a97f90ee4fe076a
       vertices: []
       indices: 
       edges: []
@@ -372,7 +330,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2d83e2ed2784feb429a956e8b8df86b6
+    spriteID: d510dab5612c84d448d8ec7ad72c22c8
     vertices: []
     indices: 
     edges: []

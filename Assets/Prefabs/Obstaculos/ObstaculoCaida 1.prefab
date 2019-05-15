@@ -243,6 +243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time2Destroy: 4
-  soundToPlay: 
-  notsound: 1
+  soundToPlay: enemydeath
+  notsound: 0
   go: {fileID: 7721144332391957304}

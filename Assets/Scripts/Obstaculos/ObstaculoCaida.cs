@@ -30,12 +30,9 @@ public class ObstaculoCaida : MonoBehaviour
             {
                 if (!notsound)
                 {
-                    if (notsound)
-                    {
-                        FindObjectOfType<audioController>().Play(soundToPlay);      //suena el sonido
-                    }
+                    FindObjectOfType<audioController>().Play(soundToPlay);      //suena el sonido
+                    once = false;   //ponemos esto en falso para que no suene mas d euna vez
                 }
-                once = false;               //ponemos esto en falso para que no suene mas d euna vez
             }
             rb2d.isKinematic = false;
             Destroy(gameObject, time2Destroy);

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &907656133402510092
+--- !u!1 &1690231264
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 907656133402510094}
-  - component: {fileID: 907656133402510095}
+  - component: {fileID: 1690231266}
+  - component: {fileID: 1690231265}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: AudioManager 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: a0633124534a7e6478e4dd251fdcd519, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &907656133402510094
+--- !u!4 &1690231266
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907656133402510092}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.1964784, y: -6.571199, z: -0.140625}
+  m_GameObject: {fileID: 1690231264}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.58, y: 17.34, z: -0.140625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &907656133402510095
+--- !u!114 &1690231265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907656133402510092}
+  m_GameObject: {fileID: 1690231264}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dff81ff05ccc8f46af12c1097b46dad, type: 3}
@@ -45,110 +45,194 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: music1
-    volume: 0.172
-    pitch: 1
+    volume: 0.03
+    pitch: 0.95
+    volumeVariance: 1.07
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: 47604a4827f3da14bbb759ce2d42ebab, type: 3}
-    Loop: 1
+    Loop: 0
     source: {fileID: 0}
   - name: jumpSoundEffect
-    volume: 0.372
+    volume: 0.25
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: de25e24f54e669649a0391d4c072d89b, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: giveHealth
-    volume: 0.744
+    volume: 0.25
     pitch: 1
-    clip: {fileID: 8300000, guid: 00868cea893bd51478505cd0a0e91a39, type: 3}
+    volumeVariance: 0
+    pitchVariance: 0
+    clip: {fileID: 8300000, guid: 26a064cf91da1f94eb466d506931d7d3, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: takeDamage
-    volume: 0.511
+    volume: 0.35
     pitch: 1
-    clip: {fileID: 8300000, guid: 1716f26d9f93f8a4190608fa7fe09af6, type: 3}
+    volumeVariance: 0
+    pitchVariance: 0
+    clip: {fileID: 8300000, guid: c26223a9ee2e12745a0d7394df8427a0, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: 'bruh moment #2'
-    volume: 0.333
+    volume: 0
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: cf2da55b8e6d1f54cafba2b6e7db4a74, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: shootSound
-    volume: 0.076
+    volume: 0.03
     pitch: 1
-    clip: {fileID: 8300000, guid: 4a727467085805a43aadc874dcaec081, type: 3}
+    volumeVariance: 0
+    pitchVariance: 0
+    clip: {fileID: 8300000, guid: 79f12b060470c7548822b555fb464167, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: confirmSound
-    volume: 0.089
+    volume: 0.45
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: 4512da7bfbbf83745a28bd0ae4abb939, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: explosionSound
     volume: 0.089
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: 8babfd972a4246b4da8bbbacd54d2c0b, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: iceMusic
     volume: 0.333
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: d430e68feee5c4641a38a2c4240dcbda, type: 3}
     Loop: 1
     source: {fileID: 0}
   - name: skyTowerMusic
     volume: 0.333
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: fd96e834f678d154497896daee786641, type: 3}
     Loop: 1
     source: {fileID: 0}
   - name: portalSound
-    volume: 0.596
+    volume: 0.3
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: d21ed500156fc6f4fafe01ded4f9bace, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: gameOver
-    volume: 0.596
+    volume: 0.65
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: c97940537dc7bcf46a71cefece91e3eb, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: axesoundeffect
-    volume: 0.596
+    volume: 0.35
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: f1aa7107776e3d2428584ee4647ad6fb, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: icebreakingsoundeffect
-    volume: 0.596
+    volume: 0.55
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: 5026e09c32d6e7041b34b93813b38e7f, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: cancel
-    volume: 0.297
+    volume: 0.4
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: 9038c5d17d2ee3643bd6f74eef9ce5f0, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: gameover
-    volume: 0.183
+    volume: 1
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: 8ae33f3e8c26e04459a0a62e4ca9e249, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: enemykilled
-    volume: 0.183
+    volume: 0.3
     pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
     clip: {fileID: 8300000, guid: aaed2d01179a2ee4cb90d791f1b1bab2, type: 3}
     Loop: 0
     source: {fileID: 0}
   - name: slimeshooting
-    volume: 0.183
+    volume: 0.3
     pitch: 1
-    clip: {fileID: 8300000, guid: c26223a9ee2e12745a0d7394df8427a0, type: 3}
+    volumeVariance: 0
+    pitchVariance: 0
+    clip: {fileID: 8300000, guid: d6eef866ea9557246b2c4d4f95d53c66, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: enemydeath
+    volume: 1
+    pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
+    clip: {fileID: 8300000, guid: 085745b6e0b17f0438c258fac09c8d0e, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: firesoundeffect
+    volume: 0.4
+    pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
+    clip: {fileID: 8300000, guid: 24324e4640f316f4cb521c4e7aa34f6e, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: heavyhit
+    volume: 0.3
+    pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
+    clip: {fileID: 8300000, guid: 35ef20f2eff64ad43af23328435137f4, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: cannonblast
+    volume: 0.3
+    pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
+    clip: {fileID: 8300000, guid: 39f394b34f80e194991505808dc50800, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: cannon
+    volume: 0.3
+    pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
+    clip: {fileID: 8300000, guid: 204f78f350825db438b3dead062c19c5, type: 3}
+    Loop: 0
+    source: {fileID: 0}
+  - name: enemyhit2
+    volume: 0.3
+    pitch: 1
+    volumeVariance: 0
+    pitchVariance: 0
+    clip: {fileID: 8300000, guid: 069bbe0ea658c7f44861dd05a82684a0, type: 3}
     Loop: 0
     source: {fileID: 0}

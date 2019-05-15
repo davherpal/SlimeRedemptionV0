@@ -140,6 +140,8 @@ public class SlimeController : MonoBehaviour
             speed = 0;
             counter = 0;
             slip = false;
+
+            ator.SetBool("isSliding", false);
         }
 
         if (isGround)                           // si estas en el suelo, el siguiente salto sera true para poder saltar cuando quieras, se reinicia el slipmultiplayer y se reinicia el morejumps
@@ -175,7 +177,6 @@ public class SlimeController : MonoBehaviour
 
     public void getHit()  //cuando eres golpeado cambias tu direccion de trayectoria y se reinician los saltos
     {
-        Debug.Log("isEnemy");
         changeDirection();
         moreJumps = moreJumpsValue;
     }

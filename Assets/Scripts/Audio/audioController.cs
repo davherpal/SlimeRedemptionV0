@@ -40,7 +40,7 @@ public class audioController : MonoBehaviour
         soundList s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.Log("sound " + name + "not found");
+            Debug.Log("sound " + name + " not found");
             return;
         }
         s.source.volume = s.volume;
